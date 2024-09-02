@@ -4,3 +4,5 @@ Dengan menggunakan aplikasi WasteNoMore, masyarakat dapat terbantu untuk mengelo
 Anggota 1: Nur Rochman-22/493623/TK/54086
 Anggota 2: Fahrin Ulya Nisrina
 Anggota 3: Abyyu Abdul Azhim Raihan
+
+![alt text](https://github.com/fahrinulyanisrina/WasteNoMore/blob/493623/Class%20Diagram.png?raw=true)
