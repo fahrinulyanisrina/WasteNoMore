@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WasteNoMoreUI", "WasteNoMoreUI\WasteNoMoreUI.csproj", "{B5E0C185-D02F-4333-9084-91463D14294E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5E0C185-D02F-4333-9084-91463D14294E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E0C185-D02F-4333-9084-91463D14294E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E0C185-D02F-4333-9084-91463D14294E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E0C185-D02F-4333-9084-91463D14294E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77900579-FDE7-478B-A6B5-9300B52AB882}
+	EndGlobalSection
+EndGlobal
