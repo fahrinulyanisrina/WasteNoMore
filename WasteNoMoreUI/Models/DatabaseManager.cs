@@ -14,7 +14,7 @@ namespace WasteNoMoreUI.Models
     {
         //membuat variabel string koneksi 'ConnectionString'
         //properties db
-        private static string ConnectionString = "Host=localhost;Username=postgres;Password=10Baimgogo;Database=WasteNoMore";
+        private static string ConnectionString = "Host=localhost;Username=postgres;Password=abc;Database=WasteNoMore";
 
         //method utk membuat koneksi
         public static NpgsqlConnection GetConnection()
