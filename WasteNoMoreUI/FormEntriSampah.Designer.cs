@@ -28,27 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label5 = new Label();
+            lblJudul = new Label();
             cmbKategori = new ComboBox();
             txtBerat = new TextBox();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
+            lblKg = new Label();
+            lblBerat = new Label();
+            lblKategori = new Label();
             label1 = new Label();
             btnCancel = new Button();
             btnAdd = new Button();
             SuspendLayout();
             // 
-            // label5
+            // lblJudul
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(366, 127);
-            label5.Name = "label5";
-            label5.Size = new Size(490, 37);
-            label5.TabIndex = 26;
-            label5.Text = "Masukkan Data Sampah Terbaru Anda!";
-            label5.Click += label5_Click;
+            lblJudul.AutoSize = true;
+            lblJudul.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblJudul.Location = new Point(366, 127);
+            lblJudul.Name = "lblJudul";
+            lblJudul.Size = new Size(490, 37);
+            lblJudul.TabIndex = 26;
+            lblJudul.Text = "Masukkan Data Sampah Terbaru Anda!";
             // 
             // cmbKategori
             // 
@@ -67,32 +66,32 @@
             txtBerat.Size = new Size(141, 39);
             txtBerat.TabIndex = 23;
             // 
-            // label4
+            // lblKg
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(704, 307);
-            label4.Name = "label4";
-            label4.Size = new Size(40, 32);
-            label4.TabIndex = 22;
-            label4.Text = "kg";
+            lblKg.AutoSize = true;
+            lblKg.Location = new Point(704, 307);
+            lblKg.Name = "lblKg";
+            lblKg.Size = new Size(40, 32);
+            lblKg.TabIndex = 22;
+            lblKg.Text = "kg";
             // 
-            // label3
+            // lblBerat
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(357, 304);
-            label3.Name = "label3";
-            label3.Size = new Size(174, 32);
-            label3.TabIndex = 21;
-            label3.Text = "Berat Sampah :";
+            lblBerat.AutoSize = true;
+            lblBerat.Location = new Point(357, 304);
+            lblBerat.Name = "lblBerat";
+            lblBerat.Size = new Size(174, 32);
+            lblBerat.TabIndex = 21;
+            lblBerat.Text = "Berat Sampah :";
             // 
-            // label2
+            // lblKategori
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(416, 231);
-            label2.Name = "label2";
-            label2.Size = new Size(115, 32);
-            label2.TabIndex = 20;
-            label2.Text = "Kategori :";
+            lblKategori.AutoSize = true;
+            lblKategori.Location = new Point(416, 231);
+            lblKategori.Name = "lblKategori";
+            lblKategori.Size = new Size(115, 32);
+            lblKategori.TabIndex = 20;
+            lblKategori.Text = "Kategori :";
             // 
             // label1
             // 
@@ -134,26 +133,27 @@
             ClientSize = new Size(1211, 681);
             Controls.Add(btnCancel);
             Controls.Add(btnAdd);
-            Controls.Add(label5);
+            Controls.Add(lblJudul);
             Controls.Add(cmbKategori);
             Controls.Add(txtBerat);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(lblKg);
+            Controls.Add(lblBerat);
+            Controls.Add(lblKategori);
             Controls.Add(label1);
             Name = "FormEntriSampah";
             Text = "FormEntriSampah";
+            Load += FormEntriSampah_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label label5;
+        private Label lblJudul;
         private ComboBox cmbKategori;
         private TextBox txtBerat;
-        private Label label4;
-        private Label label3;
-        private Label label2;
+        private Label lblKg;
+        private Label lblBerat;
+        private Label lblKategori;
         private Label label1;
         private Button btnCancel;
         private Button btnAdd;

@@ -38,6 +38,7 @@
             btnBandingHarga = new Button();
             btnLogout = new Button();
             label1 = new Label();
+            lblEntriSampah = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -48,7 +49,7 @@
             btnEntriSampah.BackColor = SystemColors.ActiveCaption;
             btnEntriSampah.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEntriSampah.ForeColor = SystemColors.ActiveCaptionText;
-            btnEntriSampah.Location = new Point(367, 563);
+            btnEntriSampah.Location = new Point(389, 644);
             btnEntriSampah.Name = "btnEntriSampah";
             btnEntriSampah.Size = new Size(150, 77);
             btnEntriSampah.TabIndex = 50;
@@ -69,9 +70,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(355, 356);
+            pictureBox1.Location = new Point(356, 386);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(175, 182);
+            pictureBox1.Size = new Size(216, 214);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 52;
             pictureBox1.TabStop = false;
@@ -79,9 +80,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(686, 356);
+            pictureBox2.Location = new Point(671, 386);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(175, 182);
+            pictureBox2.Size = new Size(205, 214);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 54;
             pictureBox2.TabStop = false;
@@ -91,7 +92,7 @@
             btnTrack.BackColor = SystemColors.ActiveCaption;
             btnTrack.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnTrack.ForeColor = SystemColors.ActiveCaptionText;
-            btnTrack.Location = new Point(701, 564);
+            btnTrack.Location = new Point(698, 644);
             btnTrack.Name = "btnTrack";
             btnTrack.Size = new Size(150, 77);
             btnTrack.TabIndex = 53;
@@ -102,9 +103,9 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(1006, 356);
+            pictureBox3.Location = new Point(983, 386);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(175, 182);
+            pictureBox3.Size = new Size(213, 214);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 56;
             pictureBox3.TabStop = false;
@@ -114,7 +115,7 @@
             btnBandingHarga.BackColor = SystemColors.ActiveCaption;
             btnBandingHarga.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBandingHarga.ForeColor = SystemColors.ActiveCaptionText;
-            btnBandingHarga.Location = new Point(1016, 564);
+            btnBandingHarga.Location = new Point(1008, 644);
             btnBandingHarga.Name = "btnBandingHarga";
             btnBandingHarga.Size = new Size(150, 77);
             btnBandingHarga.TabIndex = 55;
@@ -145,12 +146,22 @@
             label1.TabIndex = 58;
             label1.Text = "Selamat Datang di WasteNoMOre!";
             // 
+            // lblEntriSampah
+            // 
+            lblEntriSampah.AutoSize = true;
+            lblEntriSampah.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEntriSampah.Location = new Point(366, 614);
+            lblEntriSampah.Name = "lblEntriSampah";
+            lblEntriSampah.Size = new Size(0, 40);
+            lblEntriSampah.TabIndex = 59;
+            // 
             // FormDashboard
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1554, 874);
+            Controls.Add(lblEntriSampah);
             Controls.Add(label1);
             Controls.Add(btnLogout);
             Controls.Add(pictureBox3);
@@ -180,5 +191,6 @@
         private Button btnBandingHarga;
         private Button btnLogout;
         private Label label1;
+        private Label lblEntriSampah;
     }
 }
