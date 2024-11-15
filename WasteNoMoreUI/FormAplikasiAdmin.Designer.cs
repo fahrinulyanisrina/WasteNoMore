@@ -43,10 +43,6 @@
             txtDeskripsiAplikasi = new TextBox();
             lblEmail = new Label();
             lblNamaPengguna = new Label();
-            cbKategori = new ComboBox();
-            lblKategoriAplikasi = new Label();
-            txtHarga = new TextBox();
-            lblHarga = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvAplikasi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDeleteAplikasi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbUpdateAplikasi).BeginInit();
@@ -69,23 +65,24 @@
             // 
             lblAplikasi.AutoSize = true;
             lblAplikasi.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAplikasi.Location = new Point(485, 25);
+            lblAplikasi.Location = new Point(542, 24);
             lblAplikasi.Margin = new Padding(2, 0, 2, 0);
             lblAplikasi.Name = "lblAplikasi";
-            lblAplikasi.Size = new Size(331, 38);
+            lblAplikasi.Size = new Size(147, 38);
             lblAplikasi.TabIndex = 97;
-            lblAplikasi.Text = "APLIKASI DAN HARGA";
+            lblAplikasi.Text = "APLIKASI";
             // 
             // dgvAplikasi
             // 
             dgvAplikasi.BackgroundColor = SystemColors.ButtonHighlight;
             dgvAplikasi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAplikasi.Location = new Point(86, 348);
+            dgvAplikasi.Location = new Point(86, 312);
             dgvAplikasi.Margin = new Padding(2);
             dgvAplikasi.Name = "dgvAplikasi";
             dgvAplikasi.RowHeadersWidth = 82;
-            dgvAplikasi.Size = new Size(1057, 221);
+            dgvAplikasi.Size = new Size(1057, 257);
             dgvAplikasi.TabIndex = 96;
+            dgvAplikasi.CellContentClick += dgvAplikasi_CellContentClick;
             // 
             // lblUpdate
             // 
@@ -167,6 +164,7 @@
             btnLoadAplikasi.TabIndex = 89;
             btnLoadAplikasi.Text = "Load";
             btnLoadAplikasi.UseVisualStyleBackColor = false;
+            btnLoadAplikasi.Click += btnLoadAplikasi_Click;
             // 
             // txtNamaAplikasi
             // 
@@ -178,17 +176,17 @@
             // 
             // txtDeskripsiAplikasi
             // 
-            txtDeskripsiAplikasi.Location = new Point(199, 205);
+            txtDeskripsiAplikasi.Location = new Point(199, 169);
             txtDeskripsiAplikasi.Margin = new Padding(2);
             txtDeskripsiAplikasi.Multiline = true;
             txtDeskripsiAplikasi.Name = "txtDeskripsiAplikasi";
-            txtDeskripsiAplikasi.Size = new Size(326, 85);
+            txtDeskripsiAplikasi.Size = new Size(326, 114);
             txtDeskripsiAplikasi.TabIndex = 87;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(91, 209);
+            lblEmail.Location = new Point(91, 172);
             lblEmail.Margin = new Padding(2, 0, 2, 0);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(93, 25);
@@ -205,53 +203,12 @@
             lblNamaPengguna.TabIndex = 85;
             lblNamaPengguna.Text = "Nama :";
             // 
-            // cbKategori
-            // 
-            cbKategori.FormattingEnabled = true;
-            cbKategori.Location = new Point(199, 153);
-            cbKategori.Name = "cbKategori";
-            cbKategori.Size = new Size(326, 33);
-            cbKategori.TabIndex = 99;
-            cbKategori.SelectedIndexChanged += cbKategori_SelectedIndexChanged;
-            // 
-            // lblKategoriAplikasi
-            // 
-            lblKategoriAplikasi.AutoSize = true;
-            lblKategoriAplikasi.Location = new Point(97, 156);
-            lblKategoriAplikasi.Margin = new Padding(2, 0, 2, 0);
-            lblKategoriAplikasi.Name = "lblKategoriAplikasi";
-            lblKategoriAplikasi.Size = new Size(87, 25);
-            lblKategoriAplikasi.TabIndex = 100;
-            lblKategoriAplikasi.Text = "Kategori :";
-            // 
-            // txtHarga
-            // 
-            txtHarga.Location = new Point(199, 303);
-            txtHarga.Margin = new Padding(2);
-            txtHarga.Name = "txtHarga";
-            txtHarga.Size = new Size(326, 31);
-            txtHarga.TabIndex = 101;
-            // 
-            // lblHarga
-            // 
-            lblHarga.AutoSize = true;
-            lblHarga.Location = new Point(54, 303);
-            lblHarga.Margin = new Padding(2, 0, 2, 0);
-            lblHarga.Name = "lblHarga";
-            lblHarga.Size = new Size(130, 25);
-            lblHarga.TabIndex = 102;
-            lblHarga.Text = "Harga (per kg):";
-            // 
             // FormAplikasiAdmin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.InactiveCaption;
+            BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1229, 712);
-            Controls.Add(lblHarga);
-            Controls.Add(txtHarga);
-            Controls.Add(lblKategoriAplikasi);
-            Controls.Add(cbKategori);
             Controls.Add(btnBackAplikasi);
             Controls.Add(lblAplikasi);
             Controls.Add(dgvAplikasi);
@@ -293,9 +250,5 @@
         private TextBox txtDeskripsiAplikasi;
         private Label lblEmail;
         private Label lblNamaPengguna;
-        private ComboBox cbKategori;
-        private Label lblKategoriAplikasi;
-        private TextBox txtHarga;
-        private Label lblHarga;
     }
 }

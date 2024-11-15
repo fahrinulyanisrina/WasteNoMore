@@ -21,118 +21,34 @@ namespace WasteNoMoreUI
             InitializeComponent();
         }
 
-        private void LoadKategoriToComboBox()
-        {
-            try
-            {
-                // Bersihkan item di combobox terlebih dahulu
-                cbKategori.Items.Clear();
-
-                using (var conn = DatabaseManager.GetConnection())
-                {
-                    conn.Open();
-                    using (var cmd = new NpgsqlCommand("SELECT nama_kategori FROM kategori WHERE is_deleted = FALSE ORDER BY nama_kategori ASC;", conn))
-                    {
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                // Tambahkan nama kategori ke ComboBox
-                                cbKategori.Items.Add(reader["nama_kategori"].ToString());
-                            }
-                        }
-                    }
-                }
-
-                // Beri placeholder jika tidak ada kategori
-                if (cbKategori.Items.Count == 0)
-                {
-                    cbKategori.Items.Add("-- Tidak Ada Kategori --");
-                }
-
-                cbKategori.SelectedIndex = 0; // Pilih item pertama secara default
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Load Kategori FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-
         private void pbInsertAplikasi_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtNamaAplikasi.Text) || cbKategori.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtHarga.Text))
-                {
-                    MessageBox.Show("Pastikan semua field telah diisi!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 using (var conn = DatabaseManager.GetConnection())
                 {
                     conn.Open();
-
-                    // Mulai transaksi untuk memastikan konsistensi data
-                    using (var trans = conn.BeginTransaction())
+                    using (var cmd = new NpgsqlCommand("SELECT add_aplikasi(@nama, @deskripsi);", conn))
                     {
-                        try
+                        //bind parameter
+                        cmd.Parameters.AddWithValue("nama", txtNamaAplikasi.Text);
+                        cmd.Parameters.AddWithValue("deskripsi", txtDeskripsiAplikasi.Text);
+
+                        //eksekusi fungsi dan periksa hasilnya
+                        bool result = (bool)cmd.ExecuteScalar();
+
+                        if (result)
                         {
-                            // Dapatkan ID kategori berdasarkan nama yang dipilih di ComboBox
-                            int idKategori;
-                            using (var cmdKategori = new NpgsqlCommand("SELECT id_kategori FROM kategori WHERE nama_kategori = @nama_kategori AND is_deleted = FALSE", conn, trans))
-                            {
-                                cmdKategori.Parameters.AddWithValue("nama_kategori", cbKategori.SelectedItem.ToString());
-                                var result = cmdKategori.ExecuteScalar();
-                                if (result == null)
-                                {
-                                    throw new Exception("Kategori tidak ditemukan. Pastikan kategori valid.");
-                                }
-                                idKategori = Convert.ToInt32(result);
-                            }
-
-                            // Masukkan data ke tabel aplikasi
-                            int idAplikasi;
-                            using (var cmdAplikasi = new NpgsqlCommand(
-                                "INSERT INTO aplikasi (nama_aplikasi, deskripsi_aplikasi) VALUES (@nama_aplikasi, @deskripsi_aplikasi) RETURNING id_aplikasi",
-                                conn, trans))
-                            {
-                                cmdAplikasi.Parameters.AddWithValue("nama_aplikasi", txtNamaAplikasi.Text.Trim());
-                                cmdAplikasi.Parameters.AddWithValue("deskripsi_aplikasi", string.IsNullOrWhiteSpace(txtDeskripsiAplikasi.Text) ? (object)DBNull.Value : txtDeskripsiAplikasi.Text.Trim());
-
-                                idAplikasi = Convert.ToInt32(cmdAplikasi.ExecuteScalar());
-                            }
-
-                            // Masukkan data ke tabel harga
-                            using (var cmdHarga = new NpgsqlCommand(
-                                "INSERT INTO harga (id_kategori, id_aplikasi, harga) VALUES (@id_kategori, @id_aplikasi, @harga)",
-                                conn, trans))
-                            {
-                                cmdHarga.Parameters.AddWithValue("id_kategori", idKategori);
-                                cmdHarga.Parameters.AddWithValue("id_aplikasi", idAplikasi);
-                                cmdHarga.Parameters.AddWithValue("harga", Convert.ToDecimal(txtHarga.Text.Trim()));
-
-                                cmdHarga.ExecuteNonQuery();
-                            }
-
-                            // Commit transaksi
-                            trans.Commit();
-
-                            MessageBox.Show("Insert Berhasil!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Bersihkan input dan refresh data grid
+                            MessageBox.Show("Aplikasi berhasil ditambahkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //load ulang datagrid aplikasi
+                            LoadData();
+                            //mengosongkan textbox input
                             txtNamaAplikasi.Clear();
                             txtDeskripsiAplikasi.Clear();
-                            txtHarga.Clear();
-                            cbKategori.SelectedIndex = 0;
-                            LoadData();
                         }
-                        catch
+                        else
                         {
-                            // Rollback jika ada error
-                            trans.Rollback();
-                            throw;
+                            MessageBox.Show("Aplikasi gagal ditambahkan! Nama aplikasi mungkin sudah ada.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -143,26 +59,22 @@ namespace WasteNoMoreUI
             }
         }
 
-
+        private void FormAplikasiAdmin_Load(object sender, EventArgs e)
+        {
+            // Muat data ke DataGridView
+            LoadData(); ;
+        }
 
         private void LoadData()
         {
             try
             {
-                // Query untuk memanggil function di database
-                string query = "SELECT * FROM get_aplikasi_data()";
-
-                // Eksekusi query dan simpan hasil ke DataTable
+                //query SQL untuk mengambil data aplikasi
+                string query = "SELECT * FROM Aplikasi";
                 dt = DatabaseManager.ExecuteQuery(query);
 
-                // Tampilkan data di DataGridView
+                //Tampilkan data di Ddatagridview
                 dgvAplikasi.DataSource = dt;
-                dgvAplikasi.Columns["id_aplikasi"].HeaderText = "ID";
-                dgvAplikasi.Columns["nama_aplikasi"].HeaderText = "Nama Aplikasi";
-                dgvAplikasi.Columns["deskripsi_aplikasi"].HeaderText = "Deskripsi";
-                dgvAplikasi.Columns["kategori"].HeaderText = "Kategori";
-                dgvAplikasi.Columns["harga"].HeaderText = "Harga";
-
             }
             catch (Exception ex)
             {
@@ -170,106 +82,46 @@ namespace WasteNoMoreUI
             }
         }
 
-
-
-
-        private void FormAplikasiAdmin_Load(object sender, EventArgs e)
-        {
-            // Muat data ke DataGridView
-            LoadData();
-
-            // Muat data kategori ke ComboBox
-            LoadKategoriToComboBox();
-        }
-
-        private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Ambil nama kategori yang dipilih dari ComboBox
-            string selectedKategori = cbKategori.SelectedItem.ToString();
-        }
-
         private void pbUpdateAplikasi_Click(object sender, EventArgs e)
         {
+            if (r == null)
+            {
+                MessageBox.Show("Pilih baris data yang akan diperbarui", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNamaAplikasi.Text))
+            {
+                MessageBox.Show("Nama aplikasi tidak boleh kosong!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                if (dgvAplikasi.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Pilih aplikasi yang ingin diperbarui!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                var selectedRow = dgvAplikasi.SelectedRows[0];
-                int idAplikasi = Convert.ToInt32(selectedRow.Cells["id_aplikasi"].Value);
-
-                if (string.IsNullOrWhiteSpace(txtNamaAplikasi.Text) || cbKategori.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtHarga.Text))
-                {
-                    MessageBox.Show("Pastikan semua field telah diisi!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 using (var conn = DatabaseManager.GetConnection())
                 {
                     conn.Open();
-
-                    // Mulai transaksi untuk memastikan konsistensi data
-                    using (var trans = conn.BeginTransaction())
+                    using (var cmd = new NpgsqlCommand("SELECT update_aplikasi(@id, @nama, @deskripsi);", conn))
                     {
-                        try
+                        //bind parameter
+                        cmd.Parameters.AddWithValue("id", Convert.ToInt32(r.Cells["id_aplikasi"].Value));
+                        cmd.Parameters.AddWithValue("nama", txtNamaAplikasi.Text.Trim());
+                        cmd.Parameters.AddWithValue("deskripsi", string.IsNullOrWhiteSpace(txtDeskripsiAplikasi.Text) ? (object)DBNull.Value : txtDeskripsiAplikasi.Text.Trim());
+
+                        //pksekusi fungsi dan periksa hasilnya
+                        bool result = (bool)cmd.ExecuteScalar();
+
+                        if (result)
                         {
-                            // Dapatkan ID kategori berdasarkan nama yang dipilih di ComboBox
-                            int idKategori;
-                            using (var cmdKategori = new NpgsqlCommand("SELECT id_kategori FROM kategori WHERE nama_kategori = @nama_kategori AND is_deleted = FALSE", conn, trans))
-                            {
-                                cmdKategori.Parameters.AddWithValue("nama_kategori", cbKategori.SelectedItem.ToString());
-                                var result = cmdKategori.ExecuteScalar();
-                                if (result == null)
-                                {
-                                    throw new Exception("Kategori tidak ditemukan. Pastikan kategori valid.");
-                                }
-                                idKategori = Convert.ToInt32(result);
-                            }
-
-                            // Update data aplikasi
-                            using (var cmdAplikasi = new NpgsqlCommand(
-                                "UPDATE aplikasi SET nama_aplikasi = @nama_aplikasi, deskripsi_aplikasi = @deskripsi_aplikasi WHERE id_aplikasi = @id_aplikasi",
-                                conn, trans))
-                            {
-                                cmdAplikasi.Parameters.AddWithValue("id_aplikasi", idAplikasi);
-                                cmdAplikasi.Parameters.AddWithValue("nama_aplikasi", txtNamaAplikasi.Text.Trim());
-                                cmdAplikasi.Parameters.AddWithValue("deskripsi_aplikasi", string.IsNullOrWhiteSpace(txtDeskripsiAplikasi.Text) ? (object)DBNull.Value : txtDeskripsiAplikasi.Text.Trim());
-
-                                cmdAplikasi.ExecuteNonQuery();
-                            }
-
-                            // Update harga
-                            using (var cmdHarga = new NpgsqlCommand(
-                                "UPDATE harga SET id_kategori = @id_kategori, harga = @harga WHERE id_aplikasi = @id_aplikasi",
-                                conn, trans))
-                            {
-                                cmdHarga.Parameters.AddWithValue("id_kategori", idKategori);
-                                cmdHarga.Parameters.AddWithValue("id_aplikasi", idAplikasi);
-                                cmdHarga.Parameters.AddWithValue("harga", Convert.ToDecimal(txtHarga.Text.Trim()));
-
-                                cmdHarga.ExecuteNonQuery();
-                            }
-
-                            // Commit transaksi
-                            trans.Commit();
-
-                            MessageBox.Show("Update Berhasil!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Bersihkan input dan refresh data grid
+                            MessageBox.Show("Aplikasi berhasil diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadData();
                             txtNamaAplikasi.Clear();
                             txtDeskripsiAplikasi.Clear();
-                            txtHarga.Clear();
-                            cbKategori.SelectedIndex = 0;
-                            LoadData();
+                            r = null;
                         }
-                        catch
+                        else
                         {
-                            // Rollback jika ada error
-                            trans.Rollback();
-                            throw;
+                            MessageBox.Show("Pembaruan aplikasi gagal! Pastikan data valid atau aplikasi belum dihapus.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -280,61 +132,27 @@ namespace WasteNoMoreUI
             }
         }
 
-        private void pbDeleteAplikasi_Click(object sender, EventArgs e)
+        private void DeleteAplikasi(int idAplikasi)
         {
             try
             {
-                if (dgvAplikasi.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Pilih aplikasi yang ingin dihapus!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                var selectedRow = dgvAplikasi.SelectedRows[0];
-                int idAplikasi = Convert.ToInt32(selectedRow.Cells["id_aplikasi"].Value);
-
-                DialogResult result = MessageBox.Show("Apakah Anda yakin ingin menghapus?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.No)
-                {
-                    return;
-                }
-
                 using (var conn = DatabaseManager.GetConnection())
                 {
                     conn.Open();
-
-                    // Mulai transaksi untuk memastikan konsistensi data
-                    using (var trans = conn.BeginTransaction())
+                    using (var cmd = new NpgsqlCommand("SELECT delete_aplikasi(@id_aplikasi)", conn))
                     {
-                        try
+                        cmd.Parameters.AddWithValue("id_aplikasi", idAplikasi);
+
+                        //eksekusi fungsi dan periksa hasilnya
+                        bool result = (bool)cmd.ExecuteScalar();
+
+                        if (result)
                         {
-                            // Hapus data dari tabel harga
-                            using (var cmdHarga = new NpgsqlCommand("DELETE FROM harga WHERE id_aplikasi = @id_aplikasi", conn, trans))
-                            {
-                                cmdHarga.Parameters.AddWithValue("id_aplikasi", idAplikasi);
-                                cmdHarga.ExecuteNonQuery();
-                            }
-
-                            // Hapus data dari tabel aplikasi
-                            using (var cmdAplikasi = new NpgsqlCommand("DELETE FROM aplikasi WHERE id_aplikasi = @id_aplikasi", conn, trans))
-                            {
-                                cmdAplikasi.Parameters.AddWithValue("id_aplikasi", idAplikasi);
-                                cmdAplikasi.ExecuteNonQuery();
-                            }
-
-                            // Commit transaksi
-                            trans.Commit();
-
-                            MessageBox.Show("Delete Berhasil!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Refresh data grid
-                            LoadData();
+                            MessageBox.Show("Aplikasi berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        catch
+                        else
                         {
-                            // Rollback jika ada error
-                            trans.Rollback();
-                            throw;
+                            MessageBox.Show("Aplikasi tidak ditemukan atau sudah dihapus.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -344,12 +162,60 @@ namespace WasteNoMoreUI
                 MessageBox.Show("Error: " + ex.Message, "Delete FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void pbDeleteAplikasi_Click(object sender, EventArgs e)
+        {
+            if (r == null)
+            {
+                MessageBox.Show("Pilih baris data yang akan dihapus", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Apakah Anda yakin ingin menghapus aplikasi ini?", "Konfirmasi Hapus",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    int idAplikasi = Convert.ToInt32(r.Cells["id_aplikasi"].Value);
+
+                    //panggil fungsi DeleteAplikasi untuk menghapus data
+                    DeleteAplikasi(idAplikasi);
+
+                    //refresh datagridview setelah penghapusan
+                    LoadData();
+                    txtNamaAplikasi.Clear();
+                    txtDeskripsiAplikasi.Clear();
+                    r = null;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Delete FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
         private void btnBackAplikasi_Click(object sender, EventArgs e)
         {
             FormDashobardAdmin dashobardAdminForm = new FormDashobardAdmin();
             dashobardAdminForm.Show();
             this.Hide();
+        }
+
+        private void btnLoadAplikasi_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void dgvAplikasi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Mendapatkan data baris yang dipilih
+            if (e.RowIndex >= 0)
+            {
+                r = dgvAplikasi.Rows[e.RowIndex];
+                txtNamaAplikasi.Text = r.Cells["nama_aplikasi"].Value.ToString();
+                txtDeskripsiAplikasi.Text = r.Cells["deskripsi_aplikasi"].Value.ToString();
+            }
         }
     }
 }
