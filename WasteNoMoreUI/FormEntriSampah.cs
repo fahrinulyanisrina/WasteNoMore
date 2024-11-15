@@ -24,8 +24,15 @@ namespace WasteNoMoreUI
 
         private void LoadKategori()
         {
-            string query = "SELECT id_kategori, nama_kategori, deskripsi_kategori FROM kategori";
+            //query untuk mengambil data kategori yang belum dihapus
+            string query = "SELECT id_kategori, nama_kategori, deskripsi_kategori FROM kategori WHERE is_deleted = FALSE";
+
+            //eksekusi query dan ambil data dari db
             DataTable dt = DatabaseManager.ExecuteQuery(query);
+
+            //membersihkan data lama di list dan combo box
+            kategoriList.Clear();
+            cmbKategori.Items.Clear();
 
             foreach (DataRow row in dt.Rows)
             {
@@ -34,10 +41,13 @@ namespace WasteNoMoreUI
                     row["nama_kategori"].ToString(),
                     row["deskripsi_kategori"].ToString()
                 );
+
+                //menambahkan kategori ke daftar dan combo box
                 kategoriList.Add(kategori);
                 cmbKategori.Items.Add(kategori.NamaKategori);
             }
         }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -48,7 +58,7 @@ namespace WasteNoMoreUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Validasi input sudah terisi
+            //validasi input sudah terisi
             if (cmbKategori.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtBerat.Text))
             {
             //jika ada yang belum terisi, tampilkan feedback
