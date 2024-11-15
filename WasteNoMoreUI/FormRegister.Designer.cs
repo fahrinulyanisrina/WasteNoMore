@@ -39,6 +39,8 @@
             txtEmail = new TextBox();
             lblEmail = new Label();
             lblNamaPengguna = new Label();
+            btnLogin = new Button();
+            lblLogin = new Label();
             SuspendLayout();
             // 
             // btnCancel
@@ -139,12 +141,35 @@
             lblNamaPengguna.TabIndex = 40;
             lblNamaPengguna.Text = "Nama :";
             // 
+            // btnLogin
+            // 
+            btnLogin.BackColor = SystemColors.HotTrack;
+            btnLogin.ForeColor = SystemColors.ButtonHighlight;
+            btnLogin.Location = new Point(522, 698);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(150, 46);
+            btnLogin.TabIndex = 45;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // lblLogin
+            // 
+            lblLogin.AutoSize = true;
+            lblLogin.Location = new Point(404, 643);
+            lblLogin.Name = "lblLogin";
+            lblLogin.Size = new Size(404, 32);
+            lblLogin.TabIndex = 44;
+            lblLogin.Text = "Sudah memiliki akun? Silakan Login!";
+            // 
             // FormRegister
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1221, 713);
+            ClientSize = new Size(1221, 857);
+            Controls.Add(btnLogin);
+            Controls.Add(lblLogin);
             Controls.Add(txtNamaPengguna);
             Controls.Add(txtEmail);
             Controls.Add(lblEmail);
@@ -177,5 +202,7 @@
         private TextBox txtEmail;
         private Label lblEmail;
         private Label lblNamaPengguna;
+        private Button btnLogin;
+        private Label lblLogin;
     }
 }
