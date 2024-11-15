@@ -119,7 +119,7 @@ namespace WasteNoMoreUI
                             // Commit transaksi
                             trans.Commit();
 
-                            MessageBox.Show("Aplikasi berhasil ditambahkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Insert Berhasil!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Bersihkan input dan refresh data grid
                             txtNamaAplikasi.Clear();
@@ -157,6 +157,11 @@ namespace WasteNoMoreUI
 
                 // Tampilkan data di DataGridView
                 dgvAplikasi.DataSource = dt;
+                dgvAplikasi.Columns["id_aplikasi"].HeaderText = "ID";
+                dgvAplikasi.Columns["nama_aplikasi"].HeaderText = "Nama Aplikasi";
+                dgvAplikasi.Columns["deskripsi_aplikasi"].HeaderText = "Deskripsi";
+                dgvAplikasi.Columns["kategori"].HeaderText = "Kategori";
+                dgvAplikasi.Columns["harga"].HeaderText = "Harga";
 
             }
             catch (Exception ex)
@@ -251,7 +256,7 @@ namespace WasteNoMoreUI
                             // Commit transaksi
                             trans.Commit();
 
-                            MessageBox.Show("Aplikasi berhasil diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Update Berhasil!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Bersihkan input dan refresh data grid
                             txtNamaAplikasi.Clear();
@@ -288,7 +293,7 @@ namespace WasteNoMoreUI
                 var selectedRow = dgvAplikasi.SelectedRows[0];
                 int idAplikasi = Convert.ToInt32(selectedRow.Cells["id_aplikasi"].Value);
 
-                DialogResult result = MessageBox.Show("Apakah Anda yakin ingin menghapus aplikasi ini?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Apakah Anda yakin ingin menghapus?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.No)
                 {
                     return;
@@ -320,7 +325,7 @@ namespace WasteNoMoreUI
                             // Commit transaksi
                             trans.Commit();
 
-                            MessageBox.Show("Aplikasi berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Delete Berhasil!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Refresh data grid
                             LoadData();
