@@ -30,14 +30,26 @@ namespace WasteNoMoreUI
                     conn.Open();
                     using (var cmd = new NpgsqlCommand("SELECT add_kategori(@nama, @deskripsi);", conn))
                     {
+                        //bind parameter
                         cmd.Parameters.AddWithValue("nama", txtNama.Text);
                         cmd.Parameters.AddWithValue("deskripsi", txtDeskripsi.Text);
 
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Kategori berhasil ditambahkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadData();
-                        txtNama.Clear();
-                        txtDeskripsi.Clear();
+                        //eksekusi fungsi dan periksa hasilnya
+                        bool result = (bool)cmd.ExecuteScalar();
+
+                        if (result)
+                        {
+                            MessageBox.Show("Kategori berhasil ditambahkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //load ulang datagrid kategori
+                            LoadData();
+                            //mengosongkan textbox input
+                            txtNama.Clear();
+                            txtDeskripsi.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Kategori gagal ditambahkan! Nama kategori mungkin sudah ada.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                 }
             }
