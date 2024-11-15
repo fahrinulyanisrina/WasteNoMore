@@ -27,6 +27,10 @@ namespace WasteNoMoreUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //FormDashobardAdmin dashboardForm = new FormDashobardAdmin();
+            //dashboardForm.Show();
+            //this.Hide();
+
             FormDashboard dashboardForm = new FormDashboard();
             dashboardForm.Show();
             this.Hide();
