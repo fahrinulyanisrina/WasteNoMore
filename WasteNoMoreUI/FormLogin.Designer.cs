@@ -43,9 +43,10 @@
             // 
             btnCancel.BackColor = SystemColors.ControlDarkDark;
             btnCancel.ForeColor = SystemColors.ButtonHighlight;
-            btnCancel.Location = new Point(386, 377);
+            btnCancel.Location = new Point(297, 295);
+            btnCancel.Margin = new Padding(2, 2, 2, 2);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(150, 46);
+            btnCancel.Size = new Size(115, 36);
             btnCancel.TabIndex = 39;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -55,9 +56,10 @@
             // 
             btnLogin.BackColor = SystemColors.HotTrack;
             btnLogin.ForeColor = SystemColors.ButtonHighlight;
-            btnLogin.Location = new Point(564, 377);
+            btnLogin.Location = new Point(434, 295);
+            btnLogin.Margin = new Padding(2, 2, 2, 2);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(150, 46);
+            btnLogin.Size = new Size(115, 36);
             btnLogin.TabIndex = 38;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
@@ -67,50 +69,57 @@
             // 
             lblJudul.AutoSize = true;
             lblJudul.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblJudul.Location = new Point(514, 137);
+            lblJudul.Location = new Point(395, 107);
+            lblJudul.Margin = new Padding(2, 0, 2, 0);
             lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(85, 37);
+            lblJudul.Size = new Size(66, 30);
             lblJudul.TabIndex = 37;
             lblJudul.Text = "Login";
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(410, 213);
+            txtUsername.Location = new Point(315, 166);
+            txtUsername.Margin = new Padding(2, 2, 2, 2);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(423, 39);
+            txtUsername.Size = new Size(326, 31);
             txtUsername.TabIndex = 36;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(410, 279);
+            txtPassword.Location = new Point(315, 218);
+            txtPassword.Margin = new Padding(2, 2, 2, 2);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(423, 39);
+            txtPassword.Size = new Size(326, 31);
             txtPassword.TabIndex = 35;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(267, 282);
+            lblPassword.Location = new Point(205, 220);
+            lblPassword.Margin = new Padding(2, 0, 2, 0);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(123, 32);
+            lblPassword.Size = new Size(96, 25);
             lblPassword.TabIndex = 34;
             lblPassword.Text = "Password :";
             // 
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(257, 213);
+            lblUsername.Location = new Point(198, 166);
+            lblUsername.Margin = new Padding(2, 0, 2, 0);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(133, 32);
+            lblUsername.Size = new Size(100, 25);
             lblUsername.TabIndex = 33;
             lblUsername.Text = "Username :";
             // 
             // lblSignIn
             // 
             lblSignIn.AutoSize = true;
-            lblSignIn.Location = new Point(307, 488);
+            lblSignIn.Location = new Point(236, 381);
+            lblSignIn.Margin = new Padding(2, 0, 2, 0);
             lblSignIn.Name = "lblSignIn";
-            lblSignIn.Size = new Size(526, 32);
+            lblSignIn.Size = new Size(386, 25);
             lblSignIn.TabIndex = 40;
             lblSignIn.Text = "Belum memiliki akun? Silahkan buat akun anda!";
             // 
@@ -118,9 +127,10 @@
             // 
             btnRegister.BackColor = SystemColors.HotTrack;
             btnRegister.ForeColor = SystemColors.ButtonHighlight;
-            btnRegister.Location = new Point(465, 539);
+            btnRegister.Location = new Point(358, 421);
+            btnRegister.Margin = new Padding(2, 2, 2, 2);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(150, 46);
+            btnRegister.Size = new Size(115, 36);
             btnRegister.TabIndex = 41;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = false;
@@ -128,10 +138,10 @@
             // 
             // FormLogin
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1114, 708);
+            ClientSize = new Size(857, 553);
             Controls.Add(btnRegister);
             Controls.Add(lblSignIn);
             Controls.Add(btnCancel);
@@ -141,6 +151,7 @@
             Controls.Add(txtPassword);
             Controls.Add(lblPassword);
             Controls.Add(lblUsername);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FormLogin";
             Text = "FormLogin";
             ResumeLayout(false);
