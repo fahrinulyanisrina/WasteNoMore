@@ -246,6 +246,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(1229, 712);
             Controls.Add(lblHarga);
             Controls.Add(txtHarga);
