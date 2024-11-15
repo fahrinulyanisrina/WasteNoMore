@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,22 +25,28 @@ namespace WasteNoMoreUI
         {
             try
             {
-                // Query untuk menambah kategori baru
-                string query = $"INSERT INTO kategori (nama_kategori, deskripsi_kategori) VALUES ('{txtNama.Text}', '{txtDeskripsi.Text}')";
-                DatabaseManager.ExecuteQuery(query);
+                using (var conn = DatabaseManager.GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("SELECT add_kategori(@nama, @deskripsi);", conn))
+                    {
+                        cmd.Parameters.AddWithValue("nama", txtNama.Text);
+                        cmd.Parameters.AddWithValue("deskripsi", txtDeskripsi.Text);
 
-                MessageBox.Show("Kategori berhasil ditambahkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Muat ulang data di DataGridView
-                LoadData();
-                txtNama.Clear();
-                txtDeskripsi.Clear();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Kategori berhasil ditambahkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        txtNama.Clear();
+                        txtDeskripsi.Clear();
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Insert FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void pbUpdate_Click(object sender, EventArgs e)
         {
@@ -51,23 +58,30 @@ namespace WasteNoMoreUI
 
             try
             {
-                // Query untuk mengupdate data kategori
-                string query = $"UPDATE kategori SET nama_kategori = '{txtNama.Text}', deskripsi_kategori = '{txtDeskripsi.Text}' WHERE id_kategori = {r.Cells["id_kategori"].Value}";
-                DatabaseManager.ExecuteQuery(query);
+                using (var conn = DatabaseManager.GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("SELECT update_kategori(@id, @nama, @deskripsi);", conn))
+                    {
+                        cmd.Parameters.AddWithValue("id", Convert.ToInt32(r.Cells["id_kategori"].Value));
+                        cmd.Parameters.AddWithValue("nama", txtNama.Text);
+                        cmd.Parameters.AddWithValue("deskripsi", txtDeskripsi.Text);
 
-                MessageBox.Show("Kategori berhasil diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Muat ulang data di DataGridView
-                LoadData();
-                txtNama.Clear();
-                txtDeskripsi.Clear();
-                r = null;
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Kategori berhasil diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        txtNama.Clear();
+                        txtDeskripsi.Clear();
+                        r = null;
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Update FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void LoadData()
         {
@@ -114,6 +128,68 @@ namespace WasteNoMoreUI
             FormDashobardAdmin dashobardAdminForm = new FormDashobardAdmin();
             dashobardAdminForm.Show();
             this.Hide();
+        }
+
+        private void DeleteKategori(int idKategori)
+        {
+            try
+            {
+                using (var conn = DatabaseManager.GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand("SELECT delete_kategori(@id_kategori)", conn))
+                    {
+                        cmd.Parameters.AddWithValue("id_kategori", idKategori);
+                        bool result = (bool)cmd.ExecuteScalar();
+
+                        if (result)
+                        {
+                            MessageBox.Show("Kategori berhasil dihapus!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Kategori tidak ditemukan atau sudah dihapus.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Delete FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            if (r == null)
+            {
+                MessageBox.Show("Pilih baris data yang akan dihapus", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Apakah Anda yakin ingin menghapus kategori ini?", "Konfirmasi Hapus",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    int idKategori = Convert.ToInt32(r.Cells["id_kategori"].Value);
+                    string query = $"UPDATE kategori SET is_deleted = TRUE WHERE id_kategori = {idKategori}";
+                    DatabaseManager.ExecuteQuery(query);
+
+                    MessageBox.Show("Kategori berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LoadData();
+                    txtNama.Clear();
+                    txtDeskripsi.Clear();
+                    r = null;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Delete FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
