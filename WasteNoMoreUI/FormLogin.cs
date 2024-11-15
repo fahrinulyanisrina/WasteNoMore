@@ -63,8 +63,6 @@ namespace WasteNoMoreUI
                         // Tambahkan parameter ke SQL
                         cmd.Parameters.AddWithValue("username", username);
                         cmd.Parameters.AddWithValue("password", password);
-
-                        // Eksekusi query
                         var result = cmd.ExecuteScalar();
 
                         // Jika result tidak null dan valid
