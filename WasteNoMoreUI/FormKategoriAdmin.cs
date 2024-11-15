@@ -82,7 +82,6 @@ namespace WasteNoMoreUI
             }
         }
 
-
         private void LoadData()
         {
             try

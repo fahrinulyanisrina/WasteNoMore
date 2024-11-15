@@ -52,5 +52,65 @@ namespace WasteNoMoreUI.Models
             }
             return dt;
         }
+
+        //method utk mengeksekusi query SQL dgn parameter
+        public static int ExecuteNonQueryWithParams(string query, List<NpgsqlParameter> parameters)
+        {
+            int result = 0;
+            try
+            {
+                using (var conn = GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        //menambahkan parameter ke perintah
+                        if (parameters != null)
+                        {
+                            cmd.Parameters.AddRange(parameters.ToArray());
+                        }
+
+                        //mengeksekusi query tanpa return data (misalnya untuk INSERT, UPDATE, DELETE)
+                        result = cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return result;
+        }
+
+        //method utk mengeksekusi query SQL tanpa parameter
+        public static object ExecuteScalarQuery(string query, List<NpgsqlParameter> parameters)
+        {
+            object result = null;
+            try
+            {
+                using (var conn = GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        //menambahkan parameter ke perintah
+                        if (parameters != null)
+                        {
+                            cmd.Parameters.AddRange(parameters.ToArray());
+                        }
+
+                        //mengeksekusi query dan return satu nilai
+                        result = cmd.ExecuteScalar();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return result;
+        }
+
+
     }
 }
