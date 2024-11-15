@@ -112,5 +112,13 @@ namespace WasteNoMoreUI
         {
 
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            //membuka ke form login
+            FormLogin loginForm = new FormLogin();
+            loginForm.Show();
+            this.Hide();
+        }
     }
 }
