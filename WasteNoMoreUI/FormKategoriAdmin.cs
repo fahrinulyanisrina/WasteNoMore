@@ -59,7 +59,6 @@ namespace WasteNoMoreUI
             }
         }
 
-
         private void pbUpdate_Click(object sender, EventArgs e)
         {
             if (r == null)
