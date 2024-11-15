@@ -67,6 +67,12 @@ namespace WasteNoMoreUI
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(txtNama.Text))
+            {
+                MessageBox.Show("Nama kategori tidak boleh kosong!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 using (var conn = DatabaseManager.GetConnection())
@@ -74,16 +80,26 @@ namespace WasteNoMoreUI
                     conn.Open();
                     using (var cmd = new NpgsqlCommand("SELECT update_kategori(@id, @nama, @deskripsi);", conn))
                     {
+                        // Bind parameter
                         cmd.Parameters.AddWithValue("id", Convert.ToInt32(r.Cells["id_kategori"].Value));
-                        cmd.Parameters.AddWithValue("nama", txtNama.Text);
-                        cmd.Parameters.AddWithValue("deskripsi", txtDeskripsi.Text);
+                        cmd.Parameters.AddWithValue("nama", txtNama.Text.Trim());
+                        cmd.Parameters.AddWithValue("deskripsi", string.IsNullOrWhiteSpace(txtDeskripsi.Text) ? (object)DBNull.Value : txtDeskripsi.Text.Trim());
 
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Kategori berhasil diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadData();
-                        txtNama.Clear();
-                        txtDeskripsi.Clear();
-                        r = null;
+                        // Eksekusi fungsi dan periksa hasilnya
+                        bool result = (bool)cmd.ExecuteScalar();
+
+                        if (result)
+                        {
+                            MessageBox.Show("Kategori berhasil diperbarui!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadData();
+                            txtNama.Clear();
+                            txtDeskripsi.Clear();
+                            r = null;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Pembaruan kategori gagal! Pastikan data valid atau kategori belum dihapus.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                 }
             }
