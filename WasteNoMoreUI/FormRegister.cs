@@ -30,7 +30,7 @@ namespace WasteNoMoreUI
 
             //validasi input apakah ada yang kosong atau tidak
             if (string.IsNullOrEmpty(namaPengguna) || string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+        string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 //jika ada, beri feedback
                 MessageBox.Show("Semua data harus diisi!");
@@ -64,11 +64,12 @@ namespace WasteNoMoreUI
                         if (result != null && (int)result == 1)
                         {
                             MessageBox.Show("Akun berhasil dibuat!");
-                            //membuka FormLogin
+                            //membuka Form Login
                             FormLogin loginForm = new FormLogin();
                             loginForm.Show();
                             this.Hide();
                         }
+
                         else
                         {
                             MessageBox.Show("Username atau email sudah terdaftar!");
@@ -80,18 +81,6 @@ namespace WasteNoMoreUI
             {
                 MessageBox.Show("Error: " + ex.Message, "FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            //jika tidak, membuat objek Pengguna baru
-            //Pengguna penggunaBaru = new Pengguna(0, namaPengguna, email, username, password);
-            //nantinya akan disimpan ke db
-
-            //MessageBox.Show("Akun berhasil dibuat!");
-
-            //kembali ke form login
-            //FormLogin loginForm = new FormLogin();
-            //loginForm.Show();
-            //this.Hide();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
