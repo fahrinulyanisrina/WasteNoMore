@@ -80,12 +80,12 @@ namespace WasteNoMoreUI
                     conn.Open();
                     using (var cmd = new NpgsqlCommand("SELECT update_kategori(@id, @nama, @deskripsi);", conn))
                     {
-                        // Bind parameter
+                        //bind parameter
                         cmd.Parameters.AddWithValue("id", Convert.ToInt32(r.Cells["id_kategori"].Value));
                         cmd.Parameters.AddWithValue("nama", txtNama.Text.Trim());
                         cmd.Parameters.AddWithValue("deskripsi", string.IsNullOrWhiteSpace(txtDeskripsi.Text) ? (object)DBNull.Value : txtDeskripsi.Text.Trim());
 
-                        // Eksekusi fungsi dan periksa hasilnya
+                        //pksekusi fungsi dan periksa hasilnya
                         bool result = (bool)cmd.ExecuteScalar();
 
                         if (result)
@@ -113,11 +113,11 @@ namespace WasteNoMoreUI
         {
             try
             {
-                // Query untuk mengambil data kategori
+                //query SQL untuk mengambil data kategori
                 string query = "SELECT * FROM kategori";
                 dt = DatabaseManager.ExecuteQuery(query);
 
-                // Tampilkan data di DataGridView
+                //Tampilkan data di Ddatagridview
                 dgvKategori.DataSource = dt;
             }
             catch (Exception ex)
@@ -166,15 +166,17 @@ namespace WasteNoMoreUI
                     using (var cmd = new NpgsqlCommand("SELECT delete_kategori(@id_kategori)", conn))
                     {
                         cmd.Parameters.AddWithValue("id_kategori", idKategori);
+
+                        //eksekusi fungsi dan periksa hasilnya
                         bool result = (bool)cmd.ExecuteScalar();
 
                         if (result)
                         {
-                            MessageBox.Show("Kategori berhasil dihapus!");
+                            MessageBox.Show("Kategori berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Kategori tidak ditemukan atau sudah dihapus.");
+                            MessageBox.Show("Kategori tidak ditemukan atau sudah dihapus.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -201,11 +203,11 @@ namespace WasteNoMoreUI
                 try
                 {
                     int idKategori = Convert.ToInt32(r.Cells["id_kategori"].Value);
-                    string query = $"UPDATE kategori SET is_deleted = TRUE WHERE id_kategori = {idKategori}";
-                    DatabaseManager.ExecuteQuery(query);
 
-                    MessageBox.Show("Kategori berhasil dihapus!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //panggil fungsi DeleteKategori untuk menghapus data
+                    DeleteKategori(idKategori);
 
+                    //refresh datagridview setelah penghapusan
                     LoadData();
                     txtNama.Clear();
                     txtDeskripsi.Clear();
@@ -217,5 +219,6 @@ namespace WasteNoMoreUI
                 }
             }
         }
+
     }
 }
