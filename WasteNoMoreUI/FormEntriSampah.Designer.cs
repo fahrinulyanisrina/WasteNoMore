@@ -52,7 +52,6 @@
             // cmbKategori
             // 
             cmbKategori.FormattingEnabled = true;
-            cmbKategori.Items.AddRange(new object[] { "Organik", "Anorganik", "B3", "Kertas", "Residu" });
             cmbKategori.Location = new Point(538, 231);
             cmbKategori.Name = "cmbKategori";
             cmbKategori.Size = new Size(242, 40);
