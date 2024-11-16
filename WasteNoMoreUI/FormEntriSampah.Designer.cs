@@ -114,7 +114,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = SystemColors.HotTrack;
+            btnAdd.BackColor = Color.SteelBlue;
             btnAdd.ForeColor = SystemColors.ButtonHighlight;
             btnAdd.Location = new Point(643, 431);
             btnAdd.Name = "btnAdd";

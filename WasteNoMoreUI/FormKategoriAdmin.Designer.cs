@@ -135,7 +135,7 @@
             // 
             // btnLoad
             // 
-            btnLoad.BackColor = SystemColors.Highlight;
+            btnLoad.BackColor = Color.SteelBlue;
             btnLoad.ForeColor = SystemColors.ButtonHighlight;
             btnLoad.Location = new Point(764, 758);
             btnLoad.Name = "btnLoad";

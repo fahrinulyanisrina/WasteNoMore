@@ -53,11 +53,10 @@
             // 
             // btnBackHarga
             // 
-            btnBackHarga.BackColor = SystemColors.ControlLight;
-            btnBackHarga.Location = new Point(1028, 653);
-            btnBackHarga.Margin = new Padding(2);
+            btnBackHarga.BackColor = SystemColors.ScrollBar;
+            btnBackHarga.Location = new Point(1336, 836);
             btnBackHarga.Name = "btnBackHarga";
-            btnBackHarga.Size = new Size(115, 36);
+            btnBackHarga.Size = new Size(150, 46);
             btnBackHarga.TabIndex = 112;
             btnBackHarga.Text = "Back";
             btnBackHarga.UseVisualStyleBackColor = false;
@@ -67,22 +66,21 @@
             // 
             lblHarga.AutoSize = true;
             lblHarga.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHarga.Location = new Point(542, 23);
-            lblHarga.Margin = new Padding(2, 0, 2, 0);
+            lblHarga.Location = new Point(582, 38);
             lblHarga.Name = "lblHarga";
-            lblHarga.Size = new Size(120, 38);
+            lblHarga.Size = new Size(512, 50);
             lblHarga.TabIndex = 111;
-            lblHarga.Text = "HARGA";
+            lblHarga.Text = "Manajemen Harga Sampah";
+            lblHarga.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dgvHarga
             // 
             dgvHarga.BackgroundColor = SystemColors.ButtonHighlight;
             dgvHarga.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHarga.Location = new Point(86, 311);
-            dgvHarga.Margin = new Padding(2);
+            dgvHarga.Location = new Point(112, 398);
             dgvHarga.Name = "dgvHarga";
             dgvHarga.RowHeadersWidth = 82;
-            dgvHarga.Size = new Size(1057, 257);
+            dgvHarga.Size = new Size(1374, 329);
             dgvHarga.TabIndex = 110;
             dgvHarga.CellContentClick += dgvHarga_CellContentClick;
             // 
@@ -90,10 +88,9 @@
             // 
             lblUpdate.AutoSize = true;
             lblUpdate.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUpdate.Location = new Point(858, 236);
-            lblUpdate.Margin = new Padding(2, 0, 2, 0);
+            lblUpdate.Location = new Point(1115, 302);
             lblUpdate.Name = "lblUpdate";
-            lblUpdate.Size = new Size(85, 30);
+            lblUpdate.Size = new Size(111, 40);
             lblUpdate.TabIndex = 109;
             lblUpdate.Text = "Update";
             // 
@@ -101,10 +98,9 @@
             // 
             lblDelete.AutoSize = true;
             lblDelete.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDelete.Location = new Point(1053, 236);
-            lblDelete.Margin = new Padding(2, 0, 2, 0);
+            lblDelete.Location = new Point(1369, 302);
             lblDelete.Name = "lblDelete";
-            lblDelete.Size = new Size(79, 30);
+            lblDelete.Size = new Size(101, 40);
             lblDelete.TabIndex = 108;
             lblDelete.Text = "Delete";
             // 
@@ -112,20 +108,18 @@
             // 
             lblInsert.AutoSize = true;
             lblInsert.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblInsert.Location = new Point(666, 233);
-            lblInsert.Margin = new Padding(2, 0, 2, 0);
+            lblInsert.Location = new Point(866, 298);
             lblInsert.Name = "lblInsert";
-            lblInsert.Size = new Size(70, 30);
+            lblInsert.Size = new Size(92, 40);
             lblInsert.TabIndex = 107;
             lblInsert.Text = "Insert";
             // 
             // pbDeleteHarga
             // 
             pbDeleteHarga.Image = (Image)resources.GetObject("pbDeleteHarga.Image");
-            pbDeleteHarga.Location = new Point(1028, 121);
-            pbDeleteHarga.Margin = new Padding(2);
+            pbDeleteHarga.Location = new Point(1336, 155);
             pbDeleteHarga.Name = "pbDeleteHarga";
-            pbDeleteHarga.Size = new Size(115, 112);
+            pbDeleteHarga.Size = new Size(150, 143);
             pbDeleteHarga.SizeMode = PictureBoxSizeMode.StretchImage;
             pbDeleteHarga.TabIndex = 106;
             pbDeleteHarga.TabStop = false;
@@ -134,10 +128,9 @@
             // pbUpdateHarga
             // 
             pbUpdateHarga.Image = (Image)resources.GetObject("pbUpdateHarga.Image");
-            pbUpdateHarga.Location = new Point(841, 121);
-            pbUpdateHarga.Margin = new Padding(2);
+            pbUpdateHarga.Location = new Point(1093, 155);
             pbUpdateHarga.Name = "pbUpdateHarga";
-            pbUpdateHarga.Size = new Size(115, 112);
+            pbUpdateHarga.Size = new Size(150, 143);
             pbUpdateHarga.SizeMode = PictureBoxSizeMode.StretchImage;
             pbUpdateHarga.TabIndex = 105;
             pbUpdateHarga.TabStop = false;
@@ -146,10 +139,9 @@
             // pbInsertHarga
             // 
             pbInsertHarga.Image = (Image)resources.GetObject("pbInsertHarga.Image");
-            pbInsertHarga.Location = new Point(639, 113);
-            pbInsertHarga.Margin = new Padding(2);
+            pbInsertHarga.Location = new Point(831, 145);
             pbInsertHarga.Name = "pbInsertHarga";
-            pbInsertHarga.Size = new Size(126, 130);
+            pbInsertHarga.Size = new Size(164, 166);
             pbInsertHarga.SizeMode = PictureBoxSizeMode.StretchImage;
             pbInsertHarga.TabIndex = 104;
             pbInsertHarga.TabStop = false;
@@ -157,12 +149,11 @@
             // 
             // btnLoadHarga
             // 
-            btnLoadHarga.BackColor = SystemColors.Highlight;
+            btnLoadHarga.BackColor = Color.SteelBlue;
             btnLoadHarga.ForeColor = SystemColors.ButtonHighlight;
-            btnLoadHarga.Location = new Point(589, 590);
-            btnLoadHarga.Margin = new Padding(2);
+            btnLoadHarga.Location = new Point(766, 755);
             btnLoadHarga.Name = "btnLoadHarga";
-            btnLoadHarga.Size = new Size(115, 36);
+            btnLoadHarga.Size = new Size(150, 46);
             btnLoadHarga.TabIndex = 103;
             btnLoadHarga.Text = "Load";
             btnLoadHarga.UseVisualStyleBackColor = false;
@@ -171,66 +162,64 @@
             // lblKategoriHarga
             // 
             lblKategoriHarga.AutoSize = true;
-            lblKategoriHarga.Location = new Point(107, 166);
-            lblKategoriHarga.Margin = new Padding(2, 0, 2, 0);
+            lblKategoriHarga.Location = new Point(139, 212);
             lblKategoriHarga.Name = "lblKategoriHarga";
-            lblKategoriHarga.Size = new Size(87, 25);
+            lblKategoriHarga.Size = new Size(115, 32);
             lblKategoriHarga.TabIndex = 100;
             lblKategoriHarga.Text = "Kategori :";
             // 
             // lblAplikasiHarga
             // 
             lblAplikasiHarga.AutoSize = true;
-            lblAplikasiHarga.Location = new Point(112, 110);
-            lblAplikasiHarga.Margin = new Padding(2, 0, 2, 0);
+            lblAplikasiHarga.Location = new Point(146, 141);
             lblAplikasiHarga.Name = "lblAplikasiHarga";
-            lblAplikasiHarga.Size = new Size(82, 25);
+            lblAplikasiHarga.Size = new Size(107, 32);
             lblAplikasiHarga.TabIndex = 99;
             lblAplikasiHarga.Text = "Aplikasi :";
             // 
             // txtHarga
             // 
-            txtHarga.Location = new Point(199, 229);
-            txtHarga.Margin = new Padding(2);
+            txtHarga.Location = new Point(259, 281);
             txtHarga.Multiline = true;
             txtHarga.Name = "txtHarga";
-            txtHarga.Size = new Size(326, 37);
+            txtHarga.Size = new Size(423, 46);
             txtHarga.TabIndex = 101;
             // 
             // cmbAplikasi
             // 
             cmbAplikasi.FormattingEnabled = true;
-            cmbAplikasi.Location = new Point(199, 107);
+            cmbAplikasi.Location = new Point(259, 137);
+            cmbAplikasi.Margin = new Padding(4, 4, 4, 4);
             cmbAplikasi.Name = "cmbAplikasi";
-            cmbAplikasi.Size = new Size(326, 33);
+            cmbAplikasi.Size = new Size(423, 40);
             cmbAplikasi.TabIndex = 113;
             cmbAplikasi.SelectedIndexChanged += cmbAplikasi_SelectedIndexChanged;
             // 
             // cmbKategori
             // 
             cmbKategori.FormattingEnabled = true;
-            cmbKategori.Location = new Point(199, 163);
+            cmbKategori.Location = new Point(259, 209);
+            cmbKategori.Margin = new Padding(4, 4, 4, 4);
             cmbKategori.Name = "cmbKategori";
-            cmbKategori.Size = new Size(326, 33);
+            cmbKategori.Size = new Size(423, 40);
             cmbKategori.TabIndex = 114;
             cmbKategori.SelectedIndexChanged += cmbKategori_SelectedIndexChanged;
             // 
             // lblHargaKg
             // 
             lblHargaKg.AutoSize = true;
-            lblHargaKg.Location = new Point(125, 232);
-            lblHargaKg.Margin = new Padding(2, 0, 2, 0);
+            lblHargaKg.Location = new Point(162, 285);
             lblHargaKg.Name = "lblHargaKg";
-            lblHargaKg.Size = new Size(69, 25);
+            lblHargaKg.Size = new Size(89, 32);
             lblHargaKg.TabIndex = 115;
             lblHargaKg.Text = "Harga :";
             // 
             // FormHargaAdmin
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1229, 712);
+            ClientSize = new Size(1598, 911);
             Controls.Add(lblHargaKg);
             Controls.Add(cmbKategori);
             Controls.Add(cmbAplikasi);
@@ -247,6 +236,7 @@
             Controls.Add(txtHarga);
             Controls.Add(lblKategoriHarga);
             Controls.Add(lblAplikasiHarga);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "FormHargaAdmin";
             Text = "FormHargaAdmin";
             Load += FormHargaAdmin_Load;

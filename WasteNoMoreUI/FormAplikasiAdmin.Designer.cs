@@ -52,10 +52,9 @@
             // btnBackAplikasi
             // 
             btnBackAplikasi.BackColor = SystemColors.ControlLight;
-            btnBackAplikasi.Location = new Point(1028, 654);
-            btnBackAplikasi.Margin = new Padding(2);
+            btnBackAplikasi.Location = new Point(1336, 837);
             btnBackAplikasi.Name = "btnBackAplikasi";
-            btnBackAplikasi.Size = new Size(115, 36);
+            btnBackAplikasi.Size = new Size(150, 46);
             btnBackAplikasi.TabIndex = 98;
             btnBackAplikasi.Text = "Back";
             btnBackAplikasi.UseVisualStyleBackColor = false;
@@ -65,22 +64,21 @@
             // 
             lblAplikasi.AutoSize = true;
             lblAplikasi.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAplikasi.Location = new Point(542, 24);
-            lblAplikasi.Margin = new Padding(2, 0, 2, 0);
+            lblAplikasi.Location = new Point(476, 41);
             lblAplikasi.Name = "lblAplikasi";
-            lblAplikasi.Size = new Size(147, 38);
+            lblAplikasi.Size = new Size(690, 50);
             lblAplikasi.TabIndex = 97;
-            lblAplikasi.Text = "APLIKASI";
+            lblAplikasi.Text = "Manajemen Aplikasi Penjual Sampah";
+            lblAplikasi.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dgvAplikasi
             // 
             dgvAplikasi.BackgroundColor = SystemColors.ButtonHighlight;
             dgvAplikasi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAplikasi.Location = new Point(86, 312);
-            dgvAplikasi.Margin = new Padding(2);
+            dgvAplikasi.Location = new Point(112, 399);
             dgvAplikasi.Name = "dgvAplikasi";
             dgvAplikasi.RowHeadersWidth = 82;
-            dgvAplikasi.Size = new Size(1057, 257);
+            dgvAplikasi.Size = new Size(1374, 329);
             dgvAplikasi.TabIndex = 96;
             dgvAplikasi.CellContentClick += dgvAplikasi_CellContentClick;
             // 
@@ -88,10 +86,9 @@
             // 
             lblUpdate.AutoSize = true;
             lblUpdate.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUpdate.Location = new Point(858, 237);
-            lblUpdate.Margin = new Padding(2, 0, 2, 0);
+            lblUpdate.Location = new Point(1115, 303);
             lblUpdate.Name = "lblUpdate";
-            lblUpdate.Size = new Size(85, 30);
+            lblUpdate.Size = new Size(111, 40);
             lblUpdate.TabIndex = 95;
             lblUpdate.Text = "Update";
             // 
@@ -99,10 +96,9 @@
             // 
             lblDelete.AutoSize = true;
             lblDelete.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDelete.Location = new Point(1053, 237);
-            lblDelete.Margin = new Padding(2, 0, 2, 0);
+            lblDelete.Location = new Point(1369, 303);
             lblDelete.Name = "lblDelete";
-            lblDelete.Size = new Size(79, 30);
+            lblDelete.Size = new Size(101, 40);
             lblDelete.TabIndex = 94;
             lblDelete.Text = "Delete";
             // 
@@ -110,20 +106,18 @@
             // 
             lblInsert.AutoSize = true;
             lblInsert.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblInsert.Location = new Point(666, 234);
-            lblInsert.Margin = new Padding(2, 0, 2, 0);
+            lblInsert.Location = new Point(866, 300);
             lblInsert.Name = "lblInsert";
-            lblInsert.Size = new Size(70, 30);
+            lblInsert.Size = new Size(92, 40);
             lblInsert.TabIndex = 93;
             lblInsert.Text = "Insert";
             // 
             // pbDeleteAplikasi
             // 
             pbDeleteAplikasi.Image = (Image)resources.GetObject("pbDeleteAplikasi.Image");
-            pbDeleteAplikasi.Location = new Point(1028, 122);
-            pbDeleteAplikasi.Margin = new Padding(2);
+            pbDeleteAplikasi.Location = new Point(1336, 156);
             pbDeleteAplikasi.Name = "pbDeleteAplikasi";
-            pbDeleteAplikasi.Size = new Size(115, 112);
+            pbDeleteAplikasi.Size = new Size(150, 143);
             pbDeleteAplikasi.SizeMode = PictureBoxSizeMode.StretchImage;
             pbDeleteAplikasi.TabIndex = 92;
             pbDeleteAplikasi.TabStop = false;
@@ -132,10 +126,9 @@
             // pbUpdateAplikasi
             // 
             pbUpdateAplikasi.Image = (Image)resources.GetObject("pbUpdateAplikasi.Image");
-            pbUpdateAplikasi.Location = new Point(841, 122);
-            pbUpdateAplikasi.Margin = new Padding(2);
+            pbUpdateAplikasi.Location = new Point(1093, 156);
             pbUpdateAplikasi.Name = "pbUpdateAplikasi";
-            pbUpdateAplikasi.Size = new Size(115, 112);
+            pbUpdateAplikasi.Size = new Size(150, 143);
             pbUpdateAplikasi.SizeMode = PictureBoxSizeMode.StretchImage;
             pbUpdateAplikasi.TabIndex = 91;
             pbUpdateAplikasi.TabStop = false;
@@ -144,10 +137,9 @@
             // pbInsertAplikasi
             // 
             pbInsertAplikasi.Image = (Image)resources.GetObject("pbInsertAplikasi.Image");
-            pbInsertAplikasi.Location = new Point(639, 114);
-            pbInsertAplikasi.Margin = new Padding(2);
+            pbInsertAplikasi.Location = new Point(831, 146);
             pbInsertAplikasi.Name = "pbInsertAplikasi";
-            pbInsertAplikasi.Size = new Size(126, 130);
+            pbInsertAplikasi.Size = new Size(164, 166);
             pbInsertAplikasi.SizeMode = PictureBoxSizeMode.StretchImage;
             pbInsertAplikasi.TabIndex = 90;
             pbInsertAplikasi.TabStop = false;
@@ -155,12 +147,11 @@
             // 
             // btnLoadAplikasi
             // 
-            btnLoadAplikasi.BackColor = SystemColors.Highlight;
+            btnLoadAplikasi.BackColor = Color.SteelBlue;
             btnLoadAplikasi.ForeColor = SystemColors.ButtonHighlight;
-            btnLoadAplikasi.Location = new Point(589, 591);
-            btnLoadAplikasi.Margin = new Padding(2);
+            btnLoadAplikasi.Location = new Point(766, 756);
             btnLoadAplikasi.Name = "btnLoadAplikasi";
-            btnLoadAplikasi.Size = new Size(115, 36);
+            btnLoadAplikasi.Size = new Size(150, 46);
             btnLoadAplikasi.TabIndex = 89;
             btnLoadAplikasi.Text = "Load";
             btnLoadAplikasi.UseVisualStyleBackColor = false;
@@ -168,47 +159,43 @@
             // 
             // txtNamaAplikasi
             // 
-            txtNamaAplikasi.Location = new Point(199, 108);
-            txtNamaAplikasi.Margin = new Padding(2);
+            txtNamaAplikasi.Location = new Point(259, 138);
             txtNamaAplikasi.Name = "txtNamaAplikasi";
-            txtNamaAplikasi.Size = new Size(326, 31);
+            txtNamaAplikasi.Size = new Size(423, 39);
             txtNamaAplikasi.TabIndex = 88;
             // 
             // txtDeskripsiAplikasi
             // 
-            txtDeskripsiAplikasi.Location = new Point(199, 169);
-            txtDeskripsiAplikasi.Margin = new Padding(2);
+            txtDeskripsiAplikasi.Location = new Point(259, 216);
             txtDeskripsiAplikasi.Multiline = true;
             txtDeskripsiAplikasi.Name = "txtDeskripsiAplikasi";
-            txtDeskripsiAplikasi.Size = new Size(326, 114);
+            txtDeskripsiAplikasi.Size = new Size(423, 145);
             txtDeskripsiAplikasi.TabIndex = 87;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(91, 172);
-            lblEmail.Margin = new Padding(2, 0, 2, 0);
+            lblEmail.Location = new Point(118, 220);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(93, 25);
+            lblEmail.Size = new Size(122, 32);
             lblEmail.TabIndex = 86;
             lblEmail.Text = "Deskripsi :";
             // 
             // lblNamaPengguna
             // 
             lblNamaPengguna.AutoSize = true;
-            lblNamaPengguna.Location = new Point(116, 111);
-            lblNamaPengguna.Margin = new Padding(2, 0, 2, 0);
+            lblNamaPengguna.Location = new Point(151, 142);
             lblNamaPengguna.Name = "lblNamaPengguna";
-            lblNamaPengguna.Size = new Size(68, 25);
+            lblNamaPengguna.Size = new Size(89, 32);
             lblNamaPengguna.TabIndex = 85;
             lblNamaPengguna.Text = "Nama :";
             // 
             // FormAplikasiAdmin
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1229, 712);
+            ClientSize = new Size(1598, 911);
             Controls.Add(btnBackAplikasi);
             Controls.Add(lblAplikasi);
             Controls.Add(dgvAplikasi);
@@ -223,6 +210,7 @@
             Controls.Add(txtDeskripsiAplikasi);
             Controls.Add(lblEmail);
             Controls.Add(lblNamaPengguna);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "FormAplikasiAdmin";
             Text = "FormAplikasiAdmin";
             Load += FormAplikasiAdmin_Load;

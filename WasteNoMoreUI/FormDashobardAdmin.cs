@@ -17,33 +17,6 @@ namespace WasteNoMoreUI
             InitializeComponent();
         }
 
-        private void btnPengguna_Click(object sender, EventArgs e)
-        {
-            //ketika button Pengguna di-klik maka form pengguna dibuka
-            FormPenggunaAdmin penggunaAdminForm = new FormPenggunaAdmin();
-            penggunaAdminForm.Show();
-            //form dashboard ditutup
-            this.Hide();
-        }
-
-        private void btnKategori_Click(object sender, EventArgs e)
-        {
-            //ketika button Kategori di-klik maka form kategori dibuka
-            FormKategoriAdmin kategoriAdminForm = new FormKategoriAdmin();
-            kategoriAdminForm.Show();
-            //form dashboard ditutup
-            this.Hide();
-        }
-
-        private void btnAplikasi_Click(object sender, EventArgs e)
-        {
-            //ketika button aplikasi di-klik maka form aplikasi dibuka
-            FormAplikasiAdmin aplikasiAdminFrom = new FormAplikasiAdmin();
-            aplikasiAdminFrom.Show();
-            //form dashboard ditutup
-            this.Hide();
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             //konfirmasi logout ke pengguna
@@ -68,7 +41,7 @@ namespace WasteNoMoreUI
 
         private void pbPengguna_Click(object sender, EventArgs e)
         {
-            //ketika button Pengguna di-klik maka form pengguna dibuka
+            //ketika button manajemen pengguna di-klik maka form manajemen pengguna dibuka
             FormPenggunaAdmin penggunaAdminForm = new FormPenggunaAdmin();
             penggunaAdminForm.Show();
             //form dashboard ditutup
@@ -77,7 +50,7 @@ namespace WasteNoMoreUI
 
         private void pbKategori_Click(object sender, EventArgs e)
         {
-            //ketika button Kategori di-klik maka form kategori dibuka
+            //ketika button manajemen Kategori di-klik maka form manajemen kategori dibuka
             FormKategoriAdmin kategoriAdminForm = new FormKategoriAdmin();
             kategoriAdminForm.Show();
             //form dashboard ditutup
@@ -86,7 +59,7 @@ namespace WasteNoMoreUI
 
         private void pbAplikasi_Click(object sender, EventArgs e)
         {
-            //ketika button aplikasi di-klik maka form aplikasi dibuka
+            //ketika button manajemen aplikasi di-klik maka form manajemen aplikasi dibuka
             FormAplikasiAdmin aplikasiAdminFrom = new FormAplikasiAdmin();
             aplikasiAdminFrom.Show();
             //form dashboard ditutup
@@ -96,6 +69,15 @@ namespace WasteNoMoreUI
         private void FormDashobardAdmin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbHarga_Click(object sender, EventArgs e)
+        {
+            //ketika button manajemen harga di-klik maka form manajemen harga dibuka
+            FormHargaAdmin hargaAdminForm = new FormHargaAdmin();
+            hargaAdminForm.Show();
+            //form dashboard ditutup
+            this.Hide();
         }
     }
 }
