@@ -46,7 +46,24 @@ namespace WasteNoMoreUI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            //konfirmasi logout ke pengguna
+            DialogResult dialogResult = MessageBox.Show("Apakah Anda yakin ingin logout?", "Konfirmasi Logout",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            //jika pengguna memilih "Yes", maka proses logout dilanjutkan
+            if (dialogResult == DialogResult.Yes)
+            {
+                //ketika button Logiut di-klik maka form login dibuka
+                FormLogin formLogin = new FormLogin();
+                formLogin.Show();
+                //form dashboard ditutup
+                this.Close();
+            }
+            //jika pengguna memilih "No", maka tetap di halaman dashboard
+            else
+            {
+
+            }
         }
 
         private void btnHarga_Click(object sender, EventArgs e)
