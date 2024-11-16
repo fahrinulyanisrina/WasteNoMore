@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WasteNoMoreUI.Models;
 using Npgsql;
+using BCrypt.Net;
 
 namespace WasteNoMoreUI
 {
@@ -39,45 +40,51 @@ namespace WasteNoMoreUI
                 return;
             }
 
-            // Logika login untuk admin
-            if (username == "admin" && password == "password123")
-            {
-                // Login sebagai admin
-                MessageBox.Show("Login sebagai Admin berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Membuka FormAdmin jika login sebagai admin
-                FormDashobardAdmin dashboardAdminForm = new FormDashobardAdmin();
-                dashboardAdminForm.Show();
-                this.Hide();
-                return;
-            }
-
             try
             {
-                // Hubungkan ke database dan validasi pengguna
                 using (var conn = DatabaseManager.GetConnection())
                 {
                     conn.Open();
-                    using (var cmd = new NpgsqlCommand("SELECT * FROM login_pengguna(@username, @password);", conn))
+
+                    // Jika username adalah "admin", langsung arahkan ke dashboard admin tanpa memverifikasi password hash
+                    if (username == "admin" && password == "password123")
                     {
-                        // Tambahkan parameter ke SQL
+                        MessageBox.Show("Login berhasil sebagai Admin!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Membuka dashboard admin jika login sebagai admin
+                        FormDashobardAdmin dashboardAdminForm = new FormDashobardAdmin();
+                        dashboardAdminForm.Show();
+                        this.Hide();
+                        return;
+                    }
+
+                    // Jika bukan admin, cek password hash di database
+                    using (var cmd = new NpgsqlCommand("SELECT password_pengguna FROM pengguna WHERE username_pengguna = @username", conn))
+                    {
                         cmd.Parameters.AddWithValue("username", username);
-                        cmd.Parameters.AddWithValue("password", password);
-                        var result = cmd.ExecuteScalar();
 
-                        // Jika result tidak null dan valid
-                        if (result != null && (bool)result == true)
+                        var dbPasswordHash = cmd.ExecuteScalar()?.ToString();
+
+                        if (dbPasswordHash != null)
                         {
-                            MessageBox.Show("Login berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Verifikasi password input dengan hash password di database
+                            if (BCrypt.Net.BCrypt.Verify(password, dbPasswordHash))
+                            {
+                                MessageBox.Show("Login berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Membuka dashboard jika login sukses
-                            FormDashboard dashboardForm = new FormDashboard();
-                            dashboardForm.Show();
-                            this.Hide();
+                                // Membuka dashboard pengguna biasa jika login berhasil
+                                FormDashboard dashboardForm = new FormDashboard();
+                                dashboardForm.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Password salah!", "Gagal Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Username atau Password salah!", "Gagal Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Username tidak ditemukan!", "Gagal Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
