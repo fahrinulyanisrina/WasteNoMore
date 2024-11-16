@@ -116,7 +116,11 @@
             lblJudul.Size = new Size(268, 61);
             lblJudul.TabIndex = 60;
             lblJudul.Text = "Dashboard";
-            // 
+            lblPengguna.AutoSize = true;
+            lblPengguna.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPengguna.Location = new Point(247, 545);
+            lblPengguna.Margin = new Padding(4, 0, 4, 0);
+            lblPengguna.MaximumSize = new Size(260, 0);
             // lblPengguna
             // 
             lblPengguna.AutoSize = true;
@@ -135,6 +139,7 @@
             lblAplikasi.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAplikasi.Location = new Point(1038, 556);
             lblAplikasi.MaximumSize = new Size(200, 0);
+
             lblAplikasi.Name = "lblAplikasi";
             lblAplikasi.Size = new Size(177, 120);
             lblAplikasi.TabIndex = 70;
@@ -185,8 +190,7 @@
             btnHarga.TabIndex = 69;
             btnHarga.Text = "Harga";
             btnHarga.UseVisualStyleBackColor = false;
-            btnHarga.Click += btnHarga_Click;
-            // 
+            btnHarga.Click += btnHarga_Click;            // 
             // FormDashobardAdmin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);

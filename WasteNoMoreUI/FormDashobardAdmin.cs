@@ -46,9 +46,9 @@ namespace WasteNoMoreUI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+
             //hapus data sesi pengguna
             SessionManager.ClearSession(); // Contoh fungsi pengelola sesi
-
             // Menampilkan form login
             FormLogin loginForm = new FormLogin();
             loginForm.Show();
