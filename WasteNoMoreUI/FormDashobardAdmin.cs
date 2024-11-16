@@ -48,5 +48,14 @@ namespace WasteNoMoreUI
         {
 
         }
+
+        private void btnHarga_Click(object sender, EventArgs e)
+        {
+            //ketika button Harga di-klik maka form Harga dibuka
+            FormHargaAdmin hargaAdminFrom = new FormHargaAdmin();
+            hargaAdminFrom.Show();
+            //form dashboard ditutup
+            this.Hide();
+        }
     }
 }
