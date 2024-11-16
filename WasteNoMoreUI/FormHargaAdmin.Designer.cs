@@ -45,6 +45,7 @@
             cmbAplikasi = new ComboBox();
             cmbKategori = new ComboBox();
             lblHargaKg = new Label();
+            lblKg = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvHarga).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDeleteHarga).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbUpdateHarga).BeginInit();
@@ -182,14 +183,14 @@
             txtHarga.Location = new Point(259, 281);
             txtHarga.Multiline = true;
             txtHarga.Name = "txtHarga";
-            txtHarga.Size = new Size(423, 46);
+            txtHarga.Size = new Size(341, 46);
             txtHarga.TabIndex = 101;
             // 
             // cmbAplikasi
             // 
             cmbAplikasi.FormattingEnabled = true;
             cmbAplikasi.Location = new Point(259, 137);
-            cmbAplikasi.Margin = new Padding(4, 4, 4, 4);
+            cmbAplikasi.Margin = new Padding(4);
             cmbAplikasi.Name = "cmbAplikasi";
             cmbAplikasi.Size = new Size(423, 40);
             cmbAplikasi.TabIndex = 113;
@@ -199,7 +200,7 @@
             // 
             cmbKategori.FormattingEnabled = true;
             cmbKategori.Location = new Point(259, 209);
-            cmbKategori.Margin = new Padding(4, 4, 4, 4);
+            cmbKategori.Margin = new Padding(4);
             cmbKategori.Name = "cmbKategori";
             cmbKategori.Size = new Size(423, 40);
             cmbKategori.TabIndex = 114;
@@ -214,12 +215,22 @@
             lblHargaKg.TabIndex = 115;
             lblHargaKg.Text = "Harga :";
             // 
+            // lblKg
+            // 
+            lblKg.AutoSize = true;
+            lblKg.Location = new Point(617, 285);
+            lblKg.Name = "lblKg";
+            lblKg.Size = new Size(49, 32);
+            lblKg.TabIndex = 116;
+            lblKg.Text = "/kg";
+            // 
             // FormHargaAdmin
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1598, 911);
+            Controls.Add(lblKg);
             Controls.Add(lblHargaKg);
             Controls.Add(cmbKategori);
             Controls.Add(cmbAplikasi);
@@ -236,7 +247,7 @@
             Controls.Add(txtHarga);
             Controls.Add(lblKategoriHarga);
             Controls.Add(lblAplikasiHarga);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FormHargaAdmin";
             Text = "FormHargaAdmin";
             Load += FormHargaAdmin_Load;
@@ -266,5 +277,6 @@
         private ComboBox cmbAplikasi;
         private ComboBox cmbKategori;
         private Label lblHargaKg;
+        private Label lblKg;
     }
 }

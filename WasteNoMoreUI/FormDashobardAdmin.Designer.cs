@@ -77,7 +77,7 @@ namespace WasteNoMoreUI
             // pbAplikasi
             // 
             pbAplikasi.Image = (Image)resources.GetObject("pbAplikasi.Image");
-            pbAplikasi.Location = new Point(843, 349);
+            pbAplikasi.Location = new Point(810, 349);
             pbAplikasi.Name = "pbAplikasi";
             pbAplikasi.Size = new Size(240, 223);
             pbAplikasi.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -88,7 +88,7 @@ namespace WasteNoMoreUI
             // pbKategori
             // 
             pbKategori.Image = (Image)resources.GetObject("pbKategori.Image");
-            pbKategori.Location = new Point(540, 349);
+            pbKategori.Location = new Point(507, 349);
             pbKategori.Name = "pbKategori";
             pbKategori.Size = new Size(222, 223);
             pbKategori.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -145,7 +145,7 @@ namespace WasteNoMoreUI
             // 
             lblAplikasi.AutoSize = true;
             lblAplikasi.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAplikasi.Location = new Point(877, 575);
+            lblAplikasi.Location = new Point(844, 575);
             lblAplikasi.Margin = new Padding(4, 0, 4, 0);
             lblAplikasi.MaximumSize = new Size(260, 0);
             lblAplikasi.Name = "lblAplikasi";
@@ -158,7 +158,7 @@ namespace WasteNoMoreUI
             // 
             lblKategori.AutoSize = true;
             lblKategori.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblKategori.Location = new Point(564, 568);
+            lblKategori.Location = new Point(531, 568);
             lblKategori.Margin = new Padding(4, 0, 4, 0);
             lblKategori.MaximumSize = new Size(260, 0);
             lblKategori.Name = "lblKategori";
@@ -181,7 +181,7 @@ namespace WasteNoMoreUI
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1164, 575);
+            label2.Location = new Point(1164, 576);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.MaximumSize = new Size(200, 0);
             label2.Name = "label2";
@@ -193,9 +193,9 @@ namespace WasteNoMoreUI
             // pbHarga
             // 
             pbHarga.Image = (Image)resources.GetObject("pbHarga.Image");
-            pbHarga.Location = new Point(1142, 349);
+            pbHarga.Location = new Point(1128, 349);
             pbHarga.Name = "pbHarga";
-            pbHarga.Size = new Size(224, 223);
+            pbHarga.Size = new Size(235, 224);
             pbHarga.SizeMode = PictureBoxSizeMode.StretchImage;
             pbHarga.TabIndex = 72;
             pbHarga.TabStop = false;
