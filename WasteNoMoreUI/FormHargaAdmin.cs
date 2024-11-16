@@ -35,8 +35,8 @@ namespace WasteNoMoreUI
                 {
                     conn.Open();
 
-                    // Load data aplikasi ke ComboBox
-                    var cmdAplikasi = new NpgsqlCommand("SELECT id_aplikasi, nama_aplikasi FROM aplikasi;", conn);
+                    // Load data aplikasi ke ComboBox hanya yang is_deleted = false
+                    var cmdAplikasi = new NpgsqlCommand("SELECT id_aplikasi, nama_aplikasi FROM aplikasi WHERE is_deleted = false;", conn);
                     var adapterAplikasi = new NpgsqlDataAdapter(cmdAplikasi);
                     var dtAplikasi = new DataTable();
                     adapterAplikasi.Fill(dtAplikasi);
@@ -45,8 +45,8 @@ namespace WasteNoMoreUI
                     cmbAplikasi.DisplayMember = "nama_aplikasi";
                     cmbAplikasi.ValueMember = "id_aplikasi";
 
-                    // Load data kategori ke ComboBox
-                    var cmdKategori = new NpgsqlCommand("SELECT id_kategori, nama_kategori FROM kategori;", conn);
+                    // Load data kategori ke ComboBox hanya yang is_deleted = false
+                    var cmdKategori = new NpgsqlCommand("SELECT id_kategori, nama_kategori FROM kategori WHERE is_deleted = false;", conn);
                     var adapterKategori = new NpgsqlDataAdapter(cmdKategori);
                     var dtKategori = new DataTable();
                     adapterKategori.Fill(dtKategori);
@@ -67,10 +67,11 @@ namespace WasteNoMoreUI
             try
             {
                 string query = @"
-                    SELECT h.id_harga, a.nama_aplikasi, k.nama_kategori, h.harga
-                    FROM harga h
-                    JOIN aplikasi a ON h.id_aplikasi = a.id_aplikasi
-                    JOIN kategori k ON h.id_kategori = k.id_kategori;";
+            SELECT h.id_harga, a.nama_aplikasi, k.nama_kategori, h.harga
+            FROM harga h
+            JOIN aplikasi a ON h.id_aplikasi = a.id_aplikasi
+            JOIN kategori k ON h.id_kategori = k.id_kategori
+            WHERE a.is_deleted = false AND k.is_deleted = false;";  // Menambahkan filter is_deleted = false pada aplikasi dan kategori
 
                 dt = DatabaseManager.ExecuteQuery(query);
                 dgvHarga.DataSource = dt;
