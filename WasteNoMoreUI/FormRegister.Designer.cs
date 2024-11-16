@@ -57,7 +57,7 @@
             // 
             // btnDaftar
             // 
-            btnDaftar.BackColor = SystemColors.HotTrack;
+            btnDaftar.BackColor = Color.SteelBlue;
             btnDaftar.ForeColor = SystemColors.ButtonHighlight;
             btnDaftar.Location = new Point(630, 521);
             btnDaftar.Name = "btnDaftar";
@@ -143,7 +143,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = SystemColors.HotTrack;
+            btnLogin.BackColor = Color.SteelBlue;
             btnLogin.ForeColor = SystemColors.ButtonHighlight;
             btnLogin.Location = new Point(522, 698);
             btnLogin.Name = "btnLogin";
