@@ -46,26 +46,42 @@ namespace WasteNoMoreUI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            //konfirmasi logout ke pengguna
-            DialogResult dialogResult = MessageBox.Show("Apakah Anda yakin ingin logout?", "Konfirmasi Logout",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            //jika pengguna memilih "Yes", maka proses logout dilanjutkan
-            if (dialogResult == DialogResult.Yes)
-            {
-                //ketika button Logiut di-klik maka form login dibuka
-                FormLogin formLogin = new FormLogin();
-                formLogin.Show();
-                //form dashboard ditutup
-                this.Close();
-            }
-            //jika pengguna memilih "No", maka tetap di halaman dashboard
-            else
-            {
+            //hapus data sesi pengguna
+            SessionManager.ClearSession(); // Contoh fungsi pengelola sesi
+            // Menampilkan form login
+            FormLogin loginForm = new FormLogin();
+            loginForm.Show();
 
-            }
+            // Menutup form dashboard admin
+            this.Close();
         }
 
+        private void pbPengguna_Click(object sender, EventArgs e)
+        {
+            //ketika button Pengguna di-klik maka form pengguna dibuka
+            FormPenggunaAdmin penggunaAdminForm = new FormPenggunaAdmin();
+            penggunaAdminForm.Show();
+            //form dashboard ditutup
+            this.Hide();
+        }
+
+        private void pbKategori_Click(object sender, EventArgs e)
+        {
+            //ketika button Kategori di-klik maka form kategori dibuka
+            FormKategoriAdmin kategoriAdminForm = new FormKategoriAdmin();
+            kategoriAdminForm.Show();
+            //form dashboard ditutup
+            this.Hide();
+        }
+
+        private void pbAplikasi_Click(object sender, EventArgs e)
+        {
+            //ketika button aplikasi di-klik maka form aplikasi dibuka
+            FormAplikasiAdmin aplikasiAdminFrom = new FormAplikasiAdmin();
+            aplikasiAdminFrom.Show();
+            //form dashboard ditutup
+            this.Hide();
         }
     }
 }

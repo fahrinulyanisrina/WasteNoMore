@@ -25,34 +25,6 @@ namespace WasteNoMoreUI
 
         }
 
-        private void btnEntriSampah_Click(object sender, EventArgs e)
-        {
-            //ketika button Entri Sampah di-klik maka form entri sampah dibuka
-            FormEntriSampah inputSampahForm = new FormEntriSampah();
-            inputSampahForm.Show();
-            //form dashboard ditutup
-            this.Hide();
-        }
-
-        private void btnTrack_Click(object sender, EventArgs e)
-        {
-            //ketika button Track Sampah di-klik maka form track sampah dibuka
-            FormTrack formTrackSampah = new FormTrack();
-            formTrackSampah.Show();
-            //form dashboard ditutup
-            this.Hide(); 
-        }
-
-        private void btnBandingHarga_Click(object sender, EventArgs e)
-        {
-            //ketika button Banding Harga di-klik maka form banidng harga dibuka
-            FormBandingHarga formBandingHarga = new FormBandingHarga();
-            formBandingHarga.Show();
-            //form dashboard ditutup
-
-            this.Hide();
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             //konfirmasi logout ke pengguna
@@ -71,9 +43,37 @@ namespace WasteNoMoreUI
             //jika pengguna memilih "No", maka tetap di halaman dashboard
             else
             {
-    
-            } 
-            
+
+            }
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //ketika button Entri Sampah di-klik maka form entri sampah dibuka
+            FormEntriSampah inputSampahForm = new FormEntriSampah();
+            inputSampahForm.Show();
+            //form dashboard ditutup
+            this.Hide();
+        }
+
+        private void pbTrack_Click(object sender, EventArgs e)
+        {
+            //ketika button Track Sampah di-klik maka form track sampah dibuka
+            FormTrack formTrackSampah = new FormTrack();
+            formTrackSampah.Show();
+            //form dashboard ditutup
+            this.Hide();
+        }
+
+        private void pbBanding_Click(object sender, EventArgs e)
+        {
+            //ketika button Banding Harga di-klik maka form banidng harga dibuka
+            FormBandingHarga formBandingHarga = new FormBandingHarga();
+            formBandingHarga.Show();
+            //form dashboard ditutup
+
+            this.Hide();
         }
     }
 }
