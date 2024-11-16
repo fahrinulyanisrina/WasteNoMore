@@ -29,33 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDashboard));
-            btnEntriSampah = new Button();
             lblJudul = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            btnTrack = new Button();
-            pictureBox3 = new PictureBox();
-            btnBandingHarga = new Button();
+            pbEntri = new PictureBox();
+            pbTrack = new PictureBox();
+            pbBanding = new PictureBox();
             btnLogout = new Button();
             label1 = new Label();
             lblEntriSampah = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            lblTrack = new Label();
+            lblBanding = new Label();
+            lblEntri = new Label();
+            ((System.ComponentModel.ISupportInitialize)pbEntri).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbTrack).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbBanding).BeginInit();
             SuspendLayout();
-            // 
-            // btnEntriSampah
-            // 
-            btnEntriSampah.BackColor = SystemColors.ActiveCaption;
-            btnEntriSampah.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEntriSampah.ForeColor = SystemColors.ActiveCaptionText;
-            btnEntriSampah.Location = new Point(389, 644);
-            btnEntriSampah.Name = "btnEntriSampah";
-            btnEntriSampah.Size = new Size(150, 77);
-            btnEntriSampah.TabIndex = 50;
-            btnEntriSampah.Text = "Entri Sampah";
-            btnEntriSampah.UseVisualStyleBackColor = false;
-            btnEntriSampah.Click += btnEntriSampah_Click;
             // 
             // lblJudul
             // 
@@ -67,61 +54,38 @@
             lblJudul.TabIndex = 51;
             lblJudul.Text = "Dashboard";
             // 
-            // pictureBox1
+            // pbEntri
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(356, 386);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(216, 214);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 52;
-            pictureBox1.TabStop = false;
+            pbEntri.Image = (Image)resources.GetObject("pbEntri.Image");
+            pbEntri.Location = new Point(356, 386);
+            pbEntri.Name = "pbEntri";
+            pbEntri.Size = new Size(216, 214);
+            pbEntri.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbEntri.TabIndex = 52;
+            pbEntri.TabStop = false;
+            pbEntri.Click += pictureBox1_Click;
             // 
-            // pictureBox2
+            // pbTrack
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(671, 386);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(205, 214);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 54;
-            pictureBox2.TabStop = false;
+            pbTrack.Image = (Image)resources.GetObject("pbTrack.Image");
+            pbTrack.Location = new Point(671, 386);
+            pbTrack.Name = "pbTrack";
+            pbTrack.Size = new Size(205, 214);
+            pbTrack.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbTrack.TabIndex = 54;
+            pbTrack.TabStop = false;
+            pbTrack.Click += pbTrack_Click;
             // 
-            // btnTrack
+            // pbBanding
             // 
-            btnTrack.BackColor = SystemColors.ActiveCaption;
-            btnTrack.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnTrack.ForeColor = SystemColors.ActiveCaptionText;
-            btnTrack.Location = new Point(698, 644);
-            btnTrack.Name = "btnTrack";
-            btnTrack.Size = new Size(150, 77);
-            btnTrack.TabIndex = 53;
-            btnTrack.Text = "Tracking Sampah";
-            btnTrack.UseVisualStyleBackColor = false;
-            btnTrack.Click += btnTrack_Click;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(983, 386);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(213, 214);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 56;
-            pictureBox3.TabStop = false;
-            // 
-            // btnBandingHarga
-            // 
-            btnBandingHarga.BackColor = SystemColors.ActiveCaption;
-            btnBandingHarga.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBandingHarga.ForeColor = SystemColors.ActiveCaptionText;
-            btnBandingHarga.Location = new Point(1008, 644);
-            btnBandingHarga.Name = "btnBandingHarga";
-            btnBandingHarga.Size = new Size(150, 77);
-            btnBandingHarga.TabIndex = 55;
-            btnBandingHarga.Text = "Banding Harga";
-            btnBandingHarga.UseVisualStyleBackColor = false;
-            btnBandingHarga.Click += btnBandingHarga_Click;
+            pbBanding.Image = (Image)resources.GetObject("pbBanding.Image");
+            pbBanding.Location = new Point(983, 386);
+            pbBanding.Name = "pbBanding";
+            pbBanding.Size = new Size(213, 214);
+            pbBanding.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbBanding.TabIndex = 56;
+            pbBanding.TabStop = false;
+            pbBanding.Click += pbBanding_Click;
             // 
             // btnLogout
             // 
@@ -155,42 +119,72 @@
             lblEntriSampah.Size = new Size(0, 40);
             lblEntriSampah.TabIndex = 59;
             // 
+            // lblTrack
+            // 
+            lblTrack.AutoSize = true;
+            lblTrack.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTrack.Location = new Point(651, 610);
+            lblTrack.Name = "lblTrack";
+            lblTrack.Size = new Size(242, 40);
+            lblTrack.TabIndex = 61;
+            lblTrack.Text = "Tracking Sampah";
+            // 
+            // lblBanding
+            // 
+            lblBanding.AutoSize = true;
+            lblBanding.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBanding.Location = new Point(983, 609);
+            lblBanding.Name = "lblBanding";
+            lblBanding.Size = new Size(213, 40);
+            lblBanding.TabIndex = 62;
+            lblBanding.Text = "Banding Harga";
+            // 
+            // lblEntri
+            // 
+            lblEntri.AutoSize = true;
+            lblEntri.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEntri.Location = new Point(372, 614);
+            lblEntri.Name = "lblEntri";
+            lblEntri.Size = new Size(192, 40);
+            lblEntri.TabIndex = 63;
+            lblEntri.Text = "Entri Sampah";
+            // 
             // FormDashboard
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1554, 874);
+            Controls.Add(lblEntri);
+            Controls.Add(lblBanding);
+            Controls.Add(lblTrack);
             Controls.Add(lblEntriSampah);
             Controls.Add(label1);
             Controls.Add(btnLogout);
-            Controls.Add(pictureBox3);
-            Controls.Add(btnBandingHarga);
-            Controls.Add(pictureBox2);
-            Controls.Add(btnTrack);
-            Controls.Add(pictureBox1);
+            Controls.Add(pbBanding);
+            Controls.Add(pbTrack);
+            Controls.Add(pbEntri);
             Controls.Add(lblJudul);
-            Controls.Add(btnEntriSampah);
             Name = "FormDashboard";
             Text = "FormDashboard";
             Load += FormDashboard_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbEntri).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbTrack).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbBanding).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Button btnEntriSampah;
         private Label lblJudul;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private Button btnTrack;
-        private PictureBox pictureBox3;
-        private Button btnBandingHarga;
+        private PictureBox pbEntri;
+        private PictureBox pbTrack;
+        private PictureBox pbBanding;
         private Button btnLogout;
         private Label label1;
         private Label lblEntriSampah;
+        private Label lblTrack;
+        private Label lblBanding;
+        private Label lblEntri;
     }
 }
