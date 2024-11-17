@@ -120,5 +120,15 @@ namespace WasteNoMoreUI
             loginForm.Show();
             this.Hide();
         }
+
+        private void lblJudul_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblJudul_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
