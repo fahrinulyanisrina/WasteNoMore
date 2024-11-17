@@ -113,6 +113,21 @@ namespace WasteNoMoreUI
 
         }
 
+        private void lblLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOtp_Click_1(object sender, EventArgs e)
+        {
+            // Mengambil data dari textbox yang diinputkan user
+            string namaPengguna = txtNamaPengguna.Text;
+            string email = txtEmail.Text;
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //membuka ke form login
