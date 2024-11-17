@@ -21,34 +21,111 @@ namespace WasteNoMoreUI
             InitializeComponent();
         }
 
-        private void btnDaftar_Click(object sender, EventArgs e)
+        private static string generatedOtp;
+        private static DateTime otpSentTime;
+        private static DateTime otpExpirationTime;
+
+        private bool IsEmailValid(string email)
         {
-            //mengambil data dari textbox yang diinputkan user
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private string GenerateOtp()
+        {
+            Random rand = new Random();
+            return rand.Next(10000, 99999).ToString(); // Generate 5 digit OTP
+        }
+
+        private void SendOtp(string email)
+        {
+            // Generate OTP baru dan tentukan waktu kedaluwarsanya
+            generatedOtp = GenerateOtp();
+            otpSentTime = DateTime.Now;
+            otpExpirationTime = otpSentTime.AddMinutes(5); // OTP berlaku selama 5 menit
+
+            // Kirim email dengan OTP
+            GmailServiceAPI.SendEmail(email, "Verification Code", $"Selamat datang di WasteNoMore! Verifikasi alamat email anda untuk membuat akun WasteNoMore dengan memasukkan kode OTP berikut. Kode OTP: {generatedOtp}. Terimakasih. Tim WasteNoMore");
+        }
+        private void btnOtp_Click(object sender, EventArgs e)
+        {
+            // Mengambil data dari textbox yang diinputkan user
             string namaPengguna = txtNamaPengguna.Text;
             string email = txtEmail.Text;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            //validasi input apakah ada yang kosong atau tidak
+            // Validasi input apakah ada yang kosong atau tidak
             if (string.IsNullOrEmpty(namaPengguna) || string.IsNullOrEmpty(email) ||
                 string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                //jika ada, beri feedback
+                // Jika ada, beri feedback
                 MessageBox.Show("Semua data harus diisi!");
                 return;
             }
 
-            //validasi format email
+            // Validasi format email
             if (!IsEmailValid(email))
             {
                 MessageBox.Show("Format email tidak valid!");
                 return;
             }
 
-            //hash password menggunakan bcrypt
+            // Kirim OTP
+            SendOtp(email);
+            MessageBox.Show("Kode OTP telah dikirim ke email Anda.");
+        }
+
+        private void btnDaftar_Click(object sender, EventArgs e)
+        {
+            // Mengambil data dari textbox yang diinputkan user
+            string namaPengguna = txtNamaPengguna.Text;
+            string email = txtEmail.Text;
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            string inputOTP = tbOtp.Text; // Mengambil input OTP dari textbox
+
+            // Validasi apakah ada data yang kosong
+            if (string.IsNullOrEmpty(namaPengguna) || string.IsNullOrEmpty(email) ||
+                string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(inputOTP))
+            {
+                MessageBox.Show("Semua data harus diisi!");
+                return;
+            }
+
+            // Validasi format email
+            if (!IsEmailValid(email))
+            {
+                MessageBox.Show("Format email tidak valid!");
+                return;
+            }
+
+            // Cek apakah OTP masih valid
+            if (DateTime.Now > otpExpirationTime)
+            {
+                MessageBox.Show("Kode OTP telah kedaluwarsa! Silakan kirim ulang OTP.");
+                return;
+            }
+
+            // Cek apakah OTP yang dimasukkan sesuai dengan yang dikirim
+            if (inputOTP != generatedOtp)
+            {
+                MessageBox.Show("Kode OTP salah! Silakan kirim kode OTP ulang.");
+                tbOtp.Clear();
+                return;
+            }
+
+            // Hash password menggunakan bcrypt
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
 
-            //menambahkan data pengguna ke database
+            // Menambahkan data pengguna ke database
             try
             {
                 using (var conn = DatabaseManager.GetConnection())
@@ -56,20 +133,16 @@ namespace WasteNoMoreUI
                     conn.Open();
                     using (var cmd = new NpgsqlCommand("SELECT add_pengguna(@nama, @username, @password, @email);", conn))
                     {
-                        //parameter untuk perintah SQL
                         cmd.Parameters.AddWithValue("nama", namaPengguna);
                         cmd.Parameters.AddWithValue("username", username);
-                        cmd.Parameters.AddWithValue("password", hashedPassword); // Simpan password yang sudah di-hash
+                        cmd.Parameters.AddWithValue("password", hashedPassword);
                         cmd.Parameters.AddWithValue("email", email);
 
-                        //eksekusi perintah
                         var result = cmd.ExecuteScalar();
 
-                        //memeriksa hasil
                         if (result != null && (int)result == 1)
                         {
                             MessageBox.Show("Akun berhasil dibuat!");
-                            //membuka form login
                             FormLogin loginForm = new FormLogin();
                             loginForm.Show();
                             this.Hide();
@@ -93,19 +166,6 @@ namespace WasteNoMoreUI
             FormLogin loginForm = new FormLogin();
             loginForm.Show();
             this.Hide();
-        }
-
-        private bool IsEmailValid(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
         }
 
         private void FormRegister_Load(object sender, EventArgs e)
@@ -145,5 +205,7 @@ namespace WasteNoMoreUI
         {
 
         }
+
+        
     }
 }
