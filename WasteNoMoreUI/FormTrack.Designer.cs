@@ -43,9 +43,10 @@
             // 
             btnCancel.BackColor = SystemColors.ControlDarkDark;
             btnCancel.ForeColor = SystemColors.ControlLightLight;
-            btnCancel.Location = new Point(344, 421);
+            btnCancel.Location = new Point(265, 329);
+            btnCancel.Margin = new Padding(2, 2, 2, 2);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(150, 46);
+            btnCancel.Size = new Size(115, 36);
             btnCancel.TabIndex = 50;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -55,9 +56,10 @@
             // 
             btnTrack.BackColor = SystemColors.HotTrack;
             btnTrack.ForeColor = SystemColors.ControlLightLight;
-            btnTrack.Location = new Point(522, 421);
+            btnTrack.Location = new Point(402, 329);
+            btnTrack.Margin = new Padding(2, 2, 2, 2);
             btnTrack.Name = "btnTrack";
-            btnTrack.Size = new Size(150, 46);
+            btnTrack.Size = new Size(115, 36);
             btnTrack.TabIndex = 49;
             btnTrack.Text = "Track";
             btnTrack.UseVisualStyleBackColor = false;
@@ -65,51 +67,56 @@
             // 
             // dtpAkhir
             // 
-            dtpAkhir.Location = new Point(408, 306);
+            dtpAkhir.Location = new Point(314, 239);
+            dtpAkhir.Margin = new Padding(2, 2, 2, 2);
             dtpAkhir.Name = "dtpAkhir";
-            dtpAkhir.Size = new Size(400, 39);
+            dtpAkhir.Size = new Size(309, 31);
             dtpAkhir.TabIndex = 48;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(320, 311);
+            label1.Location = new Point(246, 243);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(81, 32);
+            label1.Size = new Size(62, 25);
             label1.TabIndex = 47;
             label1.Text = "Akhir :";
             // 
             // dtpAwal
             // 
-            dtpAwal.Location = new Point(408, 227);
+            dtpAwal.Location = new Point(314, 177);
+            dtpAwal.Margin = new Padding(2, 2, 2, 2);
             dtpAwal.Name = "dtpAwal";
-            dtpAwal.Size = new Size(400, 39);
+            dtpAwal.Size = new Size(309, 31);
             dtpAwal.TabIndex = 46;
             // 
             // cmbKategori
             // 
             cmbKategori.FormattingEnabled = true;
-            cmbKategori.Items.AddRange(new object[] { "Organik", "Anorganik", "B3", "Kertas", "Residu" });
-            cmbKategori.Location = new Point(408, 151);
+            cmbKategori.Location = new Point(314, 118);
+            cmbKategori.Margin = new Padding(2, 2, 2, 2);
             cmbKategori.Name = "cmbKategori";
-            cmbKategori.Size = new Size(242, 40);
+            cmbKategori.Size = new Size(187, 33);
             cmbKategori.TabIndex = 45;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(325, 232);
+            label3.Location = new Point(250, 181);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(76, 32);
+            label3.Size = new Size(59, 25);
             label3.TabIndex = 44;
             label3.Text = "Awal :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(286, 151);
+            label2.Location = new Point(220, 118);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(115, 32);
+            label2.Size = new Size(87, 25);
             label2.TabIndex = 43;
             label2.Text = "Kategori :";
             // 
@@ -117,18 +124,19 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(427, 64);
+            label6.Location = new Point(328, 50);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(187, 37);
+            label6.Size = new Size(146, 30);
             label6.TabIndex = 42;
             label6.Text = "Track Sampah";
             // 
             // FormTrack
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1096, 589);
+            ClientSize = new Size(843, 460);
             Controls.Add(btnCancel);
             Controls.Add(btnTrack);
             Controls.Add(dtpAkhir);
@@ -138,6 +146,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label6);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FormTrack";
             Text = "FormTrack";
             ResumeLayout(false);

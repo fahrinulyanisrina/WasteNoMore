@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,9 +15,37 @@ namespace WasteNoMoreUI
 {
     public partial class FormTrack : Form
     {
+        private List<Kategori> kategoriList = new List<Kategori>();
         public FormTrack()
         {
             InitializeComponent();
+            LoadKategori();
+        }
+
+      private void LoadKategori()
+        {
+            //query untuk mengambil data kategori yang belum dihapus
+            string query = "SELECT id_kategori, nama_kategori, deskripsi_kategori FROM kategori WHERE is_deleted = FALSE";
+
+            //eksekusi query dan ambil data dari db
+            DataTable dt = DatabaseManager.ExecuteQuery(query);
+
+            //membersihkan data lama di list dan combo box
+            kategoriList.Clear();
+            cmbKategori.Items.Clear();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                var kategori = new Kategori(
+                    Convert.ToInt32(row["id_kategori"]),
+                    row["nama_kategori"].ToString(),
+                    row["deskripsi_kategori"].ToString()
+                );
+
+                //menambahkan kategori ke daftar dan combo box
+                kategoriList.Add(kategori);
+                cmbKategori.Items.Add(kategori.NamaKategori);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -29,18 +58,16 @@ namespace WasteNoMoreUI
 
         private void btnTrack_Click(object sender, EventArgs e)
         {
-            //mengambil data dari textbox
-            string kategoriDipilih = cmbKategori.SelectedItem?.ToString();
-            DateTime waktuAwal = dtpAwal.Value;
-            DateTime waktuAkhir = dtpAkhir.Value;
-
             //validasi data/input
-            if (string.IsNullOrEmpty(kategoriDipilih))
+            if (cmbKategori.SelectedIndex == -1)
             {
-                MessageBox.Show("Silakan pilih kategori sampah!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //jika ada yang belum terisi, tampilkan feedback
+                MessageBox.Show("Pastikan sudah memilih kategori!");
                 return;
             }
 
+            DateTime waktuAwal = dtpAwal.Value;
+            DateTime waktuAkhir = dtpAkhir.Value;
             if (waktuAwal > waktuAkhir)
             {
                 MessageBox.Show("Waktu akhir tidak boleh lebih dulu dari waktu awal! Silakan pilih ulang waktunya!", "Error", 
@@ -48,10 +75,20 @@ namespace WasteNoMoreUI
                 return;
             }
 
-            //membuka form Grafik Track dan mengambil argumen dari form ini.
-            FormGrafikTrack tampilanTrackForm = new FormGrafikTrack();
-            tampilanTrackForm.Show();
-            this.Hide(); // Sembunyikan form track saat ini
+            try
+            {
+                var selectedKategori = kategoriList[cmbKategori.SelectedIndex];
+                int idKategori = selectedKategori.IdKategori;
+                int idPengguna = 1;
+                //membuka form Grafik Track dan mengambil argumen dari form ini.
+                FormGrafikTrack tampilanTrackForm = new FormGrafikTrack();
+                tampilanTrackForm.Show();
+                this.Hide(); // Sembunyikan form track saat ini
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cmbKategori_SelectedIndexChanged(object sender, EventArgs e)
