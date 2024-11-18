@@ -14,7 +14,7 @@ namespace WasteNoMoreUI.Models
     {
         //membuat variabel string koneksi 'ConnectionString'
         //properties db
-        private static string ConnectionString = "Host=localhost;Username=postgres;Password=abc;Database=WasteNoMore";
+        private static string ConnectionString = "Host=localhost;Username=postgres;Password=postgres;Database=WasteNoMore";
 
         //method utk membuat koneksi
         public static NpgsqlConnection GetConnection()
@@ -109,6 +109,18 @@ namespace WasteNoMoreUI.Models
                 MessageBox.Show("Error: " + ex.Message, "FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return result;
+        }
+        public static object ExecuteScalarQueryParams(string query, List<NpgsqlParameter> parameters)
+        {
+            using (var connection = new NpgsqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddRange(parameters.ToArray());
+                    return command.ExecuteScalar();
+                }
+            }
         }
 
 

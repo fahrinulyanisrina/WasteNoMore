@@ -15,11 +15,13 @@ namespace WasteNoMoreUI
     public partial class FormEntriSampah : Form
     {
         private List<Kategori> kategoriList = new List<Kategori>();
+        private int currentId;
 
-        public FormEntriSampah()
+        public FormEntriSampah(int currentId)
         {
             InitializeComponent();
             LoadKategori();
+            this.currentId = currentId;
         }
 
         private void LoadKategori()
@@ -51,7 +53,7 @@ namespace WasteNoMoreUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FormDashboard dashboardForm = new FormDashboard();
+            FormDashboard dashboardForm = new FormDashboard(currentId);
             dashboardForm.Show();
             this.Hide();
         }

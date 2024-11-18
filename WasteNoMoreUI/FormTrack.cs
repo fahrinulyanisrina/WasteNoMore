@@ -16,13 +16,15 @@ namespace WasteNoMoreUI
     public partial class FormTrack : Form
     {
         private List<Kategori> kategoriList = new List<Kategori>();
-        public FormTrack()
+        private int currentId;
+        public FormTrack(int currentId)
         {
             InitializeComponent();
             LoadKategori();
+            this.currentId = currentId;
         }
 
-      private void LoadKategori()
+        private void LoadKategori()
         {
             //query untuk mengambil data kategori yang belum dihapus
             string query = "SELECT id_kategori, nama_kategori, deskripsi_kategori FROM kategori WHERE is_deleted = FALSE";
@@ -51,7 +53,7 @@ namespace WasteNoMoreUI
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //akan membuka form dashboard
-            FormDashboard dashboardForm = new FormDashboard();
+            FormDashboard dashboardForm = new FormDashboard(currentId);
             dashboardForm.Show();
             this.Hide();
         }

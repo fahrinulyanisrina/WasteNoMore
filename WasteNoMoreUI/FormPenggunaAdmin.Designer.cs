@@ -28,12 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormPenggunaAdmin";
+            dgvUsers = new DataGridView();
+            label1 = new Label();
+            btnDelete = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvUsers
+            // 
+            dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUsers.Location = new Point(12, 52);
+            dgvUsers.Name = "dgvUsers";
+            dgvUsers.Size = new Size(463, 317);
+            dgvUsers.TabIndex = 0;
+            dgvUsers.CellContentClick += dgvUsers_CellContentClick;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(19, 10);
+            label1.Name = "label1";
+            label1.Size = new Size(189, 25);
+            label1.TabIndex = 1;
+            label1.Text = "List Data Pengguna ";
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(12, 375);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(116, 36);
+            btnDelete.TabIndex = 2;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // FormPenggunaAdmin
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(label1);
+            Controls.Add(dgvUsers);
+            Name = "FormPenggunaAdmin";
+            Text = "FormPenggunaAdmin";
+            ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private DataGridView dgvUsers;
+        private Label label1;
+        private Button btnDelete;
     }
 }
