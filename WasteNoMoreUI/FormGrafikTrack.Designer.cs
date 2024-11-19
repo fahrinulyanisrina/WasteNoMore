@@ -28,12 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormGrafikTrack";
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            btnClose = new Button();
+            SuspendLayout();
+            // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.Connection = null;
+            sqlCommand1.Notification = null;
+            sqlCommand1.Transaction = null;
+            // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(631, 352);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(150, 46);
+            btnClose.TabIndex = 0;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
+            // FormGrafikTrack
+            // 
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnClose);
+            Name = "FormGrafikTrack";
+            Text = "FormGrafikTrack";
+            Load += FormGrafikTrack_Load;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private Button btnClose;
     }
 }

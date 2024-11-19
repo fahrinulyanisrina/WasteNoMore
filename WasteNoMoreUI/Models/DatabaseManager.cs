@@ -123,6 +123,39 @@ namespace WasteNoMoreUI.Models
             }
         }
 
+        // Tambahkan metode ExecuteQueryWithParams
+        public static DataTable ExecuteQueryWithParams(string query, List<NpgsqlParameter> parameters)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (var conn = GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        // Tambahkan parameter jika ada
+                        if (parameters != null)
+                        {
+                            cmd.Parameters.AddRange(parameters.ToArray());
+                        }
+
+                        // Eksekusi query dan load hasilnya ke DataTable
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            dt.Load(reader);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return dt;
+        }
 
     }
+
+
 }
