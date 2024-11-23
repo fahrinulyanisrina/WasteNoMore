@@ -16,11 +16,17 @@ namespace WasteNoMoreUI
     public partial class FormTrack : Form
     {
         private List<Kategori> kategoriList = new List<Kategori>();
+<<<<<<< HEAD
+        private int currentId;
+        public FormTrack(int currentId)
+=======
 
         public FormTrack()
+>>>>>>> 46c7a18e7aa0a98c502448a3924235a7b3a6a813
         {
             InitializeComponent();
             LoadKategori();
+            this.currentId = currentId;
         }
 
         private void LoadKategori()
@@ -51,8 +57,13 @@ namespace WasteNoMoreUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+            //akan membuka form dashboard
+            FormDashboard dashboardForm = new FormDashboard(currentId);
+=======
             // Membuka form dashboard
             FormDashboard dashboardForm = new FormDashboard();
+>>>>>>> 46c7a18e7aa0a98c502448a3924235a7b3a6a813
             dashboardForm.Show();
             this.Hide();
         }

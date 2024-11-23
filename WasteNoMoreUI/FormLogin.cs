@@ -15,6 +15,7 @@ namespace WasteNoMoreUI
 {
     public partial class FormLogin : Form
     {
+        private int curerntID = -1;
         public FormLogin()
         {
             InitializeComponent();
@@ -51,6 +52,8 @@ namespace WasteNoMoreUI
                     {
                         MessageBox.Show("Login berhasil sebagai Admin!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+
                         // Membuka dashboard admin jika login sebagai admin
                         FormDashobardAdmin dashboardAdminForm = new FormDashobardAdmin();
                         dashboardAdminForm.Show();
@@ -70,10 +73,29 @@ namespace WasteNoMoreUI
                             // Verifikasi password input dengan hash password di database
                             if (BCrypt.Net.BCrypt.Verify(password, dbPasswordHash))
                             {
+                                
+
+                                string quickQuery = "SELECT id_pengguna FROM pengguna WHERE username_pengguna = @username";
+
+                                // Set up parameters
+                                List<NpgsqlParameter> parameters = new List<NpgsqlParameter>
+{
+    new NpgsqlParameter("@username", NpgsqlTypes.NpgsqlDbType.Text) { Value = username }
+};
+
+                                // Execute the query and get the result
+                                object result = DatabaseManager.ExecuteScalarQueryParams(quickQuery, parameters);
+
+                                // Check if the result is not null and then convert it
+                                if (result != DBNull.Value && result != null)
+                                {
+                                    curerntID = Convert.ToInt32(result);
+                                }
+
                                 MessageBox.Show("Login berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 // Membuka dashboard pengguna biasa jika login berhasil
-                                FormDashboard dashboardForm = new FormDashboard();
+                                FormDashboard dashboardForm = new FormDashboard(curerntID);
                                 dashboardForm.Show();
                                 this.Hide();
                             }
