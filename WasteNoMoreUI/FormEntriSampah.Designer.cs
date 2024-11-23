@@ -73,7 +73,7 @@
             // 
             lblJudul.AutoSize = true;
             lblJudul.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblJudul.Location = new Point(508, 208);
+            lblJudul.Location = new Point(519, 199);
             lblJudul.Name = "lblJudul";
             lblJudul.Size = new Size(490, 37);
             lblJudul.TabIndex = 26;
@@ -84,7 +84,7 @@
             cmbKategori.FormattingEnabled = true;
             cmbKategori.Location = new Point(680, 312);
             cmbKategori.Name = "cmbKategori";
-            cmbKategori.Size = new Size(242, 40);
+            cmbKategori.Size = new Size(306, 40);
             cmbKategori.TabIndex = 24;
             cmbKategori.SelectedIndexChanged += cmbKategori_SelectedIndexChanged;
             // 
@@ -92,13 +92,13 @@
             // 
             txtBerat.Location = new Point(680, 385);
             txtBerat.Name = "txtBerat";
-            txtBerat.Size = new Size(141, 39);
+            txtBerat.Size = new Size(245, 39);
             txtBerat.TabIndex = 23;
             // 
             // lblKg
             // 
             lblKg.AutoSize = true;
-            lblKg.Location = new Point(846, 388);
+            lblKg.Location = new Point(946, 388);
             lblKg.Name = "lblKg";
             lblKg.Size = new Size(40, 32);
             lblKg.TabIndex = 22;
@@ -125,16 +125,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(524, 208);
+            label1.Location = new Point(535, 199);
             label1.Name = "label1";
             label1.Size = new Size(0, 32);
             label1.TabIndex = 19;
             // 
             // btnCancel
             // 
-            btnCancel.BackColor = SystemColors.ControlDarkDark;
+            btnCancel.BackColor = Color.Brown;
             btnCancel.ForeColor = SystemColors.ButtonHighlight;
-            btnCancel.Location = new Point(550, 512);
+            btnCancel.Location = new Point(589, 494);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(150, 46);
             btnCancel.TabIndex = 41;
@@ -146,7 +146,7 @@
             // 
             btnAdd.BackColor = Color.SteelBlue;
             btnAdd.ForeColor = SystemColors.ButtonHighlight;
-            btnAdd.Location = new Point(785, 512);
+            btnAdd.Location = new Point(794, 494);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(150, 46);
             btnAdd.TabIndex = 40;
