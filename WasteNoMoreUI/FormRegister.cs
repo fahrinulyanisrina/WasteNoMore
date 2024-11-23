@@ -206,6 +206,17 @@ namespace WasteNoMoreUI
 
         }
 
-        
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void llLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //membuka ke form login
+            FormLogin loginForm = new FormLogin();
+            loginForm.Show();
+            this.Hide();
+        }
     }
 }
