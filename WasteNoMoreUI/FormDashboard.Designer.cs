@@ -70,6 +70,7 @@
             pnPanduan.SuspendLayout();
             pnAkun.SuspendLayout();
             pnLogout.SuspendLayout();
+
             SuspendLayout();
             // 
             // lblJudul
@@ -78,8 +79,9 @@
             lblJudul.Font = new Font("Segoe UI Black", 22.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblJudul.Location = new Point(564, 176);
             lblJudul.Margin = new Padding(4, 0, 4, 0);
+
             lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(347, 78);
+            lblJudul.Size = new Size(178, 41);
             lblJudul.TabIndex = 51;
             lblJudul.Text = "Dashboard";
             // 
@@ -90,6 +92,7 @@
             pbEntri.Margin = new Padding(4, 2, 4, 2);
             pbEntri.Name = "pbEntri";
             pbEntri.Size = new Size(215, 213);
+
             pbEntri.SizeMode = PictureBoxSizeMode.StretchImage;
             pbEntri.TabIndex = 52;
             pbEntri.TabStop = false;
@@ -102,6 +105,7 @@
             pbTrack.Margin = new Padding(4, 2, 4, 2);
             pbTrack.Name = "pbTrack";
             pbTrack.Size = new Size(204, 213);
+
             pbTrack.SizeMode = PictureBoxSizeMode.StretchImage;
             pbTrack.TabIndex = 54;
             pbTrack.TabStop = false;
@@ -114,19 +118,22 @@
             pbBanding.Margin = new Padding(4, 2, 4, 2);
             pbBanding.Name = "pbBanding";
             pbBanding.Size = new Size(214, 213);
+
             pbBanding.SizeMode = PictureBoxSizeMode.StretchImage;
             pbBanding.TabIndex = 56;
             pbBanding.TabStop = false;
             pbBanding.Click += pbBanding_Click;
             // 
+
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(477, 274);
             label1.Margin = new Padding(4, 0, 4, 0);
+
             label1.Name = "label1";
-            label1.Size = new Size(489, 40);
+            label1.Size = new Size(249, 20);
             label1.TabIndex = 58;
             label1.Text = "Selamat Datang di WasteNoMOre!";
             // 
@@ -136,8 +143,9 @@
             lblEntriSampah.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblEntriSampah.Location = new Point(336, 698);
             lblEntriSampah.Margin = new Padding(4, 0, 4, 0);
+
             lblEntriSampah.Name = "lblEntriSampah";
-            lblEntriSampah.Size = new Size(0, 40);
+            lblEntriSampah.Size = new Size(0, 20);
             lblEntriSampah.TabIndex = 59;
             // 
             // lblTrack
@@ -146,8 +154,9 @@
             lblTrack.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTrack.Location = new Point(622, 694);
             lblTrack.Margin = new Padding(4, 0, 4, 0);
+
             lblTrack.Name = "lblTrack";
-            lblTrack.Size = new Size(242, 40);
+            lblTrack.Size = new Size(126, 20);
             lblTrack.TabIndex = 61;
             lblTrack.Text = "Tracking Sampah";
             // 
@@ -157,8 +166,9 @@
             lblBanding.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblBanding.Location = new Point(952, 692);
             lblBanding.Margin = new Padding(4, 0, 4, 0);
+
             lblBanding.Name = "lblBanding";
-            lblBanding.Size = new Size(213, 40);
+            lblBanding.Size = new Size(112, 20);
             lblBanding.TabIndex = 62;
             lblBanding.Text = "Banding Harga";
             // 
@@ -168,8 +178,9 @@
             lblEntri.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblEntri.Location = new Point(341, 698);
             lblEntri.Margin = new Padding(4, 0, 4, 0);
+
             lblEntri.Name = "lblEntri";
-            lblEntri.Size = new Size(192, 40);
+            lblEntri.Size = new Size(100, 20);
             lblEntri.TabIndex = 63;
             lblEntri.Text = "Entri Sampah";
             // 
@@ -389,15 +400,17 @@
             // 
             sidebarTransition.Interval = 10;
             sidebarTransition.Tick += sidebarTransition_Tick;
+
             // 
             // FormDashboard
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1474, 929);
             Controls.Add(sidebar);
             Controls.Add(pnNavbar);
+
             Controls.Add(lblEntri);
             Controls.Add(lblBanding);
             Controls.Add(lblTrack);
@@ -408,6 +421,7 @@
             Controls.Add(pbEntri);
             Controls.Add(lblJudul);
             Margin = new Padding(4, 2, 4, 2);
+
             Name = "FormDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDashboard";
@@ -425,6 +439,7 @@
             pnPanduan.ResumeLayout(false);
             pnAkun.ResumeLayout(false);
             pnLogout.ResumeLayout(false);
+
             ResumeLayout(false);
             PerformLayout();
         }
@@ -457,5 +472,6 @@
         private Panel pnLogout;
         private Button btnNavbarLogout;
         private System.Windows.Forms.Timer sidebarTransition;
+
     }
 }

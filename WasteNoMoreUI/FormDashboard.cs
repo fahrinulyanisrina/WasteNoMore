@@ -15,7 +15,8 @@ namespace WasteNoMoreUI
 {
     public partial class FormDashboard : Form
     {
-        public FormDashboard()
+        private int currentId;
+        public FormDashboard(int currentId)
         {
             InitializeComponent();
             this.currentId = currentId;
@@ -23,6 +24,7 @@ namespace WasteNoMoreUI
 
             sidebar.Width = 0;
             sidebarExpand = false;
+
         }
 
         private void FormDashboard_Load(object sender, EventArgs e)
@@ -56,7 +58,7 @@ namespace WasteNoMoreUI
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             //ketika button Entri Sampah di-klik maka form entri sampah dibuka
-            FormEntriSampah inputSampahForm = new FormEntriSampah();
+            FormEntriSampah inputSampahForm = new FormEntriSampah(currentId);
             inputSampahForm.Show();
             //form dashboard ditutup
             this.Hide();
@@ -65,7 +67,7 @@ namespace WasteNoMoreUI
         private void pbTrack_Click(object sender, EventArgs e)
         {
             //ketika button Track Sampah di-klik maka form track sampah dibuka
-            FormTrack formTrackSampah = new FormTrack();
+            FormTrack formTrackSampah = new FormTrack(currentId);
             formTrackSampah.Show();
             //form dashboard ditutup
             this.Hide();
@@ -74,7 +76,7 @@ namespace WasteNoMoreUI
         private void pbBanding_Click(object sender, EventArgs e)
         {
             //ketika button Banding Harga di-klik maka form banidng harga dibuka
-            FormBandingHarga formBandingHarga = new FormBandingHarga();
+            FormBandingHarga formBandingHarga = new FormBandingHarga(currentId);
             formBandingHarga.Show();
             //form dashboard ditutup
 
@@ -187,5 +189,6 @@ namespace WasteNoMoreUI
 
             }
         }
+
     }
 }

@@ -16,6 +16,7 @@ namespace WasteNoMoreUI
     {
         private int currentId;
         bool sidebarExpand = false;
+
         public FormBandingHarga(int currentId)
         {
             InitializeComponent();
@@ -222,7 +223,7 @@ namespace WasteNoMoreUI
 
         private void btnCancelBanding_Click(object sender, EventArgs e)
         {
-            FormDashboard dashboardForm = new FormDashboard();
+            FormDashboard dashboardForm = new FormDashboard(currentId);
             dashboardForm.Show();
             this.Hide();
         }

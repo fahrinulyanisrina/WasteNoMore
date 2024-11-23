@@ -18,7 +18,6 @@ namespace WasteNoMoreUI
         private List<Kategori> kategoriList = new List<Kategori>();
         private int currentId;
         bool sidebarExpand = false;
-
         public FormTrack(int currentId)
         {
             InitializeComponent();
@@ -27,6 +26,7 @@ namespace WasteNoMoreUI
 
             sidebar.Width = 100;
             sidebarExpand = false;
+
         }
 
         private void LoadKategori()
@@ -59,7 +59,6 @@ namespace WasteNoMoreUI
         {
             //akan membuka form dashboard
             FormDashboard dashboardForm = new FormDashboard(currentId);
-
             dashboardForm.Show();
             this.Hide();
         }

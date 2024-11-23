@@ -18,7 +18,6 @@ namespace WasteNoMoreUI
         private int currentId;
         bool sidebarExpand = false;
 
-
         public FormEntriSampah(int currentId)
         {
             InitializeComponent();
@@ -27,6 +26,7 @@ namespace WasteNoMoreUI
 
             sidebar.Width = 100;
             sidebarExpand = false;
+
         }
 
         private void LoadKategori()
@@ -58,7 +58,7 @@ namespace WasteNoMoreUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FormDashboard dashboardForm = new FormDashboard();
+            FormDashboard dashboardForm = new FormDashboard(currentId);
             dashboardForm.Show();
             this.Hide();
         }
