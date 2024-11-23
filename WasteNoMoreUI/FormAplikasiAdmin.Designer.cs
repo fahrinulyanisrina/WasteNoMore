@@ -210,7 +210,7 @@
             Controls.Add(txtDeskripsiAplikasi);
             Controls.Add(lblEmail);
             Controls.Add(lblNamaPengguna);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FormAplikasiAdmin";
             Text = "FormAplikasiAdmin";
             Load += FormAplikasiAdmin_Load;

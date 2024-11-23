@@ -10,6 +10,7 @@ namespace WasteNoMoreUI
 {
     public partial class FormGrafikTrack : Form
     {
+        private int currentId;
         private Kategori kategori;
         private DateTime waktuAwal;
         private DateTime waktuAkhir;
@@ -77,7 +78,7 @@ namespace WasteNoMoreUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            FormTrack trackForm = new FormTrack();
+            FormTrack trackForm = new FormTrack(currentId);
             trackForm.Show();
             this.Close(); // Tutup form grafik
         }
