@@ -125,7 +125,6 @@ namespace WasteNoMoreUI
             pnTrack.Width = sidebar.Width;
         }
 
-
         private void pbNavbar_Click(object sender, EventArgs e)
         {
             sidebarTransition.Start();
@@ -189,6 +188,5 @@ namespace WasteNoMoreUI
 
             }
         }
-
     }
 }
