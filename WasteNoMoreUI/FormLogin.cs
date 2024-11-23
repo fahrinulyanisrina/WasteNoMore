@@ -34,7 +34,7 @@ namespace WasteNoMoreUI
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            // Validasi input apakah kosong
+            // Validasi input apakah ada yang kosong
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Username dan Password harus diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -47,7 +47,7 @@ namespace WasteNoMoreUI
                 {
                     conn.Open();
 
-                    // Jika username adalah "admin", langsung arahkan ke dashboard admin tanpa memverifikasi password hash
+                    // Jika login sebagai admin
                     if (username == "admin" && password == "password123")
                     {
                         MessageBox.Show("Login berhasil sebagai Admin!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -77,22 +77,17 @@ namespace WasteNoMoreUI
 
                                 string quickQuery = "SELECT id_pengguna FROM pengguna WHERE username_pengguna = @username";
 
-                                // Set up parameters
                                 List<NpgsqlParameter> parameters = new List<NpgsqlParameter>
 {
     new NpgsqlParameter("@username", NpgsqlTypes.NpgsqlDbType.Text) { Value = username }
 };
 
-                                // Execute the query and get the result
                                 object result = DatabaseManager.ExecuteScalarQueryParams(quickQuery, parameters);
 
-                                // Check if the result is not null and then convert it
                                 if (result != DBNull.Value && result != null)
                                 {
                                     curerntID = Convert.ToInt32(result);
                                 }
-
-                                MessageBox.Show("Login berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 // Membuka dashboard pengguna biasa jika login berhasil
                                 FormDashboard dashboardForm = new FormDashboard(curerntID);
@@ -113,7 +108,6 @@ namespace WasteNoMoreUI
             }
             catch (Exception ex)
             {
-                // Menampilkan pesan error jika terjadi kesalahan
                 MessageBox.Show("Error: " + ex.Message, "FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
