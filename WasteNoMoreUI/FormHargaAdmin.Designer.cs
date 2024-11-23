@@ -54,7 +54,9 @@
             // 
             // btnBackHarga
             // 
-            btnBackHarga.BackColor = SystemColors.ScrollBar;
+            btnBackHarga.BackColor = Color.Brown;
+            btnBackHarga.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBackHarga.ForeColor = Color.White;
             btnBackHarga.Location = new Point(1336, 836);
             btnBackHarga.Name = "btnBackHarga";
             btnBackHarga.Size = new Size(150, 46);
@@ -76,6 +78,7 @@
             // 
             // dgvHarga
             // 
+            dgvHarga.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHarga.BackgroundColor = SystemColors.ButtonHighlight;
             dgvHarga.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvHarga.Location = new Point(112, 398);
@@ -151,6 +154,7 @@
             // btnLoadHarga
             // 
             btnLoadHarga.BackColor = Color.SteelBlue;
+            btnLoadHarga.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLoadHarga.ForeColor = SystemColors.ButtonHighlight;
             btnLoadHarga.Location = new Point(766, 755);
             btnLoadHarga.Name = "btnLoadHarga";
@@ -249,6 +253,7 @@
             Controls.Add(lblAplikasiHarga);
             Margin = new Padding(4);
             Name = "FormHargaAdmin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormHargaAdmin";
             Load += FormHargaAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)dgvHarga).EndInit();
