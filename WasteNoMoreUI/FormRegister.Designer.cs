@@ -47,6 +47,8 @@
             label1 = new Label();
             llLogin = new LinkLabel();
             label2 = new Label();
+            txtKonfirmasiPassword = new TextBox();
+            label3 = new Label();
             panelRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -57,32 +59,33 @@
             btnDaftar.FlatStyle = FlatStyle.Flat;
             btnDaftar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDaftar.ForeColor = SystemColors.ButtonHighlight;
-            btnDaftar.Location = new Point(872, 608);
+            btnDaftar.Location = new Point(916, 627);
             btnDaftar.Name = "btnDaftar";
             btnDaftar.Size = new Size(400, 46);
             btnDaftar.TabIndex = 38;
-            btnDaftar.Text = "Daftar";
+            btnDaftar.Text = "Sign-Up";
             btnDaftar.UseVisualStyleBackColor = false;
             btnDaftar.Click += btnDaftar_Click;
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(872, 244);
+            txtUsername.Location = new Point(916, 241);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(400, 39);
             txtUsername.TabIndex = 36;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(872, 311);
+            txtPassword.Location = new Point(916, 298);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(400, 39);
             txtPassword.TabIndex = 35;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // lblPasswordd
             // 
             lblPasswordd.AutoSize = true;
-            lblPasswordd.Location = new Point(729, 313);
+            lblPasswordd.Location = new Point(773, 300);
             lblPasswordd.Name = "lblPasswordd";
             lblPasswordd.Size = new Size(123, 32);
             lblPasswordd.TabIndex = 34;
@@ -91,7 +94,7 @@
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(719, 244);
+            lblUsername.Location = new Point(763, 241);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(133, 32);
             lblUsername.TabIndex = 33;
@@ -99,14 +102,15 @@
             // 
             // txtNamaPengguna
             // 
-            txtNamaPengguna.Location = new Point(872, 174);
+            txtNamaPengguna.Location = new Point(916, 183);
             txtNamaPengguna.Name = "txtNamaPengguna";
             txtNamaPengguna.Size = new Size(400, 39);
             txtNamaPengguna.TabIndex = 43;
+            txtNamaPengguna.TextChanged += txtNamaPengguna_TextChanged;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(872, 376);
+            txtEmail.Location = new Point(916, 417);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(400, 39);
             txtEmail.TabIndex = 42;
@@ -114,7 +118,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(769, 383);
+            lblEmail.Location = new Point(813, 424);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(83, 32);
             lblEmail.TabIndex = 41;
@@ -123,18 +127,19 @@
             // lblNamaPengguna
             // 
             lblNamaPengguna.AutoSize = true;
-            lblNamaPengguna.Location = new Point(763, 176);
+            lblNamaPengguna.Location = new Point(807, 185);
             lblNamaPengguna.Name = "lblNamaPengguna";
             lblNamaPengguna.Size = new Size(89, 32);
             lblNamaPengguna.TabIndex = 40;
             lblNamaPengguna.Text = "Nama :";
+            lblNamaPengguna.Click += lblNamaPengguna_Click;
             // 
             // lblLogin
             // 
             lblLogin.AutoSize = true;
             lblLogin.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblLogin.ForeColor = Color.Black;
-            lblLogin.Location = new Point(824, 741);
+            lblLogin.Location = new Point(817, 741);
             lblLogin.Name = "lblLogin";
             lblLogin.Size = new Size(306, 40);
             lblLogin.TabIndex = 44;
@@ -142,7 +147,7 @@
             // 
             // tbOtp
             // 
-            tbOtp.Location = new Point(872, 516);
+            tbOtp.Location = new Point(916, 534);
             tbOtp.Name = "tbOtp";
             tbOtp.Size = new Size(400, 39);
             tbOtp.TabIndex = 48;
@@ -150,7 +155,7 @@
             // lblOtp
             // 
             lblOtp.AutoSize = true;
-            lblOtp.Location = new Point(727, 517);
+            lblOtp.Location = new Point(771, 535);
             lblOtp.Name = "lblOtp";
             lblOtp.Size = new Size(130, 32);
             lblOtp.TabIndex = 47;
@@ -162,7 +167,7 @@
             btnOtp.FlatStyle = FlatStyle.Flat;
             btnOtp.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnOtp.ForeColor = SystemColors.ButtonHighlight;
-            btnOtp.Location = new Point(1026, 435);
+            btnOtp.Location = new Point(1070, 472);
             btnOtp.Name = "btnOtp";
             btnOtp.Size = new Size(246, 46);
             btnOtp.TabIndex = 49;
@@ -210,7 +215,7 @@
             llLogin.DisabledLinkColor = Color.FromArgb(37, 74, 116);
             llLogin.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             llLogin.LinkColor = SystemColors.Highlight;
-            llLogin.Location = new Point(1127, 741);
+            llLogin.Location = new Point(1120, 741);
             llLogin.Name = "llLogin";
             llLogin.Size = new Size(102, 40);
             llLogin.TabIndex = 51;
@@ -222,11 +227,31 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(730, 49);
+            label2.Location = new Point(892, 79);
             label2.Name = "label2";
-            label2.Size = new Size(577, 50);
+            label2.Size = new Size(316, 50);
             label2.TabIndex = 52;
-            label2.Text = "Buat Akun WasteNoMore Anda!";
+            label2.Text = "Buat Akun Anda!";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtKonfirmasiPassword
+            // 
+            txtKonfirmasiPassword.Location = new Point(916, 359);
+            txtKonfirmasiPassword.Name = "txtKonfirmasiPassword";
+            txtKonfirmasiPassword.Size = new Size(400, 39);
+            txtKonfirmasiPassword.TabIndex = 54;
+            txtKonfirmasiPassword.UseSystemPasswordChar = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(655, 361);
+            label3.Name = "label3";
+            label3.Size = new Size(242, 32);
+            label3.TabIndex = 53;
+            label3.Text = "Konfirmasi Password :";
+            label3.TextAlign = ContentAlignment.MiddleRight;
+            label3.Click += label3_Click;
             // 
             // FormRegister
             // 
@@ -234,6 +259,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1474, 829);
+            Controls.Add(txtKonfirmasiPassword);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(llLogin);
             Controls.Add(panelRegister);
@@ -280,5 +307,7 @@
         private Label label1;
         private LinkLabel llLogin;
         private Label label2;
+        private TextBox txtKonfirmasiPassword;
+        private Label label3;
     }
 }
