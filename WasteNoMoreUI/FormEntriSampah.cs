@@ -66,10 +66,16 @@ namespace WasteNoMoreUI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //validasi input sudah terisi
+            if (cmbKategori.SelectedIndex == -1)
+            {
+                //jika ada yang belum terisi, tampilkan feedback
+                MessageBox.Show("Pastikan sudah memilih kategori!");
+                return;
+            }
             if (cmbKategori.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtBerat.Text))
             {
                 //jika ada yang belum terisi, tampilkan feedback
-                MessageBox.Show("Pastikan sudah memilih kategori dan masukkan jumlah sampah!");
+                MessageBox.Show("Pastikan sudah memasukkan berat sampah!");
                 return;
             }
             //validasi tipe data yang dimasukkan dalam variable berat sampah

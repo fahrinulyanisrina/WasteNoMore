@@ -38,7 +38,6 @@
             cmbKategori = new ComboBox();
             label3 = new Label();
             label2 = new Label();
-            label6 = new Label();
             sidebarTransition = new System.Windows.Forms.Timer(components);
             sidebar = new FlowLayoutPanel();
             pnDashboard = new Panel();
@@ -57,6 +56,7 @@
             btnNavbarLogout = new Button();
             pnNavbar = new Panel();
             pbNavbar = new PictureBox();
+            lblJudul = new Label();
             sidebar.SuspendLayout();
             pnDashboard.SuspendLayout();
             pnEntri.SuspendLayout();
@@ -71,9 +71,9 @@
             // 
             // btnCancel
             // 
-            btnCancel.BackColor = SystemColors.ControlDarkDark;
+            btnCancel.BackColor = Color.Brown;
             btnCancel.ForeColor = SystemColors.ControlLightLight;
-            btnCancel.Location = new Point(553, 565);
+            btnCancel.Location = new Point(617, 567);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(150, 46);
             btnCancel.TabIndex = 50;
@@ -83,9 +83,9 @@
             // 
             // btnTrack
             // 
-            btnTrack.BackColor = SystemColors.HotTrack;
+            btnTrack.BackColor = Color.SteelBlue;
             btnTrack.ForeColor = SystemColors.ControlLightLight;
-            btnTrack.Location = new Point(732, 565);
+            btnTrack.Location = new Point(867, 567);
             btnTrack.Name = "btnTrack";
             btnTrack.Size = new Size(150, 46);
             btnTrack.TabIndex = 49;
@@ -121,7 +121,7 @@
             cmbKategori.FormattingEnabled = true;
             cmbKategori.Location = new Point(617, 295);
             cmbKategori.Name = "cmbKategori";
-            cmbKategori.Size = new Size(242, 40);
+            cmbKategori.Size = new Size(400, 40);
             cmbKategori.TabIndex = 45;
             // 
             // label3
@@ -141,16 +141,6 @@
             label2.Size = new Size(115, 32);
             label2.TabIndex = 43;
             label2.Text = "Kategori :";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(635, 208);
-            label6.Name = "label6";
-            label6.Size = new Size(187, 37);
-            label6.TabIndex = 42;
-            label6.Text = "Track Sampah";
             // 
             // sidebarTransition
             // 
@@ -370,12 +360,24 @@
             pbNavbar.TabStop = false;
             pbNavbar.Click += pbNavbar_Click;
             // 
+            // lblJudul
+            // 
+            lblJudul.AutoSize = true;
+            lblJudul.Font = new Font("Segoe UI", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblJudul.Location = new Point(663, 163);
+            lblJudul.Name = "lblJudul";
+            lblJudul.Size = new Size(297, 40);
+            lblJudul.TabIndex = 71;
+            lblJudul.Text = "Track Sampah Anda!";
+            lblJudul.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FormTrack
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1474, 829);
+            Controls.Add(lblJudul);
             Controls.Add(sidebar);
             Controls.Add(pnNavbar);
             Controls.Add(btnCancel);
@@ -386,7 +388,6 @@
             Controls.Add(cmbKategori);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label6);
             Name = "FormTrack";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormTrack";
@@ -414,7 +415,6 @@
         private ComboBox cmbKategori;
         private Label label3;
         private Label label2;
-        private Label label6;
         private System.Windows.Forms.Timer sidebarTransition;
         private FlowLayoutPanel sidebar;
         private Panel pnDashboard;
@@ -433,5 +433,6 @@
         private Button btnNavbarLogout;
         private Panel pnNavbar;
         private PictureBox pbNavbar;
+        private Label lblJudul;
     }
 }

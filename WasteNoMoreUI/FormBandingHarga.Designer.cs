@@ -76,9 +76,9 @@
             // 
             // btnCancelBanding
             // 
-            btnCancelBanding.BackColor = SystemColors.ControlDarkDark;
+            btnCancelBanding.BackColor = Color.Brown;
             btnCancelBanding.ForeColor = SystemColors.ButtonHighlight;
-            btnCancelBanding.Location = new Point(1231, 771);
+            btnCancelBanding.Location = new Point(1239, 771);
             btnCancelBanding.Name = "btnCancelBanding";
             btnCancelBanding.Size = new Size(150, 46);
             btnCancelBanding.TabIndex = 50;
@@ -88,9 +88,9 @@
             // 
             // btnBandingkan
             // 
-            btnBandingkan.BackColor = SystemColors.HotTrack;
+            btnBandingkan.BackColor = Color.SteelBlue;
             btnBandingkan.ForeColor = SystemColors.ButtonHighlight;
-            btnBandingkan.Location = new Point(1105, 315);
+            btnBandingkan.Location = new Point(1086, 315);
             btnBandingkan.Name = "btnBandingkan";
             btnBandingkan.Size = new Size(198, 46);
             btnBandingkan.TabIndex = 49;
@@ -102,7 +102,7 @@
             // 
             lblBandingHarga.AutoSize = true;
             lblBandingHarga.Font = new Font("Segoe UI Semibold", 11.125F, FontStyle.Bold);
-            lblBandingHarga.Location = new Point(478, 119);
+            lblBandingHarga.Location = new Point(486, 119);
             lblBandingHarga.Name = "lblBandingHarga";
             lblBandingHarga.Size = new Size(678, 41);
             lblBandingHarga.TabIndex = 48;
@@ -111,7 +111,7 @@
             // 
             // txtKuantitas
             // 
-            txtKuantitas.Location = new Point(1163, 214);
+            txtKuantitas.Location = new Point(1171, 214);
             txtKuantitas.Name = "txtKuantitas";
             txtKuantitas.Size = new Size(140, 39);
             txtKuantitas.TabIndex = 46;
@@ -119,7 +119,7 @@
             // lblKg
             // 
             lblKg.AutoSize = true;
-            lblKg.Location = new Point(1329, 216);
+            lblKg.Location = new Point(1326, 217);
             lblKg.Name = "lblKg";
             lblKg.Size = new Size(40, 32);
             lblKg.TabIndex = 45;
@@ -128,7 +128,7 @@
             // lblBeratBanding
             // 
             lblBeratBanding.AutoSize = true;
-            lblBeratBanding.Location = new Point(982, 214);
+            lblBeratBanding.Location = new Point(990, 214);
             lblBeratBanding.Name = "lblBeratBanding";
             lblBeratBanding.Size = new Size(174, 32);
             lblBeratBanding.TabIndex = 44;
@@ -138,7 +138,7 @@
             // 
             lblKategoriBanding.AutoSize = true;
             lblKategoriBanding.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblKategoriBanding.Location = new Point(562, 214);
+            lblKategoriBanding.Location = new Point(570, 214);
             lblKategoriBanding.Name = "lblKategoriBanding";
             lblKategoriBanding.Size = new Size(115, 32);
             lblKategoriBanding.TabIndex = 43;
@@ -156,7 +156,7 @@
             // 
             dgvBandingHarga.BackgroundColor = SystemColors.GradientInactiveCaption;
             dgvBandingHarga.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBandingHarga.Location = new Point(178, 486);
+            dgvBandingHarga.Location = new Point(186, 486);
             dgvBandingHarga.Margin = new Padding(4);
             dgvBandingHarga.Name = "dgvBandingHarga";
             dgvBandingHarga.RowHeadersWidth = 62;
@@ -167,7 +167,7 @@
             // lblAplikasiBanding
             // 
             lblAplikasiBanding.AutoSize = true;
-            lblAplikasiBanding.Location = new Point(178, 214);
+            lblAplikasiBanding.Location = new Point(186, 214);
             lblAplikasiBanding.Name = "lblAplikasiBanding";
             lblAplikasiBanding.Size = new Size(107, 32);
             lblAplikasiBanding.TabIndex = 54;
@@ -176,7 +176,7 @@
             // clbAplikasi
             // 
             clbAplikasi.FormattingEnabled = true;
-            clbAplikasi.Location = new Point(291, 214);
+            clbAplikasi.Location = new Point(299, 214);
             clbAplikasi.Margin = new Padding(4);
             clbAplikasi.Name = "clbAplikasi";
             clbAplikasi.Size = new Size(242, 148);
@@ -186,7 +186,7 @@
             // clbKategori
             // 
             clbKategori.FormattingEnabled = true;
-            clbKategori.Location = new Point(680, 214);
+            clbKategori.Location = new Point(688, 214);
             clbKategori.Margin = new Padding(4);
             clbKategori.Name = "clbKategori";
             clbKategori.Size = new Size(242, 148);
@@ -415,7 +415,7 @@
             // 
             lblHasilPerbandingan.AutoSize = true;
             lblHasilPerbandingan.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            lblHasilPerbandingan.Location = new Point(653, 432);
+            lblHasilPerbandingan.Location = new Point(661, 432);
             lblHasilPerbandingan.Name = "lblHasilPerbandingan";
             lblHasilPerbandingan.Size = new Size(268, 37);
             lblHasilPerbandingan.TabIndex = 72;
