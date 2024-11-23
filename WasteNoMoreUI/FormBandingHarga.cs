@@ -89,6 +89,22 @@ namespace WasteNoMoreUI
             }
         }
 
+        private void ClearInputFields()
+        {
+            foreach (int i in clbAplikasi.CheckedIndices)
+            {
+                clbAplikasi.SetItemCheckState(i, CheckState.Unchecked);
+            }
+
+            foreach (int i in clbKategori.CheckedIndices)
+            {
+                clbKategori.SetItemCheckState(i, CheckState.Unchecked);
+            }
+
+            txtKuantitas.Text = string.Empty;
+        }
+
+
         private void btnBandingkan_Click(object sender, EventArgs e)
         {
             try
@@ -197,7 +213,7 @@ namespace WasteNoMoreUI
                         }
                     }
 
-                    MessageBox.Show("Perbandingan harga berhasil.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearInputFields();
                 }
             }
             catch (Exception ex)
