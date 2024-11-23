@@ -188,5 +188,12 @@ namespace WasteNoMoreUI
 
             }
         }
+
+        private void btnNavbarDashboard_Click(object sender, EventArgs e)
+        {
+            FormDashboard dashboardForm = new FormDashboard(currentId);
+            dashboardForm.Show();
+            this.Hide();
+        }
     }
 }
