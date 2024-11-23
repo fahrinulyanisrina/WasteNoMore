@@ -182,7 +182,7 @@
             panel1.Controls.Add(lblLogin);
             panel1.Controls.Add(btnLogin);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(520, 750);
             panel1.TabIndex = 46;
@@ -234,7 +234,7 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1040, 745);
+            ClientSize = new Size(1474, 829);
             Controls.Add(btnOtp);
             Controls.Add(tbOtp);
             Controls.Add(lblOtp);

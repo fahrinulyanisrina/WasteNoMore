@@ -53,9 +53,10 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1474, 829);
             Controls.Add(btnClose);
             Name = "FormGrafikTrack";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormGrafikTrack";
             Load += FormGrafikTrack_Load;
             ResumeLayout(false);
