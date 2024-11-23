@@ -51,7 +51,9 @@
             // 
             // btnBackAplikasi
             // 
-            btnBackAplikasi.BackColor = SystemColors.ControlLight;
+            btnBackAplikasi.BackColor = Color.Brown;
+            btnBackAplikasi.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBackAplikasi.ForeColor = Color.White;
             btnBackAplikasi.Location = new Point(1336, 837);
             btnBackAplikasi.Name = "btnBackAplikasi";
             btnBackAplikasi.Size = new Size(150, 46);
@@ -73,6 +75,7 @@
             // 
             // dgvAplikasi
             // 
+            dgvAplikasi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAplikasi.BackgroundColor = SystemColors.ButtonHighlight;
             dgvAplikasi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAplikasi.Location = new Point(112, 399);
@@ -148,6 +151,7 @@
             // btnLoadAplikasi
             // 
             btnLoadAplikasi.BackColor = Color.SteelBlue;
+            btnLoadAplikasi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLoadAplikasi.ForeColor = SystemColors.ButtonHighlight;
             btnLoadAplikasi.Location = new Point(766, 756);
             btnLoadAplikasi.Name = "btnLoadAplikasi";
@@ -212,6 +216,7 @@
             Controls.Add(lblNamaPengguna);
             Margin = new Padding(4);
             Name = "FormAplikasiAdmin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormAplikasiAdmin";
             Load += FormAplikasiAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAplikasi).EndInit();
