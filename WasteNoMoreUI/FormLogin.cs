@@ -73,7 +73,7 @@ namespace WasteNoMoreUI
                             // Verifikasi password input dengan hash password di database
                             if (BCrypt.Net.BCrypt.Verify(password, dbPasswordHash))
                             {
-                                
+
 
                                 string quickQuery = "SELECT id_pengguna FROM pengguna WHERE username_pengguna = @username";
 
@@ -113,6 +113,13 @@ namespace WasteNoMoreUI
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
+        {
+            FormRegister registerForm = new FormRegister();
+            registerForm.Show();
+            this.Hide();
+        }
+
+        private void llRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormRegister registerForm = new FormRegister();
             registerForm.Show();

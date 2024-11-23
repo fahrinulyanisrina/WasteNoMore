@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnCancel = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegister));
             btnDaftar = new Button();
-            lblJudul = new Label();
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             lblPasswordd = new Label();
@@ -39,29 +38,18 @@
             txtEmail = new TextBox();
             lblEmail = new Label();
             lblNamaPengguna = new Label();
-            btnLogin = new Button();
             lblLogin = new Label();
-            panel1 = new Panel();
-            lblRegister = new Label();
             tbOtp = new TextBox();
             lblOtp = new Label();
             btnOtp = new Button();
-            panel1.SuspendLayout();
+            panelRegister = new Panel();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            llLogin = new LinkLabel();
+            label2 = new Label();
+            panelRegister.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // btnCancel
-            // 
-            btnCancel.BackColor = SystemColors.ControlDarkDark;
-            btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancel.ForeColor = SystemColors.ButtonHighlight;
-            btnCancel.Location = new Point(591, 660);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(150, 46);
-            btnCancel.TabIndex = 39;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = false;
-            btnCancel.Click += btnCancel_Click;
             // 
             // btnDaftar
             // 
@@ -69,43 +57,32 @@
             btnDaftar.FlatStyle = FlatStyle.Flat;
             btnDaftar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDaftar.ForeColor = SystemColors.ButtonHighlight;
-            btnDaftar.Location = new Point(804, 660);
+            btnDaftar.Location = new Point(872, 608);
             btnDaftar.Name = "btnDaftar";
-            btnDaftar.Size = new Size(150, 46);
+            btnDaftar.Size = new Size(400, 46);
             btnDaftar.TabIndex = 38;
             btnDaftar.Text = "Daftar";
             btnDaftar.UseVisualStyleBackColor = false;
             btnDaftar.Click += btnDaftar_Click;
             // 
-            // lblJudul
-            // 
-            lblJudul.AutoSize = true;
-            lblJudul.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblJudul.Location = new Point(693, 65);
-            lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(223, 37);
-            lblJudul.TabIndex = 37;
-            lblJudul.Text = "Buat Akun Anda!";
-            lblJudul.Click += lblJudul_Click_1;
-            // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(693, 210);
+            txtUsername.Location = new Point(872, 244);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(300, 39);
+            txtUsername.Size = new Size(400, 39);
             txtUsername.TabIndex = 36;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(693, 277);
+            txtPassword.Location = new Point(872, 311);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(300, 39);
+            txtPassword.Size = new Size(400, 39);
             txtPassword.TabIndex = 35;
             // 
             // lblPasswordd
             // 
             lblPasswordd.AutoSize = true;
-            lblPasswordd.Location = new Point(550, 279);
+            lblPasswordd.Location = new Point(729, 313);
             lblPasswordd.Name = "lblPasswordd";
             lblPasswordd.Size = new Size(123, 32);
             lblPasswordd.TabIndex = 34;
@@ -114,7 +91,7 @@
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(540, 210);
+            lblUsername.Location = new Point(719, 244);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(133, 32);
             lblUsername.TabIndex = 33;
@@ -122,22 +99,22 @@
             // 
             // txtNamaPengguna
             // 
-            txtNamaPengguna.Location = new Point(693, 140);
+            txtNamaPengguna.Location = new Point(872, 174);
             txtNamaPengguna.Name = "txtNamaPengguna";
-            txtNamaPengguna.Size = new Size(300, 39);
+            txtNamaPengguna.Size = new Size(400, 39);
             txtNamaPengguna.TabIndex = 43;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(693, 342);
+            txtEmail.Location = new Point(872, 376);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(300, 39);
+            txtEmail.Size = new Size(400, 39);
             txtEmail.TabIndex = 42;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(590, 349);
+            lblEmail.Location = new Point(769, 383);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(83, 32);
             lblEmail.TabIndex = 41;
@@ -146,70 +123,34 @@
             // lblNamaPengguna
             // 
             lblNamaPengguna.AutoSize = true;
-            lblNamaPengguna.Location = new Point(584, 142);
+            lblNamaPengguna.Location = new Point(763, 176);
             lblNamaPengguna.Name = "lblNamaPengguna";
             lblNamaPengguna.Size = new Size(89, 32);
             lblNamaPengguna.TabIndex = 40;
             lblNamaPengguna.Text = "Nama :";
             // 
-            // btnLogin
-            // 
-            btnLogin.BackColor = Color.FromArgb(7, 99, 102);
-            btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogin.ForeColor = SystemColors.ButtonHighlight;
-            btnLogin.Location = new Point(174, 442);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(150, 46);
-            btnLogin.TabIndex = 45;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = false;
-            // 
             // lblLogin
             // 
             lblLogin.AutoSize = true;
-            lblLogin.ForeColor = Color.White;
-            lblLogin.Location = new Point(56, 387);
+            lblLogin.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLogin.ForeColor = Color.Black;
+            lblLogin.Location = new Point(824, 741);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(404, 32);
+            lblLogin.Size = new Size(306, 40);
             lblLogin.TabIndex = 44;
-            lblLogin.Text = "Sudah memiliki akun? Silakan Login!";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(7, 99, 102);
-            panel1.Controls.Add(lblRegister);
-            panel1.Controls.Add(lblLogin);
-            panel1.Controls.Add(btnLogin);
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(520, 750);
-            panel1.TabIndex = 46;
-            // 
-            // lblRegister
-            // 
-            lblRegister.AutoSize = true;
-            lblRegister.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblRegister.ForeColor = Color.White;
-            lblRegister.Location = new Point(95, 164);
-            lblRegister.Margin = new Padding(4, 0, 4, 0);
-            lblRegister.Name = "lblRegister";
-            lblRegister.Size = new Size(338, 51);
-            lblRegister.TabIndex = 46;
-            lblRegister.Text = "WASTE NO MORE";
+            lblLogin.Text = "Sudah memiliki akun?";
             // 
             // tbOtp
             // 
-            tbOtp.Location = new Point(684, 523);
+            tbOtp.Location = new Point(872, 516);
             tbOtp.Name = "tbOtp";
-            tbOtp.Size = new Size(300, 39);
+            tbOtp.Size = new Size(400, 39);
             tbOtp.TabIndex = 48;
             // 
             // lblOtp
             // 
             lblOtp.AutoSize = true;
-            lblOtp.Location = new Point(539, 524);
+            lblOtp.Location = new Point(727, 517);
             lblOtp.Name = "lblOtp";
             lblOtp.Size = new Size(130, 32);
             lblOtp.TabIndex = 47;
@@ -221,7 +162,7 @@
             btnOtp.FlatStyle = FlatStyle.Flat;
             btnOtp.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnOtp.ForeColor = SystemColors.ButtonHighlight;
-            btnOtp.Location = new Point(670, 442);
+            btnOtp.Location = new Point(1026, 435);
             btnOtp.Name = "btnOtp";
             btnOtp.Size = new Size(246, 46);
             btnOtp.TabIndex = 49;
@@ -229,23 +170,82 @@
             btnOtp.UseVisualStyleBackColor = false;
             btnOtp.Click += btnOtp_Click;
             // 
+            // panelRegister
+            // 
+            panelRegister.BackColor = SystemColors.GradientActiveCaption;
+            panelRegister.Controls.Add(pictureBox1);
+            panelRegister.Controls.Add(label1);
+            panelRegister.Dock = DockStyle.Left;
+            panelRegister.Location = new Point(0, 0);
+            panelRegister.Margin = new Padding(4);
+            panelRegister.Name = "panelRegister";
+            panelRegister.Size = new Size(578, 829);
+            panelRegister.TabIndex = 50;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(141, 215);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(293, 301);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 48;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(126, 531);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(338, 51);
+            label1.TabIndex = 47;
+            label1.Text = "WASTE NO MORE";
+            // 
+            // llLogin
+            // 
+            llLogin.AutoSize = true;
+            llLogin.DisabledLinkColor = Color.FromArgb(37, 74, 116);
+            llLogin.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            llLogin.LinkColor = SystemColors.Highlight;
+            llLogin.Location = new Point(1127, 741);
+            llLogin.Name = "llLogin";
+            llLogin.Size = new Size(102, 40);
+            llLogin.TabIndex = 51;
+            llLogin.TabStop = true;
+            llLogin.Text = "Log-In";
+            llLogin.LinkClicked += llLogin_LinkClicked;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(730, 49);
+            label2.Name = "label2";
+            label2.Size = new Size(577, 50);
+            label2.TabIndex = 52;
+            label2.Text = "Buat Akun WasteNoMore Anda!";
+            // 
             // FormRegister
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1474, 829);
+            Controls.Add(label2);
+            Controls.Add(llLogin);
+            Controls.Add(panelRegister);
             Controls.Add(btnOtp);
+            Controls.Add(lblLogin);
             Controls.Add(tbOtp);
             Controls.Add(lblOtp);
-            Controls.Add(panel1);
             Controls.Add(txtNamaPengguna);
             Controls.Add(txtEmail);
             Controls.Add(lblEmail);
             Controls.Add(lblNamaPengguna);
-            Controls.Add(btnCancel);
             Controls.Add(btnDaftar);
-            Controls.Add(lblJudul);
             Controls.Add(txtUsername);
             Controls.Add(txtPassword);
             Controls.Add(lblPasswordd);
@@ -254,17 +254,15 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRegister";
             Load += FormRegister_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelRegister.ResumeLayout(false);
+            panelRegister.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnCancel;
         private Button btnDaftar;
-        private Label lblJudul;
         private TextBox txtUsername;
         private TextBox txtPassword;
         private Label lblPasswordd;
@@ -273,12 +271,14 @@
         private TextBox txtEmail;
         private Label lblEmail;
         private Label lblNamaPengguna;
-        private Button btnLogin;
         private Label lblLogin;
-        private Panel panel1;
-        private Label lblRegister;
         private TextBox tbOtp;
         private Label lblOtp;
         private Button btnOtp;
+        private Panel panelRegister;
+        private PictureBox pictureBox1;
+        private Label label1;
+        private LinkLabel llLogin;
+        private Label label2;
     }
 }
