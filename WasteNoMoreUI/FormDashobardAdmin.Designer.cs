@@ -55,9 +55,10 @@ namespace WasteNoMoreUI
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(640, 184);
+            label1.Location = new Point(345, 86);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(315, 40);
+            label1.Size = new Size(161, 20);
             label1.TabIndex = 67;
             label1.Text = "Admin WasteNoMore";
             // 
@@ -66,9 +67,10 @@ namespace WasteNoMoreUI
             btnLogout.BackColor = Color.DarkRed;
             btnLogout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = SystemColors.ButtonHighlight;
-            btnLogout.Location = new Point(1372, 787);
+            btnLogout.Location = new Point(739, 369);
+            btnLogout.Margin = new Padding(2, 1, 2, 1);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(150, 52);
+            btnLogout.Size = new Size(81, 24);
             btnLogout.TabIndex = 66;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
@@ -77,9 +79,10 @@ namespace WasteNoMoreUI
             // pbAplikasi
             // 
             pbAplikasi.Image = (Image)resources.GetObject("pbAplikasi.Image");
-            pbAplikasi.Location = new Point(810, 349);
+            pbAplikasi.Location = new Point(436, 164);
+            pbAplikasi.Margin = new Padding(2, 1, 2, 1);
             pbAplikasi.Name = "pbAplikasi";
-            pbAplikasi.Size = new Size(240, 223);
+            pbAplikasi.Size = new Size(129, 105);
             pbAplikasi.SizeMode = PictureBoxSizeMode.StretchImage;
             pbAplikasi.TabIndex = 65;
             pbAplikasi.TabStop = false;
@@ -88,9 +91,10 @@ namespace WasteNoMoreUI
             // pbKategori
             // 
             pbKategori.Image = (Image)resources.GetObject("pbKategori.Image");
-            pbKategori.Location = new Point(507, 349);
+            pbKategori.Location = new Point(273, 164);
+            pbKategori.Margin = new Padding(2, 1, 2, 1);
             pbKategori.Name = "pbKategori";
-            pbKategori.Size = new Size(222, 223);
+            pbKategori.Size = new Size(120, 105);
             pbKategori.SizeMode = PictureBoxSizeMode.StretchImage;
             pbKategori.TabIndex = 63;
             pbKategori.TabStop = false;
@@ -99,9 +103,10 @@ namespace WasteNoMoreUI
             // pbPengguna
             // 
             pbPengguna.Image = (Image)resources.GetObject("pbPengguna.Image");
-            pbPengguna.Location = new Point(198, 349);
+            pbPengguna.Location = new Point(107, 164);
+            pbPengguna.Margin = new Padding(2, 1, 2, 1);
             pbPengguna.Name = "pbPengguna";
-            pbPengguna.Size = new Size(227, 223);
+            pbPengguna.Size = new Size(122, 105);
             pbPengguna.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPengguna.TabIndex = 61;
             pbPengguna.TabStop = false;
@@ -122,9 +127,10 @@ namespace WasteNoMoreUI
             // 
             lblJudul.AutoSize = true;
             lblJudul.Font = new Font("Segoe UI Black", 22.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblJudul.Location = new Point(628, 87);
+            lblJudul.Location = new Point(338, 41);
+            lblJudul.Margin = new Padding(2, 0, 2, 0);
             lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(347, 78);
+            lblJudul.Size = new Size(178, 41);
             lblJudul.TabIndex = 60;
             lblJudul.Text = "Dashboard";
             // 
@@ -132,11 +138,10 @@ namespace WasteNoMoreUI
             // 
             lblPengguna.AutoSize = true;
             lblPengguna.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPengguna.Location = new Point(226, 575);
-            lblPengguna.Margin = new Padding(5, 0, 5, 0);
-            lblPengguna.MaximumSize = new Size(260, 0);
+            lblPengguna.Location = new Point(122, 270);
+            lblPengguna.MaximumSize = new Size(140, 0);
             lblPengguna.Name = "lblPengguna";
-            lblPengguna.Size = new Size(172, 80);
+            lblPengguna.Size = new Size(90, 40);
             lblPengguna.TabIndex = 71;
             lblPengguna.Text = "Manajemen Pengguna";
             lblPengguna.TextAlign = ContentAlignment.MiddleCenter;
@@ -145,11 +150,11 @@ namespace WasteNoMoreUI
             // 
             lblAplikasi.AutoSize = true;
             lblAplikasi.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAplikasi.Location = new Point(844, 575);
-            lblAplikasi.Margin = new Padding(4, 0, 4, 0);
-            lblAplikasi.MaximumSize = new Size(260, 0);
+            lblAplikasi.Location = new Point(454, 270);
+            lblAplikasi.Margin = new Padding(2, 0, 2, 0);
+            lblAplikasi.MaximumSize = new Size(140, 0);
             lblAplikasi.Name = "lblAplikasi";
-            lblAplikasi.Size = new Size(172, 80);
+            lblAplikasi.Size = new Size(90, 40);
             lblAplikasi.TabIndex = 70;
             lblAplikasi.Text = "Manajemen Aplikasi";
             lblAplikasi.TextAlign = ContentAlignment.MiddleCenter;
@@ -158,11 +163,11 @@ namespace WasteNoMoreUI
             // 
             lblKategori.AutoSize = true;
             lblKategori.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblKategori.Location = new Point(531, 568);
-            lblKategori.Margin = new Padding(4, 0, 4, 0);
-            lblKategori.MaximumSize = new Size(260, 0);
+            lblKategori.Location = new Point(286, 266);
+            lblKategori.Margin = new Padding(2, 0, 2, 0);
+            lblKategori.MaximumSize = new Size(140, 0);
             lblKategori.Name = "lblKategori";
-            lblKategori.Size = new Size(172, 80);
+            lblKategori.Size = new Size(90, 40);
             lblKategori.TabIndex = 69;
             lblKategori.Text = "Manajemen Kategori";
             lblKategori.TextAlign = ContentAlignment.MiddleCenter;
@@ -171,21 +176,21 @@ namespace WasteNoMoreUI
             // 
             lblEntriSampah.AutoSize = true;
             lblEntriSampah.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEntriSampah.Location = new Point(261, 588);
-            lblEntriSampah.Margin = new Padding(4, 0, 4, 0);
+            lblEntriSampah.Location = new Point(141, 276);
+            lblEntriSampah.Margin = new Padding(2, 0, 2, 0);
             lblEntriSampah.Name = "lblEntriSampah";
-            lblEntriSampah.Size = new Size(0, 40);
+            lblEntriSampah.Size = new Size(0, 20);
             lblEntriSampah.TabIndex = 68;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1164, 576);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.MaximumSize = new Size(200, 0);
+            label2.Location = new Point(627, 270);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.MaximumSize = new Size(108, 0);
             label2.Name = "label2";
-            label2.Size = new Size(172, 80);
+            label2.Size = new Size(90, 40);
             label2.TabIndex = 73;
             label2.Text = "Manajemen Harga";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -193,9 +198,10 @@ namespace WasteNoMoreUI
             // pbHarga
             // 
             pbHarga.Image = (Image)resources.GetObject("pbHarga.Image");
-            pbHarga.Location = new Point(1128, 349);
+            pbHarga.Location = new Point(607, 164);
+            pbHarga.Margin = new Padding(2, 1, 2, 1);
             pbHarga.Name = "pbHarga";
-            pbHarga.Size = new Size(235, 224);
+            pbHarga.Size = new Size(127, 105);
             pbHarga.SizeMode = PictureBoxSizeMode.StretchImage;
             pbHarga.TabIndex = 72;
             pbHarga.TabStop = false;
@@ -203,10 +209,10 @@ namespace WasteNoMoreUI
             // 
             // FormDashobardAdmin
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1573, 880);
+            ClientSize = new Size(738, 351);
             Controls.Add(label2);
             Controls.Add(pbHarga);
             Controls.Add(lblPengguna);
@@ -219,9 +225,10 @@ namespace WasteNoMoreUI
             Controls.Add(pbKategori);
             Controls.Add(pbPengguna);
             Controls.Add(lblJudul);
-            Margin = new Padding(4);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FormDashobardAdmin";
             Text = "FormDashobardAdmin";
+            FormClosed += FormDashobardAdmin_FormClosed;
             Load += FormDashobardAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)pbAplikasi).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbKategori).EndInit();

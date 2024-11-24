@@ -16,12 +16,14 @@ namespace WasteNoMoreUI
     {
         private List<Kategori> kategoriList = new List<Kategori>();
         private int currentId;
+        private FormDashboard formDashboard;
 
-        public FormEntriSampah(int currentId)
+        public FormEntriSampah(int currentId, FormDashboard formDashboard)
         {
             InitializeComponent();
             LoadKategori();
             this.currentId = currentId;
+            this.formDashboard = formDashboard;
         }
 
         private void LoadKategori()
@@ -53,9 +55,7 @@ namespace WasteNoMoreUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FormDashboard dashboardForm = new FormDashboard(currentId);
-            dashboardForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -63,14 +63,14 @@ namespace WasteNoMoreUI
             //validasi input sudah terisi
             if (cmbKategori.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtBerat.Text))
             {
-            //jika ada yang belum terisi, tampilkan feedback
+                //jika ada yang belum terisi, tampilkan feedback
                 MessageBox.Show("Pastikan sudah memilih kategori dan masukkan jumlah sampah!");
                 return;
             }
             //validasi tipe data yang dimasukkan dalam variable berat sampah
             if (!double.TryParse(txtBerat.Text, out double beratSampah) || beratSampah <= 0)
             {
-            //jika tidak valid, tampilkan feedback
+                //jika tidak valid, tampilkan feedback
                 MessageBox.Show("Berat sampah harus berupa angka yang valid!");
                 return;
             }
@@ -78,7 +78,7 @@ namespace WasteNoMoreUI
             //Ambil id_kategori sesuai kategori dipilih
             var selectedKategori = kategoriList[cmbKategori.SelectedIndex];
             int idKategori = selectedKategori.IdKategori;
-            int idPengguna = 1; 
+            int idPengguna = 1;
             // Update sesuai dengan ID pengguna saat ini
 
             string insertQuery = $"INSERT INTO sampah (id_pengguna, id_kategori, kuantitas) VALUES ({idPengguna}, {idKategori}, {beratSampah})";
@@ -107,6 +107,11 @@ namespace WasteNoMoreUI
         private void FormEntriSampah_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormEntriSampah_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashboard.Show();
         }
     }
 }

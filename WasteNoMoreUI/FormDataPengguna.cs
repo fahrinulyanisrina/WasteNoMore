@@ -17,12 +17,13 @@ namespace WasteNoMoreUI
     public partial class FormDataPengguna : Form
     {
         int currentId = -1;
-        public FormDataPengguna(int currentId)
+        private FormDashboard formDashboard;
+        public FormDataPengguna(int currentId, FormDashboard formDashboard)
         {
             InitializeComponent();
             this.currentId = currentId;
             LoadUserInfo();
-            
+            this.formDashboard = formDashboard;
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -81,8 +82,12 @@ namespace WasteNoMoreUI
                 lblUsername.Text = pengguna.Username;
             }
 
-            
+
         }
 
+        private void FormDataPengguna_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashboard.Show();
+        }
     }
 }

@@ -189,7 +189,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(738, 351);
+            ClientSize = new Size(817, 399);
             Controls.Add(label2);
             Controls.Add(pbUser);
             Controls.Add(lblEntri);
@@ -205,6 +205,7 @@
             Margin = new Padding(2, 1, 2, 1);
             Name = "FormDashboard";
             Text = "FormDashboard";
+            FormClosed += FormDashboard_FormClosed;
             Load += FormDashboard_Load;
             ((System.ComponentModel.ISupportInitialize)pbEntri).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbTrack).EndInit();

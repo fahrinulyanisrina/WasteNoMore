@@ -16,17 +16,15 @@ namespace WasteNoMoreUI
     public partial class FormTrack : Form
     {
         private List<Kategori> kategoriList = new List<Kategori>();
-<<<<<<< HEAD
-        private int currentId;
-        public FormTrack(int currentId)
-=======
+        private FormDashboard formDashboard;
 
-        public FormTrack()
->>>>>>> 46c7a18e7aa0a98c502448a3924235a7b3a6a813
+        private int currentId;
+        public FormTrack(int currentId, FormDashboard formDashboard)
         {
             InitializeComponent();
             LoadKategori();
             this.currentId = currentId;
+            this.formDashboard = formDashboard;
         }
 
         private void LoadKategori()
@@ -57,15 +55,8 @@ namespace WasteNoMoreUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             //akan membuka form dashboard
-            FormDashboard dashboardForm = new FormDashboard(currentId);
-=======
-            // Membuka form dashboard
-            FormDashboard dashboardForm = new FormDashboard();
->>>>>>> 46c7a18e7aa0a98c502448a3924235a7b3a6a813
-            dashboardForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnTrack_Click(object sender, EventArgs e)
@@ -92,9 +83,14 @@ namespace WasteNoMoreUI
             var selectedKategori = kategoriList[cmbKategori.SelectedIndex];
 
             // Buka form grafik dan teruskan data
-            FormGrafikTrack grafikForm = new FormGrafikTrack(selectedKategori, waktuAwal, waktuAkhir);
+            FormGrafikTrack grafikForm = new FormGrafikTrack(selectedKategori, waktuAwal, waktuAkhir, currentId, this);
             grafikForm.Show();
             this.Hide(); // Sembunyikan form track saat ini
+        }
+
+        private void FormTrack_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashboard.Show();
         }
     }
 }

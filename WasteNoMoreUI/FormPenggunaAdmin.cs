@@ -15,10 +15,12 @@ namespace WasteNoMoreUI
     public partial class FormPenggunaAdmin : Form
     {
         private DataGridViewRow r;
-        public FormPenggunaAdmin()
+        private FormDashobardAdmin formDashobardAdmin;
+        public FormPenggunaAdmin(FormDashobardAdmin formDashobardAdmin)
         {
             InitializeComponent();
             LoadUsersInfo();
+            this.formDashobardAdmin = formDashobardAdmin;
         }
 
         private void LoadUsersInfo()
@@ -44,7 +46,7 @@ namespace WasteNoMoreUI
                 MessageBox.Show("Pilih baris user yang akan dihapus", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             // Get the selected user's ID
             int selectedId = Convert.ToInt32(r.Cells["id_pengguna"].Value);
 
@@ -54,11 +56,11 @@ namespace WasteNoMoreUI
                  "Confirm Delete",
                  MessageBoxButtons.YesNo);
 
-             if (confirmResult == DialogResult.Yes)
-             {
-                 DeleteUserFromDatabase(selectedId);
-                 LoadUsersInfo();
-             }
+            if (confirmResult == DialogResult.Yes)
+            {
+                DeleteUserFromDatabase(selectedId);
+                LoadUsersInfo();
+            }
         }
 
         private void DeleteUserFromDatabase(int userId)
@@ -90,5 +92,14 @@ namespace WasteNoMoreUI
             }
         }
 
+        private void FormPenggunaAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashobardAdmin.Show();
+        }
+
+        private void FormPenggunaAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

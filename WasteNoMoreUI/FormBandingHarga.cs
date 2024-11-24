@@ -14,11 +14,13 @@ namespace WasteNoMoreUI
 {
     public partial class FormBandingHarga : Form
     {
+        private FormDashboard formDashboard;
         private int currentId;
-        public FormBandingHarga(int currentId)
+        public FormBandingHarga(int currentId, FormDashboard formDashboard)
         {
             InitializeComponent();
             this.currentId = currentId;
+            this.formDashboard = formDashboard;
         }
 
         private void FormBandingHarga_Load(object sender, EventArgs e)
@@ -218,9 +220,12 @@ namespace WasteNoMoreUI
 
         private void btnCancelBanding_Click(object sender, EventArgs e)
         {
-            FormDashboard dashboardForm = new FormDashboard(currentId);
-            dashboardForm.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void FormBandingHarga_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashboard.Show();
         }
     }
 }

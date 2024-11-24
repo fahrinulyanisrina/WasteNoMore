@@ -16,9 +16,11 @@ namespace WasteNoMoreUI
     {
         private DataTable dt;
         private DataGridViewRow r;
-        public FormHargaAdmin()
+        private FormDashobardAdmin formDashobardAdmin;
+        public FormHargaAdmin(FormDashobardAdmin formDashobardAdmin)
         {
             InitializeComponent();
+            this.formDashobardAdmin = formDashobardAdmin;
         }
 
         private void FormHargaAdmin_Load(object sender, EventArgs e)
@@ -213,7 +215,7 @@ namespace WasteNoMoreUI
                     }
                 }
             }
-         }
+        }
 
         private void btnLoadHarga_Click(object sender, EventArgs e)
         {
@@ -222,9 +224,8 @@ namespace WasteNoMoreUI
 
         private void btnBackHarga_Click(object sender, EventArgs e)
         {
-            FormDashobardAdmin dashobardAdminForm = new FormDashobardAdmin();
-            dashobardAdminForm.Show();
-            this.Hide();
+
+            this.Close();
         }
 
         private void dgvHarga_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -236,6 +237,11 @@ namespace WasteNoMoreUI
                 cmbKategori.Text = r.Cells["nama_kategori"].Value.ToString();
                 txtHarga.Text = r.Cells["harga"].Value.ToString();
             }
+        }
+
+        private void FormHargaAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashobardAdmin.Show();
         }
     }
 }

@@ -43,70 +43,78 @@
             // 
             lblJudul.AutoSize = true;
             lblJudul.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblJudul.Location = new Point(366, 127);
+            lblJudul.Location = new Point(197, 60);
+            lblJudul.Margin = new Padding(2, 0, 2, 0);
             lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(490, 37);
+            lblJudul.Size = new Size(250, 19);
             lblJudul.TabIndex = 26;
             lblJudul.Text = "Masukkan Data Sampah Terbaru Anda!";
             // 
             // cmbKategori
             // 
             cmbKategori.FormattingEnabled = true;
-            cmbKategori.Location = new Point(538, 231);
+            cmbKategori.Location = new Point(290, 108);
+            cmbKategori.Margin = new Padding(2, 1, 2, 1);
             cmbKategori.Name = "cmbKategori";
-            cmbKategori.Size = new Size(242, 40);
+            cmbKategori.Size = new Size(132, 23);
             cmbKategori.TabIndex = 24;
             cmbKategori.SelectedIndexChanged += cmbKategori_SelectedIndexChanged;
             // 
             // txtBerat
             // 
-            txtBerat.Location = new Point(538, 304);
+            txtBerat.Location = new Point(290, 142);
+            txtBerat.Margin = new Padding(2, 1, 2, 1);
             txtBerat.Name = "txtBerat";
-            txtBerat.Size = new Size(141, 39);
+            txtBerat.Size = new Size(78, 23);
             txtBerat.TabIndex = 23;
             // 
             // lblKg
             // 
             lblKg.AutoSize = true;
-            lblKg.Location = new Point(704, 307);
+            lblKg.Location = new Point(379, 144);
+            lblKg.Margin = new Padding(2, 0, 2, 0);
             lblKg.Name = "lblKg";
-            lblKg.Size = new Size(40, 32);
+            lblKg.Size = new Size(20, 15);
             lblKg.TabIndex = 22;
             lblKg.Text = "kg";
             // 
             // lblBerat
             // 
             lblBerat.AutoSize = true;
-            lblBerat.Location = new Point(357, 304);
+            lblBerat.Location = new Point(192, 142);
+            lblBerat.Margin = new Padding(2, 0, 2, 0);
             lblBerat.Name = "lblBerat";
-            lblBerat.Size = new Size(174, 32);
+            lblBerat.Size = new Size(86, 15);
             lblBerat.TabIndex = 21;
             lblBerat.Text = "Berat Sampah :";
             // 
             // lblKategori
             // 
             lblKategori.AutoSize = true;
-            lblKategori.Location = new Point(416, 231);
+            lblKategori.Location = new Point(224, 108);
+            lblKategori.Margin = new Padding(2, 0, 2, 0);
             lblKategori.Name = "lblKategori";
-            lblKategori.Size = new Size(115, 32);
+            lblKategori.Size = new Size(57, 15);
             lblKategori.TabIndex = 20;
             lblKategori.Text = "Kategori :";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(382, 127);
+            label1.Location = new Point(206, 60);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(0, 32);
+            label1.Size = new Size(0, 15);
             label1.TabIndex = 19;
             // 
             // btnCancel
             // 
             btnCancel.BackColor = SystemColors.ControlDarkDark;
             btnCancel.ForeColor = SystemColors.ButtonHighlight;
-            btnCancel.Location = new Point(408, 431);
+            btnCancel.Location = new Point(220, 202);
+            btnCancel.Margin = new Padding(2, 1, 2, 1);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(150, 46);
+            btnCancel.Size = new Size(81, 22);
             btnCancel.TabIndex = 41;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -116,9 +124,10 @@
             // 
             btnAdd.BackColor = Color.SteelBlue;
             btnAdd.ForeColor = SystemColors.ButtonHighlight;
-            btnAdd.Location = new Point(643, 431);
+            btnAdd.Location = new Point(346, 202);
+            btnAdd.Margin = new Padding(2, 1, 2, 1);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(150, 46);
+            btnAdd.Size = new Size(81, 22);
             btnAdd.TabIndex = 40;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -126,10 +135,10 @@
             // 
             // FormEntriSampah
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1211, 681);
+            ClientSize = new Size(652, 319);
             Controls.Add(btnCancel);
             Controls.Add(btnAdd);
             Controls.Add(lblJudul);
@@ -139,8 +148,10 @@
             Controls.Add(lblBerat);
             Controls.Add(lblKategori);
             Controls.Add(label1);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "FormEntriSampah";
             Text = "FormEntriSampah";
+            FormClosed += FormEntriSampah_FormClosed;
             Load += FormEntriSampah_Load;
             ResumeLayout(false);
             PerformLayout();

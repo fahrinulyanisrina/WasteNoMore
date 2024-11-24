@@ -47,7 +47,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(19, 10);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
             label1.Size = new Size(189, 25);
             label1.TabIndex = 1;
@@ -68,12 +68,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(491, 450);
             Controls.Add(btnDelete);
             Controls.Add(label1);
             Controls.Add(dgvUsers);
             Name = "FormPenggunaAdmin";
             Text = "FormPenggunaAdmin";
+            FormClosed += FormPenggunaAdmin_FormClosed;
+            Load += FormPenggunaAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();
             ResumeLayout(false);
             PerformLayout();

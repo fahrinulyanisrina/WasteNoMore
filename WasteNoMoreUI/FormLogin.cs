@@ -23,9 +23,9 @@ namespace WasteNoMoreUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FormRegister registerForm = new FormRegister();
+            FormRegister registerForm = new FormRegister(this);
             registerForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace WasteNoMoreUI
 
 
                         // Membuka dashboard admin jika login sebagai admin
-                        FormDashobardAdmin dashboardAdminForm = new FormDashobardAdmin();
+                        FormDashobardAdmin dashboardAdminForm = new FormDashobardAdmin(this);
                         dashboardAdminForm.Show();
                         this.Hide();
                         return;
@@ -73,7 +73,7 @@ namespace WasteNoMoreUI
                             // Verifikasi password input dengan hash password di database
                             if (BCrypt.Net.BCrypt.Verify(password, dbPasswordHash))
                             {
-                                
+
 
                                 string quickQuery = "SELECT id_pengguna FROM pengguna WHERE username_pengguna = @username";
 
@@ -95,7 +95,7 @@ namespace WasteNoMoreUI
                                 MessageBox.Show("Login berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 // Membuka dashboard pengguna biasa jika login berhasil
-                                FormDashboard dashboardForm = new FormDashboard(curerntID);
+                                FormDashboard dashboardForm = new FormDashboard(curerntID, this);
                                 dashboardForm.Show();
                                 this.Hide();
                             }
@@ -120,9 +120,15 @@ namespace WasteNoMoreUI
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            FormRegister registerForm = new FormRegister();
+            FormRegister registerForm = new FormRegister(this);
             registerForm.Show();
             this.Hide();
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            txtPassword.Clear();
+            txtUsername.Clear();
         }
     }
 }

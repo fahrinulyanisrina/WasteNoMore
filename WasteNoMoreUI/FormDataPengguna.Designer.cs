@@ -188,6 +188,7 @@
             Controls.Add(label1);
             Name = "FormDataPengguna";
             Text = "FormDataPengguna";
+            FormClosed += FormDataPengguna_FormClosed;
             ResumeLayout(false);
             PerformLayout();
         }

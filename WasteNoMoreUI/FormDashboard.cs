@@ -15,11 +15,13 @@ namespace WasteNoMoreUI
 {
     public partial class FormDashboard : Form
     {
+        private FormLogin formLoginReference;
         private int currentId;
-        public FormDashboard(int currentId)
+        public FormDashboard(int currentId, FormLogin formLogin)
         {
             InitializeComponent();
             this.currentId = currentId;
+            this.formLoginReference = formLogin;
         }
 
         private void FormDashboard_Load(object sender, EventArgs e)
@@ -36,9 +38,6 @@ namespace WasteNoMoreUI
             //jika pengguna memilih "Yes", maka proses logout dilanjutkan
             if (dialogResult == DialogResult.Yes)
             {
-                //ketika button Logiut di-klik maka form login dibuka
-                FormLogin formLogin = new FormLogin();
-                formLogin.Show();
                 //form dashboard ditutup
                 this.Close();
             }
@@ -53,7 +52,7 @@ namespace WasteNoMoreUI
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             //ketika button Entri Sampah di-klik maka form entri sampah dibuka
-            FormEntriSampah inputSampahForm = new FormEntriSampah(currentId);
+            FormEntriSampah inputSampahForm = new FormEntriSampah(currentId,this);
             inputSampahForm.Show();
             //form dashboard ditutup
             this.Hide();
@@ -62,7 +61,7 @@ namespace WasteNoMoreUI
         private void pbTrack_Click(object sender, EventArgs e)
         {
             //ketika button Track Sampah di-klik maka form track sampah dibuka
-            FormTrack formTrackSampah = new FormTrack(currentId);
+            FormTrack formTrackSampah = new FormTrack(currentId,this);
             formTrackSampah.Show();
             //form dashboard ditutup
             this.Hide();
@@ -71,7 +70,7 @@ namespace WasteNoMoreUI
         private void pbBanding_Click(object sender, EventArgs e)
         {
             //ketika button Banding Harga di-klik maka form banidng harga dibuka
-            FormBandingHarga formBandingHarga = new FormBandingHarga(currentId);
+            FormBandingHarga formBandingHarga = new FormBandingHarga(currentId,this);
             formBandingHarga.Show();
             //form dashboard ditutup
 
@@ -81,10 +80,17 @@ namespace WasteNoMoreUI
         private void pbUser_Click(object sender, EventArgs e)
         {
             //ketika button data pengguna di-klik maka form data pengguna dibuka
-            FormDataPengguna formDataPengguna = new FormDataPengguna(currentId);
+            FormDataPengguna formDataPengguna = new FormDataPengguna(currentId,this);
             formDataPengguna.Show();
             //form dashboard ditutup
             this.Hide();
+        }
+
+        private void FormDashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formLoginReference.Show();
+            formLoginReference.txtPassword.Clear();
+            formLoginReference.txtUsername.Clear();
         }
     }
 }

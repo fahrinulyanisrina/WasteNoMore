@@ -16,9 +16,11 @@ namespace WasteNoMoreUI
     {
         private DataTable dt;
         private DataGridViewRow r;
-        public FormKategoriAdmin()
+        private FormDashobardAdmin formDashobardAdmin;
+        public FormKategoriAdmin(FormDashobardAdmin formDashobardAdmin)
         {
             InitializeComponent();
+            this.formDashobardAdmin = formDashobardAdmin;
         }
 
         private void pbInsert_Click(object sender, EventArgs e)
@@ -151,9 +153,7 @@ namespace WasteNoMoreUI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            FormDashobardAdmin dashobardAdminForm = new FormDashobardAdmin();
-            dashobardAdminForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void DeleteKategori(int idKategori)
@@ -220,5 +220,9 @@ namespace WasteNoMoreUI
             }
         }
 
+        private void FormKategoriAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashobardAdmin.Show();
+        }
     }
 }
