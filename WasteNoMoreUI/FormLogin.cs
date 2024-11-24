@@ -123,10 +123,11 @@ namespace WasteNoMoreUI
         {
             txtPassword.Clear();
             txtUsername.Clear();
+        }
 
         private void llRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormRegister registerForm = new FormRegister();
+            FormRegister registerForm = new FormRegister(this);
             registerForm.Show();
             this.Hide();
 

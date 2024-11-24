@@ -131,8 +131,7 @@ namespace WasteNoMoreUI
 
         private void FormEntriSampah_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formDashboard.Show();
-
+        }
         private void sidebarTransition_Tick(object sender, EventArgs e)
         {
             if (sidebarExpand) // Jika sidebar dalam keadaan terbuka
@@ -173,35 +172,35 @@ namespace WasteNoMoreUI
         private void btnNavbarEntri_Click(object sender, EventArgs e)
         {
             //ketika button Entri Sampah di-klik maka form entri sampah dibuka
-            FormEntriSampah inputSampahForm = new FormEntriSampah(currentId);
+            FormEntriSampah inputSampahForm = new FormEntriSampah(currentId, formDashboard);
             inputSampahForm.Show();
             //form dashboard ditutup
-            this.Hide();
+            this.Close();
         }
 
         private void btnNavbarTrack_Click(object sender, EventArgs e)
         {
             //ketika button Track Sampah di-klik maka form track sampah dibuka
-            FormTrack formTrackSampah = new FormTrack(currentId);
+            FormTrack formTrackSampah = new FormTrack(currentId, formDashboard);
             formTrackSampah.Show();
             //form dashboard ditutup
-            this.Hide();
+            this.Close();
         }
 
         private void btnNavbarBandingHarga_Click(object sender, EventArgs e)
         {
             //ketika button Banding Harga di-klik maka form banidng harga dibuka
-            FormBandingHarga formBandingHarga = new FormBandingHarga(currentId);
+            FormBandingHarga formBandingHarga = new FormBandingHarga(currentId, formDashboard);
             formBandingHarga.Show();
             //form dashboard ditutup
 
-            this.Hide();
+            this.Close();
         }
 
         private void btnNavbarAkun_Click(object sender, EventArgs e)
         {
             //ketika button data pengguna di-klik maka form data pengguna dibuka
-            FormDataPengguna formDataPengguna = new FormDataPengguna(currentId);
+            FormDataPengguna formDataPengguna = new FormDataPengguna(currentId, formDashboard);
             formDataPengguna.Show();
             //form dashboard ditutup
             this.Hide();
@@ -231,9 +230,8 @@ namespace WasteNoMoreUI
 
         private void btnNavbarDashboard_Click(object sender, EventArgs e)
         {
-            FormDashboard dashboardForm = new FormDashboard(currentId);
-            dashboardForm.Show();
-            this.Hide();
+            formDashboard.Show();
+            this.Close();
 
         }
     }

@@ -14,7 +14,6 @@ namespace WasteNoMoreUI
         private Kategori kategori;
         private DateTime waktuAwal;
         private DateTime waktuAkhir;
-        private int currentId;
         private FormTrack formTrack;
 
         public FormGrafikTrack(Kategori kategori, DateTime waktuAwal, DateTime waktuAkhir,int curerntId, FormTrack formTrack)

@@ -45,21 +45,6 @@
             SuspendLayout();
             // 
 
-            // btnCancel
-            // 
-            btnCancel.BackColor = SystemColors.ControlDarkDark;
-            btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancel.ForeColor = SystemColors.ButtonHighlight;
-            btnCancel.Location = new Point(321, 150);
-            btnCancel.Margin = new Padding(1, 1, 1, 1);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(80, 22);
-            btnCancel.TabIndex = 39;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = false;
-            btnCancel.Click += btnCancel_Click;
-            // 
 
             // btnLogin
             // 
@@ -227,8 +212,8 @@
         #endregion
         private Button btnLogin;
 
-        private TextBox txtUsername;
-        private TextBox txtPassword;
+        public TextBox txtUsername;
+        public TextBox txtPassword;
 
         private Label lblPassword;
         private Label lblUsername;

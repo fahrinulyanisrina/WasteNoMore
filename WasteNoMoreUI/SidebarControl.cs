@@ -14,11 +14,13 @@ namespace WasteNoMoreUI
     {
         private int currentId;
         private bool sidebarExpand = false;
+        private FormDashboard formDashboard;
 
-        public SidebarControl()
+        public SidebarControl(FormDashboard formDashboard)
         {
             InitializeComponent();
             sidebar.Width = 100; // Set ukuran default
+            this.formDashboard = formDashboard;
         }
 
         // Metode untuk menyetel ID pengguna saat ini
@@ -57,30 +59,30 @@ namespace WasteNoMoreUI
         private void btnNavbarEntri_Click(object sender, EventArgs e)
         {
             // Navigasi ke FormEntriSampah
-            FormEntriSampah form = new FormEntriSampah(currentId);
+            FormEntriSampah form = new FormEntriSampah(currentId, formDashboard);
             form.Show();
-            FindForm().Hide(); // Menutup form saat ini
+            FindForm().Close(); // Menutup form saat ini
         }
 
         private void btnNavbarTrack_Click(object sender, EventArgs e)
         {
-            FormTrack form = new FormTrack(currentId);
+            FormTrack form = new FormTrack(currentId, formDashboard);
             form.Show();
-            FindForm().Hide();
+            FindForm().Close();
         }
 
         private void btnNavbarBandingHarga_Click(object sender, EventArgs e)
         {
-            FormBandingHarga form = new FormBandingHarga(currentId);
+            FormBandingHarga form = new FormBandingHarga(currentId, formDashboard);
             form.Show();
-            FindForm().Hide();
+            FindForm().Close();
         }
 
         private void btnNavbarAkun_Click(object sender, EventArgs e)
         {
-            FormDataPengguna form = new FormDataPengguna(currentId);
+            FormDataPengguna form = new FormDataPengguna(currentId, formDashboard);
             form.Show();
-            FindForm().Hide();
+            FindForm().Close();
         }
 
         private void btnNavbarLogout_Click(object sender, EventArgs e)
@@ -98,9 +100,7 @@ namespace WasteNoMoreUI
 
         private void btnNavbarDashboard_Click(object sender, EventArgs e)
         {
-            FormDashboard dashboardForm = new FormDashboard(currentId);
-            dashboardForm.Show();
-            this.Hide();
+            formDashboard.Show();
         }
 
         private void btnNavbarPanduan_Click(object sender, EventArgs e)
