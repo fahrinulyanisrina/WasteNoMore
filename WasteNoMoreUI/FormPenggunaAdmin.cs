@@ -21,7 +21,7 @@ namespace WasteNoMoreUI
         public FormPenggunaAdmin(FormDashobardAdmin formDashobardAdmin)
         {
             InitializeComponent();
-            LoadUsersInfo();
+            LoadDataPengguna();
             this.formDashobardAdmin = formDashobardAdmin;
 
         }
@@ -80,23 +80,6 @@ namespace WasteNoMoreUI
                     }
                 }
             }
-
-
-            // Get the selected user's ID
-            int selectedId = Convert.ToInt32(r.Cells["id_pengguna"].Value);
-
-            // Confirmation dialog
-            var confirmResult = MessageBox.Show(
-                 "Are you sure you want to delete this user?",
-                 "Confirm Delete",
-                 MessageBoxButtons.YesNo);
-
-            if (confirmResult == DialogResult.Yes)
-            {
-                DeleteUserFromDatabase(selectedId);
-                LoadUsersInfo();
-            }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Insert FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -197,9 +180,8 @@ namespace WasteNoMoreUI
 
         private void FormPenggunaAdmin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formDashobardAdmin.Show();
          
-         }
+        }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
@@ -208,9 +190,8 @@ namespace WasteNoMoreUI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            FormDashobardAdmin formDashobardAdmin = new FormDashobardAdmin();
             formDashobardAdmin.Show();
-            this.Hide();
+            this.Close();
 
         }
 
