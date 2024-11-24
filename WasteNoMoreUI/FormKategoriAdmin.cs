@@ -25,6 +25,7 @@ namespace WasteNoMoreUI
 
         private void pbInsert_Click(object sender, EventArgs e)
         {
+
             try
             {
                 using (var conn = DatabaseManager.GetConnection())
@@ -32,19 +33,17 @@ namespace WasteNoMoreUI
                     conn.Open();
                     using (var cmd = new NpgsqlCommand("SELECT add_kategori(@nama, @deskripsi);", conn))
                     {
-                        //bind parameter
+                        // Bind parameter
                         cmd.Parameters.AddWithValue("nama", txtNama.Text);
                         cmd.Parameters.AddWithValue("deskripsi", txtDeskripsi.Text);
 
-                        //eksekusi fungsi dan periksa hasilnya
+                        // Eksekusi fungsi dan periksa hasilnya
                         bool result = (bool)cmd.ExecuteScalar();
 
                         if (result)
                         {
                             MessageBox.Show("Kategori berhasil ditambahkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            //load ulang datagrid kategori
                             LoadData();
-                            //mengosongkan textbox input
                             txtNama.Clear();
                             txtDeskripsi.Clear();
                         }
@@ -82,12 +81,12 @@ namespace WasteNoMoreUI
                     conn.Open();
                     using (var cmd = new NpgsqlCommand("SELECT update_kategori(@id, @nama, @deskripsi);", conn))
                     {
-                        //bind parameter
+                        // Bind parameter
                         cmd.Parameters.AddWithValue("id", Convert.ToInt32(r.Cells["id_kategori"].Value));
                         cmd.Parameters.AddWithValue("nama", txtNama.Text.Trim());
                         cmd.Parameters.AddWithValue("deskripsi", string.IsNullOrWhiteSpace(txtDeskripsi.Text) ? (object)DBNull.Value : txtDeskripsi.Text.Trim());
 
-                        //pksekusi fungsi dan periksa hasilnya
+                        // Eksekusi fungsi dan periksa hasilnya
                         bool result = (bool)cmd.ExecuteScalar();
 
                         if (result)
@@ -100,7 +99,7 @@ namespace WasteNoMoreUI
                         }
                         else
                         {
-                            MessageBox.Show("Pembaruan kategori gagal! Pastikan data valid atau kategori belum dihapus.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Pembaruan kategori gagal! Pastikan data valid.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -115,11 +114,11 @@ namespace WasteNoMoreUI
         {
             try
             {
-                //query SQL untuk mengambil data kategori
-                string query = "SELECT * FROM kategori";
+                // Query SQL untuk mengambil data kategori
+                string query = "SELECT id_kategori, nama_kategori, deskripsi_kategori FROM kategori";
                 dt = DatabaseManager.ExecuteQuery(query);
 
-                //Tampilkan data di Ddatagridview
+                // Tampilkan data di DataGridView
                 dgvKategori.DataSource = dt;
             }
             catch (Exception ex)
@@ -130,13 +129,11 @@ namespace WasteNoMoreUI
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            // Panggil metode LoadData untuk mengambil data kategori
             LoadData();
         }
 
         private void dgvKategori_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Mendapatkan data baris yang dipilih
             if (e.RowIndex >= 0)
             {
                 r = dgvKategori.Rows[e.RowIndex];
@@ -147,7 +144,6 @@ namespace WasteNoMoreUI
 
         private void FormKategoriAdmin_Load(object sender, EventArgs e)
         {
-            // Muat data saat form pertama kali dibuka
             LoadData();
         }
 
@@ -163,11 +159,11 @@ namespace WasteNoMoreUI
                 using (var conn = DatabaseManager.GetConnection())
                 {
                     conn.Open();
-                    using (var cmd = new NpgsqlCommand("SELECT delete_kategori(@id_kategori)", conn))
+                    using (var cmd = new NpgsqlCommand("SELECT delete_kategori(@id_kategori);", conn))
                     {
                         cmd.Parameters.AddWithValue("id_kategori", idKategori);
 
-                        //eksekusi fungsi dan periksa hasilnya
+                        // Eksekusi fungsi dan periksa hasilnya
                         bool result = (bool)cmd.ExecuteScalar();
 
                         if (result)
@@ -176,7 +172,7 @@ namespace WasteNoMoreUI
                         }
                         else
                         {
-                            MessageBox.Show("Kategori tidak ditemukan atau sudah dihapus.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Kategori tidak ditemukan.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -204,10 +200,10 @@ namespace WasteNoMoreUI
                 {
                     int idKategori = Convert.ToInt32(r.Cells["id_kategori"].Value);
 
-                    //panggil fungsi DeleteKategori untuk menghapus data
+                    // Panggil fungsi DeleteKategori untuk menghapus data
                     DeleteKategori(idKategori);
 
-                    //refresh datagridview setelah penghapusan
+                    // Refresh DataGridView setelah penghapusan
                     LoadData();
                     txtNama.Clear();
                     txtDeskripsi.Clear();
