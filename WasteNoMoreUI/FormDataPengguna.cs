@@ -17,16 +17,23 @@ namespace WasteNoMoreUI
     public partial class FormDataPengguna : Form
     {
         int currentId = -1;
+
+        private FormDashboard formDashboard;
+
         bool sidebarExpand = false;
 
-        public FormDataPengguna(int currentId)
+        public FormDataPengguna(int currentId, FormDashboard formDashboard)
         {
             InitializeComponent();
             this.currentId = currentId;
             LoadUserInfo();
 
+            this.formDashboard = formDashboard;
+
+
             sidebar.Width = 100;
             sidebarExpand = false;
+
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -88,6 +95,11 @@ namespace WasteNoMoreUI
 
         }
 
+        private void FormDataPengguna_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
         private void pbNavbar_Click(object sender, EventArgs e)
         {
             sidebarTransition.Start();
@@ -96,38 +108,38 @@ namespace WasteNoMoreUI
         private void btnNavbarEntri_Click(object sender, EventArgs e)
         {
             //ketika button Entri Sampah di-klik maka form entri sampah dibuka
-            FormEntriSampah inputSampahForm = new FormEntriSampah(currentId);
+            FormEntriSampah inputSampahForm = new FormEntriSampah(currentId,formDashboard);
             inputSampahForm.Show();
             //form dashboard ditutup
-            this.Hide();
+            this.Close();
         }
 
         private void btnNavbarTrack_Click(object sender, EventArgs e)
         {
             //ketika button Track Sampah di-klik maka form track sampah dibuka
-            FormTrack formTrackSampah = new FormTrack(currentId);
+            FormTrack formTrackSampah = new FormTrack(currentId,formDashboard);
             formTrackSampah.Show();
             //form dashboard ditutup
-            this.Hide();
+            this.Close();
         }
 
         private void btnNavbarBandingHarga_Click(object sender, EventArgs e)
         {
             //ketika button Banding Harga di-klik maka form banidng harga dibuka
-            FormBandingHarga formBandingHarga = new FormBandingHarga(currentId);
+            FormBandingHarga formBandingHarga = new FormBandingHarga(currentId, formDashboard);
             formBandingHarga.Show();
             //form dashboard ditutup
 
-            this.Hide();
+            this.Close();
         }
 
         private void btnNavbarAkun_Click(object sender, EventArgs e)
         {
             //ketika button data pengguna di-klik maka form data pengguna dibuka
-            FormDataPengguna formDataPengguna = new FormDataPengguna(currentId);
+            FormDataPengguna formDataPengguna = new FormDataPengguna(currentId, formDashboard);
             formDataPengguna.Show();
             //form dashboard ditutup
-            this.Hide();
+            this.Close();
         }
 
         private void btnNavbarLogout_Click(object sender, EventArgs e)
@@ -154,9 +166,7 @@ namespace WasteNoMoreUI
 
         private void btnNavbarDashboard_Click(object sender, EventArgs e)
         {
-            FormDashboard dashboardForm = new FormDashboard(currentId);
-            dashboardForm.Show();
-            this.Hide();
+            formDashboard.Show();
         }
 
         private void sidebarTransition_Tick(object sender, EventArgs e)
@@ -188,6 +198,7 @@ namespace WasteNoMoreUI
             pnLogout.Width = sidebar.Width;
             pnPanduan.Width = sidebar.Width;
             pnTrack.Width = sidebar.Width;
+
         }
     }
 }

@@ -1,6 +1,12 @@
-﻿using Npgsql;
+using Npgsql;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WasteNoMoreUI.Models;
 
@@ -11,9 +17,12 @@ namespace WasteNoMoreUI
         private DataTable dt;
         private DataGridViewRow r;
 
-        public FormAplikasiAdmin()
+        private FormDashobardAdmin formDashobardAdmin;
+        public FormAplikasiAdmin(FormDashobardAdmin formDashobardAdmin)
+
         {
             InitializeComponent();
+            this.formDashobardAdmin = formDashobardAdmin;
         }
 
         private void pbInsertAplikasi_Click(object sender, EventArgs e)
@@ -190,9 +199,7 @@ namespace WasteNoMoreUI
 
         private void btnBackAplikasi_Click(object sender, EventArgs e)
         {
-            FormDashobardAdmin dashobardAdminForm = new FormDashobardAdmin();
-            dashobardAdminForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnLoadAplikasi_Click(object sender, EventArgs e)
@@ -208,6 +215,11 @@ namespace WasteNoMoreUI
                 txtNamaAplikasi.Text = r.Cells["nama_aplikasi"].Value.ToString();
                 txtDeskripsiAplikasi.Text = r.Cells["deskripsi_aplikasi"].Value.ToString();
             }
+        }
+
+        private void FormAplikasiAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashobardAdmin.Show();
         }
     }
 }

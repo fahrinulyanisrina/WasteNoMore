@@ -38,11 +38,10 @@
             // dgvUsers
             // 
             dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsers.Location = new Point(22, 111);
-            dgvUsers.Margin = new Padding(6);
+            dgvUsers.Location = new Point(12, 52);
             dgvUsers.Name = "dgvUsers";
             dgvUsers.RowHeadersWidth = 82;
-            dgvUsers.Size = new Size(860, 676);
+            dgvUsers.Size = new Size(463, 317);
             dgvUsers.TabIndex = 0;
             dgvUsers.CellContentClick += dgvUsers_CellContentClick;
             // 
@@ -50,19 +49,17 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(35, 21);
-            label1.Margin = new Padding(6, 0, 6, 0);
+            label1.Location = new Point(19, 10);
             label1.Name = "label1";
-            label1.Size = new Size(377, 51);
+            label1.Size = new Size(189, 25);
             label1.TabIndex = 1;
             label1.Text = "List Data Pengguna ";
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(22, 800);
-            btnDelete.Margin = new Padding(6);
+            btnDelete.Location = new Point(12, 375);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(215, 77);
+            btnDelete.Size = new Size(116, 36);
             btnDelete.TabIndex = 2;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -73,25 +70,25 @@
             btnBack.BackColor = Color.Brown;
             btnBack.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(1256, 831);
+            btnBack.Location = new Point(676, 390);
+            btnBack.Margin = new Padding(2, 1, 2, 1);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(150, 46);
+            btnBack.Size = new Size(81, 22);
             btnBack.TabIndex = 85;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = false;
             // 
-            // FormPenggunaAdmin
+            // FormPenggunaAdmin1
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1486, 960);
+            ClientSize = new Size(738, 418);
             Controls.Add(btnBack);
             Controls.Add(btnDelete);
             Controls.Add(label1);
             Controls.Add(dgvUsers);
-            Margin = new Padding(6);
-            Name = "FormPenggunaAdmin";
+            Name = "FormPenggunaAdmin1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormPenggunaAdmin";
             ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();

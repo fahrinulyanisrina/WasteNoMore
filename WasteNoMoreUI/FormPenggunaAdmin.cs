@@ -17,9 +17,13 @@ namespace WasteNoMoreUI
         private DataTable dt;
         private DataGridViewRow r;
 
-        public FormPenggunaAdmin()
+        private FormDashobardAdmin formDashobardAdmin;
+        public FormPenggunaAdmin(FormDashobardAdmin formDashobardAdmin)
         {
             InitializeComponent();
+            LoadDataPengguna();
+            this.formDashobardAdmin = formDashobardAdmin;
+
         }
 
         private void LoadDataPengguna()
@@ -80,6 +84,7 @@ namespace WasteNoMoreUI
             {
                 MessageBox.Show("Error: " + ex.Message, "Insert FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
 
         }
 
@@ -173,6 +178,11 @@ namespace WasteNoMoreUI
             }
         }
 
+        private void FormPenggunaAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+         
+        }
+
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadDataPengguna();
@@ -180,14 +190,16 @@ namespace WasteNoMoreUI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            FormDashobardAdmin formDashobardAdmin = new FormDashobardAdmin();
             formDashobardAdmin.Show();
-            this.Hide();
+            this.Close();
+
         }
 
         private void FormPenggunaAdmin_Load(object sender, EventArgs e)
         {
+
             LoadDataPengguna();
+
         }
     }
 }

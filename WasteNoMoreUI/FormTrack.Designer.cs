@@ -73,9 +73,11 @@
             // 
             btnCancel.BackColor = Color.Brown;
             btnCancel.ForeColor = SystemColors.ControlLightLight;
+
             btnCancel.Location = new Point(617, 567);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(150, 46);
+
             btnCancel.TabIndex = 50;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -85,9 +87,11 @@
             // 
             btnTrack.BackColor = Color.SteelBlue;
             btnTrack.ForeColor = SystemColors.ControlLightLight;
+
             btnTrack.Location = new Point(867, 567);
             btnTrack.Name = "btnTrack";
             btnTrack.Size = new Size(150, 46);
+
             btnTrack.TabIndex = 49;
             btnTrack.Text = "Track";
             btnTrack.UseVisualStyleBackColor = false;
@@ -95,55 +99,68 @@
             // 
             // dtpAkhir
             // 
+
             dtpAkhir.Location = new Point(617, 450);
             dtpAkhir.Name = "dtpAkhir";
             dtpAkhir.Size = new Size(400, 39);
+
             dtpAkhir.TabIndex = 48;
             // 
             // label1
             // 
             label1.AutoSize = true;
+
             label1.Location = new Point(529, 455);
             label1.Name = "label1";
             label1.Size = new Size(81, 32);
+
             label1.TabIndex = 47;
             label1.Text = "Akhir :";
             // 
             // dtpAwal
             // 
+
             dtpAwal.Location = new Point(617, 371);
             dtpAwal.Name = "dtpAwal";
             dtpAwal.Size = new Size(400, 39);
+
             dtpAwal.TabIndex = 46;
             // 
             // cmbKategori
             // 
             cmbKategori.FormattingEnabled = true;
+
             cmbKategori.Location = new Point(617, 295);
             cmbKategori.Name = "cmbKategori";
             cmbKategori.Size = new Size(400, 40);
+
             cmbKategori.TabIndex = 45;
             // 
             // label3
             // 
             label3.AutoSize = true;
+
             label3.Location = new Point(534, 376);
             label3.Name = "label3";
             label3.Size = new Size(76, 32);
+
             label3.TabIndex = 44;
             label3.Text = "Awal :";
             // 
             // label2
             // 
             label2.AutoSize = true;
+
             label2.Location = new Point(495, 295);
             label2.Name = "label2";
             label2.Size = new Size(115, 32);
+
             label2.TabIndex = 43;
             label2.Text = "Kategori :";
             // 
             // sidebarTransition
             // 
+
             sidebarTransition.Interval = 10;
             sidebarTransition.Tick += sidebarTransition_Tick;
             // 
@@ -380,6 +397,7 @@
             Controls.Add(lblJudul);
             Controls.Add(sidebar);
             Controls.Add(pnNavbar);
+
             Controls.Add(btnCancel);
             Controls.Add(btnTrack);
             Controls.Add(dtpAkhir);
@@ -388,9 +406,13 @@
             Controls.Add(cmbKategori);
             Controls.Add(label3);
             Controls.Add(label2);
+
+
             Name = "FormTrack";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormTrack";
+
+            FormClosed += FormTrack_FormClosed;
             sidebar.ResumeLayout(false);
             pnDashboard.ResumeLayout(false);
             pnEntri.ResumeLayout(false);

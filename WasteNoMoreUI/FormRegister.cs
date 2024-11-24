@@ -16,9 +16,11 @@ namespace WasteNoMoreUI
 {
     public partial class FormRegister : Form
     {
-        public FormRegister()
+        private FormLogin formLoginReference;
+        public FormRegister(FormLogin formLoginReference)
         {
             InitializeComponent();
+            this.formLoginReference = formLoginReference;
         }
 
         private static string generatedOtp;
@@ -158,9 +160,8 @@ namespace WasteNoMoreUI
                         if (result != null && (int)result == 1)
                         {
                             MessageBox.Show("Akun berhasil dibuat!");
-                            FormLogin loginForm = new FormLogin();
-                            loginForm.Show();
-                            this.Hide();
+                            formLoginReference.Show();
+                            this.Close();
                         }
                         else
                         {
@@ -178,9 +179,8 @@ namespace WasteNoMoreUI
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //kembali ke form login
-            FormLogin loginForm = new FormLogin();
-            loginForm.Show();
-            this.Hide();
+            formLoginReference.Show();
+            this.Close();
         }
 
         private void FormRegister_Load(object sender, EventArgs e)
@@ -205,10 +205,8 @@ namespace WasteNoMoreUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //membuka ke form login
-            FormLogin loginForm = new FormLogin();
-            loginForm.Show();
-            this.Hide();
+            formLoginReference.Show();
+            this.Close();
         }
 
         private void lblJudul_Click(object sender, EventArgs e)

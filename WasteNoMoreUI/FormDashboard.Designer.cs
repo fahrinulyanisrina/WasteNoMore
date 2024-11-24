@@ -76,20 +76,20 @@
             // 
             lblJudul.AutoSize = true;
             lblJudul.Font = new Font("Segoe UI Black", 22.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblJudul.Location = new Point(606, 90);
-            lblJudul.Margin = new Padding(7, 0, 7, 0);
+            lblJudul.Location = new Point(326, 42);
+            lblJudul.Margin = new Padding(4, 0, 4, 0);
             lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(347, 78);
+            lblJudul.Size = new Size(178, 41);
             lblJudul.TabIndex = 51;
             lblJudul.Text = "Dashboard";
             // 
             // pbEntri
             // 
             pbEntri.Image = (Image)resources.GetObject("pbEntri.Image");
-            pbEntri.Location = new Point(288, 339);
-            pbEntri.Margin = new Padding(7, 4, 7, 4);
+            pbEntri.Location = new Point(155, 159);
+            pbEntri.Margin = new Padding(4, 2, 4, 2);
             pbEntri.Name = "pbEntri";
-            pbEntri.Size = new Size(236, 227);
+            pbEntri.Size = new Size(127, 106);
             pbEntri.SizeMode = PictureBoxSizeMode.StretchImage;
             pbEntri.TabIndex = 52;
             pbEntri.TabStop = false;
@@ -98,10 +98,10 @@
             // pbTrack
             // 
             pbTrack.Image = (Image)resources.GetObject("pbTrack.Image");
-            pbTrack.Location = new Point(645, 339);
-            pbTrack.Margin = new Padding(7, 4, 7, 4);
+            pbTrack.Location = new Point(347, 159);
+            pbTrack.Margin = new Padding(4, 2, 4, 2);
             pbTrack.Name = "pbTrack";
-            pbTrack.Size = new Size(216, 227);
+            pbTrack.Size = new Size(116, 106);
             pbTrack.SizeMode = PictureBoxSizeMode.StretchImage;
             pbTrack.TabIndex = 54;
             pbTrack.TabStop = false;
@@ -110,10 +110,10 @@
             // pbBanding
             // 
             pbBanding.Image = (Image)resources.GetObject("pbBanding.Image");
-            pbBanding.Location = new Point(993, 339);
-            pbBanding.Margin = new Padding(7, 4, 7, 4);
+            pbBanding.Location = new Point(535, 159);
+            pbBanding.Margin = new Padding(4, 2, 4, 2);
             pbBanding.Name = "pbBanding";
-            pbBanding.Size = new Size(234, 227);
+            pbBanding.Size = new Size(126, 106);
             pbBanding.SizeMode = PictureBoxSizeMode.StretchImage;
             pbBanding.TabIndex = 56;
             pbBanding.TabStop = false;
@@ -123,10 +123,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(516, 196);
-            label1.Margin = new Padding(7, 0, 7, 0);
+            label1.Location = new Point(278, 92);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(489, 40);
+            label1.Size = new Size(249, 20);
             label1.TabIndex = 58;
             label1.Text = "Selamat Datang di WasteNoMOre!";
             // 
@@ -134,20 +134,20 @@
             // 
             lblEntriSampah.AutoSize = true;
             lblEntriSampah.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEntriSampah.Location = new Point(262, 610);
-            lblEntriSampah.Margin = new Padding(7, 0, 7, 0);
+            lblEntriSampah.Location = new Point(141, 286);
+            lblEntriSampah.Margin = new Padding(4, 0, 4, 0);
             lblEntriSampah.Name = "lblEntriSampah";
-            lblEntriSampah.Size = new Size(0, 40);
+            lblEntriSampah.Size = new Size(0, 20);
             lblEntriSampah.TabIndex = 59;
             // 
             // lblTrack
             // 
             lblTrack.AutoSize = true;
             lblTrack.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTrack.Location = new Point(619, 602);
-            lblTrack.Margin = new Padding(7, 0, 7, 0);
+            lblTrack.Location = new Point(333, 282);
+            lblTrack.Margin = new Padding(4, 0, 4, 0);
             lblTrack.Name = "lblTrack";
-            lblTrack.Size = new Size(242, 40);
+            lblTrack.Size = new Size(126, 20);
             lblTrack.TabIndex = 61;
             lblTrack.Text = "Tracking Sampah";
             // 
@@ -155,10 +155,10 @@
             // 
             lblBanding.AutoSize = true;
             lblBanding.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBanding.Location = new Point(1014, 602);
-            lblBanding.Margin = new Padding(7, 0, 7, 0);
+            lblBanding.Location = new Point(546, 282);
+            lblBanding.Margin = new Padding(4, 0, 4, 0);
             lblBanding.Name = "lblBanding";
-            lblBanding.Size = new Size(213, 40);
+            lblBanding.Size = new Size(112, 20);
             lblBanding.TabIndex = 62;
             lblBanding.Text = "Banding Harga";
             // 
@@ -166,10 +166,10 @@
             // 
             lblEntri.AutoSize = true;
             lblEntri.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEntri.Location = new Point(300, 599);
-            lblEntri.Margin = new Padding(7, 0, 7, 0);
+            lblEntri.Location = new Point(162, 281);
+            lblEntri.Margin = new Padding(4, 0, 4, 0);
             lblEntri.Name = "lblEntri";
-            lblEntri.Size = new Size(192, 40);
+            lblEntri.Size = new Size(100, 20);
             lblEntri.TabIndex = 63;
             lblEntri.Text = "Entri Sampah";
             // 
@@ -190,18 +190,20 @@
             sidebar.Controls.Add(pnLogout);
             sidebar.Dock = DockStyle.Left;
             sidebar.FlowDirection = FlowDirection.TopDown;
-            sidebar.Location = new Point(0, 67);
+            sidebar.Location = new Point(0, 31);
+            sidebar.Margin = new Padding(2, 1, 2, 1);
             sidebar.Name = "sidebar";
-            sidebar.Padding = new Padding(0, 20, 0, 0);
-            sidebar.Size = new Size(100, 762);
+            sidebar.Padding = new Padding(0, 9, 0, 0);
+            sidebar.Size = new Size(54, 320);
             sidebar.TabIndex = 72;
             // 
             // pnDashboard
             // 
             pnDashboard.Controls.Add(btnNavbarDashboard);
-            pnDashboard.Location = new Point(3, 23);
+            pnDashboard.Location = new Point(2, 10);
+            pnDashboard.Margin = new Padding(2, 1, 2, 1);
             pnDashboard.Name = "pnDashboard";
-            pnDashboard.Size = new Size(397, 70);
+            pnDashboard.Size = new Size(214, 33);
             pnDashboard.TabIndex = 69;
             // 
             // btnNavbarDashboard
@@ -211,22 +213,23 @@
             btnNavbarDashboard.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNavbarDashboard.Image = (Image)resources.GetObject("btnNavbarDashboard.Image");
             btnNavbarDashboard.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNavbarDashboard.Location = new Point(3, -3);
+            btnNavbarDashboard.Location = new Point(2, -1);
+            btnNavbarDashboard.Margin = new Padding(2, 1, 2, 1);
             btnNavbarDashboard.Name = "btnNavbarDashboard";
-            btnNavbarDashboard.Padding = new Padding(25, 0, 0, 0);
-            btnNavbarDashboard.Size = new Size(391, 70);
+            btnNavbarDashboard.Padding = new Padding(13, 0, 0, 0);
+            btnNavbarDashboard.Size = new Size(211, 33);
             btnNavbarDashboard.TabIndex = 70;
             btnNavbarDashboard.Text = "         Dashboard";
             btnNavbarDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnNavbarDashboard.UseVisualStyleBackColor = false;
-            btnNavbarDashboard.Click += btnNavbarDashboard_Click;
             // 
             // pnEntri
             // 
             pnEntri.Controls.Add(btnNavbarEntri);
-            pnEntri.Location = new Point(3, 99);
+            pnEntri.Location = new Point(2, 45);
+            pnEntri.Margin = new Padding(2, 1, 2, 1);
             pnEntri.Name = "pnEntri";
-            pnEntri.Size = new Size(397, 70);
+            pnEntri.Size = new Size(214, 33);
             pnEntri.TabIndex = 71;
             // 
             // btnNavbarEntri
@@ -236,10 +239,11 @@
             btnNavbarEntri.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNavbarEntri.Image = (Image)resources.GetObject("btnNavbarEntri.Image");
             btnNavbarEntri.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNavbarEntri.Location = new Point(3, -3);
+            btnNavbarEntri.Location = new Point(2, -1);
+            btnNavbarEntri.Margin = new Padding(2, 1, 2, 1);
             btnNavbarEntri.Name = "btnNavbarEntri";
-            btnNavbarEntri.Padding = new Padding(25, 0, 0, 0);
-            btnNavbarEntri.Size = new Size(391, 70);
+            btnNavbarEntri.Padding = new Padding(13, 0, 0, 0);
+            btnNavbarEntri.Size = new Size(211, 33);
             btnNavbarEntri.TabIndex = 70;
             btnNavbarEntri.Text = "         Entri Sampah";
             btnNavbarEntri.TextAlign = ContentAlignment.MiddleLeft;
@@ -249,9 +253,10 @@
             // pnTrack
             // 
             pnTrack.Controls.Add(btnNavbarTrack);
-            pnTrack.Location = new Point(3, 175);
+            pnTrack.Location = new Point(2, 80);
+            pnTrack.Margin = new Padding(2, 1, 2, 1);
             pnTrack.Name = "pnTrack";
-            pnTrack.Size = new Size(397, 70);
+            pnTrack.Size = new Size(214, 33);
             pnTrack.TabIndex = 71;
             // 
             // btnNavbarTrack
@@ -261,10 +266,11 @@
             btnNavbarTrack.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNavbarTrack.Image = (Image)resources.GetObject("btnNavbarTrack.Image");
             btnNavbarTrack.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNavbarTrack.Location = new Point(3, -3);
+            btnNavbarTrack.Location = new Point(2, -1);
+            btnNavbarTrack.Margin = new Padding(2, 1, 2, 1);
             btnNavbarTrack.Name = "btnNavbarTrack";
-            btnNavbarTrack.Padding = new Padding(25, 0, 0, 0);
-            btnNavbarTrack.Size = new Size(391, 70);
+            btnNavbarTrack.Padding = new Padding(13, 0, 0, 0);
+            btnNavbarTrack.Size = new Size(211, 33);
             btnNavbarTrack.TabIndex = 70;
             btnNavbarTrack.Text = "         Tracking Sampah";
             btnNavbarTrack.TextAlign = ContentAlignment.MiddleLeft;
@@ -274,9 +280,10 @@
             // pnBandingHarga
             // 
             pnBandingHarga.Controls.Add(btnNavbarBandingHarga);
-            pnBandingHarga.Location = new Point(3, 251);
+            pnBandingHarga.Location = new Point(2, 115);
+            pnBandingHarga.Margin = new Padding(2, 1, 2, 1);
             pnBandingHarga.Name = "pnBandingHarga";
-            pnBandingHarga.Size = new Size(397, 70);
+            pnBandingHarga.Size = new Size(214, 33);
             pnBandingHarga.TabIndex = 70;
             // 
             // btnNavbarBandingHarga
@@ -286,10 +293,11 @@
             btnNavbarBandingHarga.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNavbarBandingHarga.Image = (Image)resources.GetObject("btnNavbarBandingHarga.Image");
             btnNavbarBandingHarga.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNavbarBandingHarga.Location = new Point(3, -3);
+            btnNavbarBandingHarga.Location = new Point(2, -1);
+            btnNavbarBandingHarga.Margin = new Padding(2, 1, 2, 1);
             btnNavbarBandingHarga.Name = "btnNavbarBandingHarga";
-            btnNavbarBandingHarga.Padding = new Padding(25, 0, 0, 0);
-            btnNavbarBandingHarga.Size = new Size(391, 70);
+            btnNavbarBandingHarga.Padding = new Padding(13, 0, 0, 0);
+            btnNavbarBandingHarga.Size = new Size(211, 33);
             btnNavbarBandingHarga.TabIndex = 70;
             btnNavbarBandingHarga.Text = "         Banding Harga";
             btnNavbarBandingHarga.TextAlign = ContentAlignment.MiddleLeft;
@@ -299,9 +307,10 @@
             // pnPanduan
             // 
             pnPanduan.Controls.Add(btnNavbarPanduan);
-            pnPanduan.Location = new Point(3, 327);
+            pnPanduan.Location = new Point(2, 150);
+            pnPanduan.Margin = new Padding(2, 1, 2, 1);
             pnPanduan.Name = "pnPanduan";
-            pnPanduan.Size = new Size(397, 70);
+            pnPanduan.Size = new Size(214, 33);
             pnPanduan.TabIndex = 72;
             // 
             // btnNavbarPanduan
@@ -311,10 +320,11 @@
             btnNavbarPanduan.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNavbarPanduan.Image = (Image)resources.GetObject("btnNavbarPanduan.Image");
             btnNavbarPanduan.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNavbarPanduan.Location = new Point(3, -3);
+            btnNavbarPanduan.Location = new Point(2, -1);
+            btnNavbarPanduan.Margin = new Padding(2, 1, 2, 1);
             btnNavbarPanduan.Name = "btnNavbarPanduan";
-            btnNavbarPanduan.Padding = new Padding(25, 0, 0, 0);
-            btnNavbarPanduan.Size = new Size(391, 70);
+            btnNavbarPanduan.Padding = new Padding(13, 0, 0, 0);
+            btnNavbarPanduan.Size = new Size(211, 33);
             btnNavbarPanduan.TabIndex = 70;
             btnNavbarPanduan.Text = "         Panduan";
             btnNavbarPanduan.TextAlign = ContentAlignment.MiddleLeft;
@@ -323,9 +333,10 @@
             // pnAkun
             // 
             pnAkun.Controls.Add(btnNavbarAkun);
-            pnAkun.Location = new Point(3, 403);
+            pnAkun.Location = new Point(2, 185);
+            pnAkun.Margin = new Padding(2, 1, 2, 1);
             pnAkun.Name = "pnAkun";
-            pnAkun.Size = new Size(397, 70);
+            pnAkun.Size = new Size(214, 33);
             pnAkun.TabIndex = 73;
             // 
             // btnNavbarAkun
@@ -335,10 +346,11 @@
             btnNavbarAkun.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNavbarAkun.Image = (Image)resources.GetObject("btnNavbarAkun.Image");
             btnNavbarAkun.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNavbarAkun.Location = new Point(3, -3);
+            btnNavbarAkun.Location = new Point(2, -1);
+            btnNavbarAkun.Margin = new Padding(2, 1, 2, 1);
             btnNavbarAkun.Name = "btnNavbarAkun";
-            btnNavbarAkun.Padding = new Padding(25, 0, 0, 0);
-            btnNavbarAkun.Size = new Size(391, 70);
+            btnNavbarAkun.Padding = new Padding(13, 0, 0, 0);
+            btnNavbarAkun.Size = new Size(211, 33);
             btnNavbarAkun.TabIndex = 70;
             btnNavbarAkun.Text = "         Akun";
             btnNavbarAkun.TextAlign = ContentAlignment.MiddleLeft;
@@ -348,9 +360,10 @@
             // pnLogout
             // 
             pnLogout.Controls.Add(btnNavbarLogout);
-            pnLogout.Location = new Point(3, 479);
+            pnLogout.Location = new Point(2, 220);
+            pnLogout.Margin = new Padding(2, 1, 2, 1);
             pnLogout.Name = "pnLogout";
-            pnLogout.Size = new Size(397, 70);
+            pnLogout.Size = new Size(214, 33);
             pnLogout.TabIndex = 74;
             // 
             // btnNavbarLogout
@@ -360,10 +373,11 @@
             btnNavbarLogout.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNavbarLogout.Image = (Image)resources.GetObject("btnNavbarLogout.Image");
             btnNavbarLogout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNavbarLogout.Location = new Point(3, -3);
+            btnNavbarLogout.Location = new Point(2, -1);
+            btnNavbarLogout.Margin = new Padding(2, 1, 2, 1);
             btnNavbarLogout.Name = "btnNavbarLogout";
-            btnNavbarLogout.Padding = new Padding(25, 0, 0, 0);
-            btnNavbarLogout.Size = new Size(391, 70);
+            btnNavbarLogout.Padding = new Padding(13, 0, 0, 0);
+            btnNavbarLogout.Size = new Size(211, 33);
             btnNavbarLogout.TabIndex = 70;
             btnNavbarLogout.Text = "         Logout";
             btnNavbarLogout.TextAlign = ContentAlignment.MiddleLeft;
@@ -376,16 +390,18 @@
             pnNavbar.Controls.Add(pbNavbar);
             pnNavbar.Dock = DockStyle.Top;
             pnNavbar.Location = new Point(0, 0);
+            pnNavbar.Margin = new Padding(2, 1, 2, 1);
             pnNavbar.Name = "pnNavbar";
-            pnNavbar.Size = new Size(1474, 67);
+            pnNavbar.Size = new Size(738, 31);
             pnNavbar.TabIndex = 71;
             // 
             // pbNavbar
             // 
             pbNavbar.Image = (Image)resources.GetObject("pbNavbar.Image");
-            pbNavbar.Location = new Point(29, 12);
+            pbNavbar.Location = new Point(16, 6);
+            pbNavbar.Margin = new Padding(2, 1, 2, 1);
             pbNavbar.Name = "pbNavbar";
-            pbNavbar.Size = new Size(58, 45);
+            pbNavbar.Size = new Size(31, 21);
             pbNavbar.SizeMode = PictureBoxSizeMode.StretchImage;
             pbNavbar.TabIndex = 0;
             pbNavbar.TabStop = false;
@@ -393,10 +409,10 @@
             // 
             // FormDashboard
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1474, 829);
+            ClientSize = new Size(738, 351);
             Controls.Add(sidebar);
             Controls.Add(pnNavbar);
             Controls.Add(lblEntri);
@@ -408,10 +424,11 @@
             Controls.Add(pbTrack);
             Controls.Add(pbEntri);
             Controls.Add(lblJudul);
-            Margin = new Padding(7, 4, 7, 4);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "FormDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDashboard";
+            FormClosed += FormDashboard_FormClosed;
             Load += FormDashboard_Load;
             ((System.ComponentModel.ISupportInitialize)pbEntri).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbTrack).EndInit();
