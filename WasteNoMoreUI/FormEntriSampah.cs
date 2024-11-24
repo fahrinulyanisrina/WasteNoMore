@@ -40,7 +40,7 @@ namespace WasteNoMoreUI
         private void LoadKategori()
         {
             //query untuk mengambil data kategori yang belum dihapus
-            string query = "SELECT id_kategori, nama_kategori, deskripsi_kategori FROM kategori WHERE is_deleted = FALSE";
+            string query = "SELECT id_kategori, nama_kategori, deskripsi_kategori FROM kategori";
 
             //eksekusi query dan ambil data dari db
             DataTable dt = DatabaseManager.ExecuteQuery(query);
