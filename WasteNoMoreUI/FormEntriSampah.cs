@@ -16,16 +16,24 @@ namespace WasteNoMoreUI
     {
         private List<Kategori> kategoriList = new List<Kategori>();
         private int currentId;
+
+        private FormDashboard formDashboard;
+
         bool sidebarExpand = false;
 
-        public FormEntriSampah(int currentId)
+
+        public FormEntriSampah(int currentId, FormDashboard formDashboard)
         {
             InitializeComponent();
             LoadKategori();
             this.currentId = currentId;
 
+            this.formDashboard = formDashboard;
+
+
             sidebar.Width = 100;
             sidebarExpand = false;
+
 
         }
 
@@ -58,9 +66,7 @@ namespace WasteNoMoreUI
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FormDashboard dashboardForm = new FormDashboard(currentId);
-            dashboardForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -75,7 +81,9 @@ namespace WasteNoMoreUI
             if (cmbKategori.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtBerat.Text))
             {
                 //jika ada yang belum terisi, tampilkan feedback
+
                 MessageBox.Show("Pastikan sudah memasukkan berat sampah!");
+
                 return;
             }
             //validasi tipe data yang dimasukkan dalam variable berat sampah
@@ -119,6 +127,11 @@ namespace WasteNoMoreUI
         {
 
         }
+
+
+        private void FormEntriSampah_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashboard.Show();
 
         private void sidebarTransition_Tick(object sender, EventArgs e)
         {
@@ -221,6 +234,7 @@ namespace WasteNoMoreUI
             FormDashboard dashboardForm = new FormDashboard(currentId);
             dashboardForm.Show();
             this.Hide();
+
         }
     }
 }

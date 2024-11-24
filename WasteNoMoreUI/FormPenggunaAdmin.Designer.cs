@@ -68,6 +68,7 @@
             // 
             // lblJudul
             // 
+
             lblJudul.AutoSize = true;
             lblJudul.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblJudul.Location = new Point(635, 48);
@@ -75,6 +76,7 @@
             lblJudul.Size = new Size(428, 50);
             lblJudul.TabIndex = 97;
             lblJudul.Text = "Manajemen Pengguna";
+
             // 
             // dgvPengguna
             // 
@@ -232,6 +234,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1598, 911);
             Controls.Add(txtNama);
@@ -259,6 +262,7 @@
             ((System.ComponentModel.ISupportInitialize)pbDelete).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbUpdate).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbInsert).EndInit();
+
             ResumeLayout(false);
             PerformLayout();
         }

@@ -17,9 +17,13 @@ namespace WasteNoMoreUI
         private DataTable dt;
         private DataGridViewRow r;
 
-        public FormPenggunaAdmin()
+        private FormDashobardAdmin formDashobardAdmin;
+        public FormPenggunaAdmin(FormDashobardAdmin formDashobardAdmin)
         {
             InitializeComponent();
+            LoadUsersInfo();
+            this.formDashobardAdmin = formDashobardAdmin;
+
         }
 
         private void LoadDataPengguna()
@@ -76,10 +80,28 @@ namespace WasteNoMoreUI
                     }
                 }
             }
+
+
+            // Get the selected user's ID
+            int selectedId = Convert.ToInt32(r.Cells["id_pengguna"].Value);
+
+            // Confirmation dialog
+            var confirmResult = MessageBox.Show(
+                 "Are you sure you want to delete this user?",
+                 "Confirm Delete",
+                 MessageBoxButtons.YesNo);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                DeleteUserFromDatabase(selectedId);
+                LoadUsersInfo();
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Insert FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
 
         }
 
@@ -173,6 +195,12 @@ namespace WasteNoMoreUI
             }
         }
 
+        private void FormPenggunaAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashobardAdmin.Show();
+         
+         }
+
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadDataPengguna();
@@ -183,11 +211,14 @@ namespace WasteNoMoreUI
             FormDashobardAdmin formDashobardAdmin = new FormDashobardAdmin();
             formDashobardAdmin.Show();
             this.Hide();
+
         }
 
         private void FormPenggunaAdmin_Load(object sender, EventArgs e)
         {
+
             LoadDataPengguna();
+
         }
     }
 }

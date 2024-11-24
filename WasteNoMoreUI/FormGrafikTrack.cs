@@ -14,14 +14,18 @@ namespace WasteNoMoreUI
         private Kategori kategori;
         private DateTime waktuAwal;
         private DateTime waktuAkhir;
+        private int currentId;
+        private FormTrack formTrack;
 
-        public FormGrafikTrack(Kategori kategori, DateTime waktuAwal, DateTime waktuAkhir)
+        public FormGrafikTrack(Kategori kategori, DateTime waktuAwal, DateTime waktuAkhir,int curerntId, FormTrack formTrack)
         {
             InitializeComponent();
 
             this.kategori = kategori;
             this.waktuAwal = waktuAwal;
             this.waktuAkhir = waktuAkhir;
+            this.currentId = curerntId;
+            this.formTrack = formTrack;
         }
 
         private void FormGrafikTrack_Load(object sender, EventArgs e)
@@ -78,8 +82,9 @@ namespace WasteNoMoreUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            FormTrack trackForm = new FormTrack(currentId);
-            trackForm.Show();
+
+            formTrack.Show();
+
             this.Close(); // Tutup form grafik
         }
     }

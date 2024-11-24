@@ -73,70 +73,86 @@
             // 
             lblJudul.AutoSize = true;
             lblJudul.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+
             lblJudul.Location = new Point(519, 199);
+
             lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(490, 37);
+            lblJudul.Size = new Size(250, 19);
             lblJudul.TabIndex = 26;
             lblJudul.Text = "Masukkan Data Sampah Terbaru Anda!";
             // 
             // cmbKategori
             // 
             cmbKategori.FormattingEnabled = true;
+
             cmbKategori.Location = new Point(680, 312);
             cmbKategori.Name = "cmbKategori";
             cmbKategori.Size = new Size(306, 40);
+
             cmbKategori.TabIndex = 24;
             cmbKategori.SelectedIndexChanged += cmbKategori_SelectedIndexChanged;
             // 
             // txtBerat
             // 
+
             txtBerat.Location = new Point(680, 385);
             txtBerat.Name = "txtBerat";
             txtBerat.Size = new Size(245, 39);
+
             txtBerat.TabIndex = 23;
             // 
             // lblKg
             // 
             lblKg.AutoSize = true;
+
             lblKg.Location = new Point(946, 388);
+
             lblKg.Name = "lblKg";
-            lblKg.Size = new Size(40, 32);
+            lblKg.Size = new Size(20, 15);
             lblKg.TabIndex = 22;
             lblKg.Text = "kg";
             // 
             // lblBerat
             // 
             lblBerat.AutoSize = true;
+
             lblBerat.Location = new Point(499, 385);
+
             lblBerat.Name = "lblBerat";
-            lblBerat.Size = new Size(174, 32);
+            lblBerat.Size = new Size(86, 15);
             lblBerat.TabIndex = 21;
             lblBerat.Text = "Berat Sampah :";
             // 
             // lblKategori
             // 
             lblKategori.AutoSize = true;
+
             lblKategori.Location = new Point(558, 312);
+
             lblKategori.Name = "lblKategori";
-            lblKategori.Size = new Size(115, 32);
+            lblKategori.Size = new Size(57, 15);
             lblKategori.TabIndex = 20;
             lblKategori.Text = "Kategori :";
             // 
             // label1
             // 
             label1.AutoSize = true;
+
             label1.Location = new Point(535, 199);
+
             label1.Name = "label1";
-            label1.Size = new Size(0, 32);
+            label1.Size = new Size(0, 15);
             label1.TabIndex = 19;
             // 
             // btnCancel
             // 
             btnCancel.BackColor = Color.Brown;
             btnCancel.ForeColor = SystemColors.ButtonHighlight;
+
             btnCancel.Location = new Point(589, 494);
+
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(150, 46);
+            btnCancel.Size = new Size(81, 22);
             btnCancel.TabIndex = 41;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -146,9 +162,11 @@
             // 
             btnAdd.BackColor = Color.SteelBlue;
             btnAdd.ForeColor = SystemColors.ButtonHighlight;
+
             btnAdd.Location = new Point(794, 494);
+
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(150, 46);
+            btnAdd.Size = new Size(81, 22);
             btnAdd.TabIndex = 40;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -374,12 +392,14 @@
             // 
             // FormEntriSampah
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
+
             ClientSize = new Size(1474, 829);
             Controls.Add(sidebar);
             Controls.Add(pnNavbar);
+
             Controls.Add(btnCancel);
             Controls.Add(btnAdd);
             Controls.Add(lblJudul);
@@ -389,9 +409,11 @@
             Controls.Add(lblBerat);
             Controls.Add(lblKategori);
             Controls.Add(label1);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "FormEntriSampah";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormEntriSampah";
+            FormClosed += FormEntriSampah_FormClosed;
             Load += FormEntriSampah_Load;
             sidebar.ResumeLayout(false);
             pnDashboard.ResumeLayout(false);

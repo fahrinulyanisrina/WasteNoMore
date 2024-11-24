@@ -396,9 +396,11 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
+
             ClientSize = new Size(1474, 829);
             Controls.Add(sidebar);
             Controls.Add(pnNavbar);
+
             Controls.Add(lblEntri);
             Controls.Add(lblBanding);
             Controls.Add(lblTrack);
@@ -412,6 +414,7 @@
             Name = "FormDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDashboard";
+            FormClosed += FormDashboard_FormClosed;
             Load += FormDashboard_Load;
             ((System.ComponentModel.ISupportInitialize)pbEntri).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbTrack).EndInit();

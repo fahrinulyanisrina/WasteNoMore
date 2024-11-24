@@ -78,9 +78,12 @@
             // 
             btnCancelBanding.BackColor = Color.Brown;
             btnCancelBanding.ForeColor = SystemColors.ButtonHighlight;
+
+
             btnCancelBanding.Location = new Point(1239, 771);
             btnCancelBanding.Name = "btnCancelBanding";
             btnCancelBanding.Size = new Size(150, 46);
+
             btnCancelBanding.TabIndex = 50;
             btnCancelBanding.Text = "Cancel";
             btnCancelBanding.UseVisualStyleBackColor = false;
@@ -90,9 +93,12 @@
             // 
             btnBandingkan.BackColor = Color.SteelBlue;
             btnBandingkan.ForeColor = SystemColors.ButtonHighlight;
+
+
             btnBandingkan.Location = new Point(1086, 315);
             btnBandingkan.Name = "btnBandingkan";
             btnBandingkan.Size = new Size(198, 46);
+
             btnBandingkan.TabIndex = 49;
             btnBandingkan.Text = "Bandingkan";
             btnBandingkan.UseVisualStyleBackColor = false;
@@ -101,95 +107,115 @@
             // lblBandingHarga
             // 
             lblBandingHarga.AutoSize = true;
+          
             lblBandingHarga.Font = new Font("Segoe UI Semibold", 11.125F, FontStyle.Bold);
             lblBandingHarga.Location = new Point(486, 119);
             lblBandingHarga.Name = "lblBandingHarga";
             lblBandingHarga.Size = new Size(678, 41);
+
             lblBandingHarga.TabIndex = 48;
             lblBandingHarga.Text = "Bandingkan Harga Sampah di Berbagai Aplikasi!";
             lblBandingHarga.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtKuantitas
             // 
+
             txtKuantitas.Location = new Point(1171, 214);
             txtKuantitas.Name = "txtKuantitas";
             txtKuantitas.Size = new Size(140, 39);
+
             txtKuantitas.TabIndex = 46;
             // 
             // lblKg
             // 
             lblKg.AutoSize = true;
+
             lblKg.Location = new Point(1326, 217);
             lblKg.Name = "lblKg";
             lblKg.Size = new Size(40, 32);
+          
             lblKg.TabIndex = 45;
             lblKg.Text = "kg";
             // 
             // lblBeratBanding
             // 
             lblBeratBanding.AutoSize = true;
+
             lblBeratBanding.Location = new Point(990, 214);
             lblBeratBanding.Name = "lblBeratBanding";
             lblBeratBanding.Size = new Size(174, 32);
+
             lblBeratBanding.TabIndex = 44;
             lblBeratBanding.Text = "Berat Sampah :";
             // 
             // lblKategoriBanding
             // 
             lblKategoriBanding.AutoSize = true;
+
             lblKategoriBanding.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblKategoriBanding.Location = new Point(570, 214);
             lblKategoriBanding.Name = "lblKategoriBanding";
             lblKategoriBanding.Size = new Size(115, 32);
+
             lblKategoriBanding.TabIndex = 43;
             lblKategoriBanding.Text = "Kategori :";
             // 
             // label1
             // 
             label1.AutoSize = true;
+
             label1.Location = new Point(148, 83);
             label1.Name = "label1";
             label1.Size = new Size(0, 32);
+
             label1.TabIndex = 42;
             // 
             // dgvBandingHarga
             // 
             dgvBandingHarga.BackgroundColor = SystemColors.GradientInactiveCaption;
             dgvBandingHarga.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
             dgvBandingHarga.Location = new Point(186, 486);
             dgvBandingHarga.Margin = new Padding(4);
             dgvBandingHarga.Name = "dgvBandingHarga";
             dgvBandingHarga.RowHeadersWidth = 62;
             dgvBandingHarga.Size = new Size(1203, 239);
+
             dgvBandingHarga.TabIndex = 52;
             dgvBandingHarga.CellContentClick += dgvBandingHarga_CellContentClick;
             // 
             // lblAplikasiBanding
             // 
             lblAplikasiBanding.AutoSize = true;
+
             lblAplikasiBanding.Location = new Point(186, 214);
             lblAplikasiBanding.Name = "lblAplikasiBanding";
             lblAplikasiBanding.Size = new Size(107, 32);
+
             lblAplikasiBanding.TabIndex = 54;
             lblAplikasiBanding.Text = "Aplikasi :";
             // 
             // clbAplikasi
             // 
             clbAplikasi.FormattingEnabled = true;
+
             clbAplikasi.Location = new Point(299, 214);
             clbAplikasi.Margin = new Padding(4);
             clbAplikasi.Name = "clbAplikasi";
             clbAplikasi.Size = new Size(242, 148);
+
             clbAplikasi.TabIndex = 55;
             clbAplikasi.SelectedIndexChanged += clbAplikasi_SelectedIndexChanged;
             // 
             // clbKategori
             // 
             clbKategori.FormattingEnabled = true;
+
             clbKategori.Location = new Point(688, 214);
             clbKategori.Margin = new Padding(4);
             clbKategori.Name = "clbKategori";
             clbKategori.Size = new Size(242, 148);
+
             clbKategori.TabIndex = 56;
             clbKategori.SelectedIndexChanged += clbKategori_SelectedIndexChanged;
             // 
@@ -424,6 +450,7 @@
             // 
             // FormBandingHarga
             // 
+
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
@@ -431,6 +458,7 @@
             Controls.Add(lblHasilPerbandingan);
             Controls.Add(sidebar);
             Controls.Add(pnNavbar);
+
             Controls.Add(clbKategori);
             Controls.Add(clbAplikasi);
             Controls.Add(lblAplikasiBanding);
@@ -443,10 +471,13 @@
             Controls.Add(lblBeratBanding);
             Controls.Add(lblKategoriBanding);
             Controls.Add(label1);
+
             Margin = new Padding(4);
+
             Name = "FormBandingHarga";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormBandingHarga";
+            FormClosed += FormBandingHarga_FormClosed;
             Load += FormBandingHarga_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBandingHarga).EndInit();
             sidebar.ResumeLayout(false);

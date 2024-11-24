@@ -17,6 +17,10 @@ namespace WasteNoMoreUI
     public partial class FormDataPengguna : Form
     {
         int currentId = -1;
+
+        private FormDashboard formDashboard;
+        public FormDataPengguna(int currentId, FormDashboard formDashboard)
+
         bool sidebarExpand = false;
 
         public FormDataPengguna(int currentId)
@@ -25,8 +29,12 @@ namespace WasteNoMoreUI
             this.currentId = currentId;
             LoadUserInfo();
 
+            this.formDashboard = formDashboard;
+
+
             sidebar.Width = 100;
             sidebarExpand = false;
+
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -85,6 +93,12 @@ namespace WasteNoMoreUI
                 lblUsername.Text = pengguna.Username;
             }
 
+
+        }
+
+        private void FormDataPengguna_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashboard.Show();
 
         }
 
@@ -188,6 +202,7 @@ namespace WasteNoMoreUI
             pnLogout.Width = sidebar.Width;
             pnPanduan.Width = sidebar.Width;
             pnTrack.Width = sidebar.Width;
+
         }
     }
 }

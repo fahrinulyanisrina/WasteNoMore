@@ -454,6 +454,9 @@
             Name = "FormDataPengguna";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDataPengguna";
+
+            FormClosed += FormDataPengguna_FormClosed;
+
             sidebar.ResumeLayout(false);
             pnDashboard.ResumeLayout(false);
             pnEntri.ResumeLayout(false);
@@ -464,6 +467,7 @@
             pnLogout.ResumeLayout(false);
             pnNavbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbNavbar).EndInit();
+
             ResumeLayout(false);
             PerformLayout();
         }
