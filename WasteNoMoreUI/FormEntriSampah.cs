@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,49 +66,49 @@ namespace WasteNoMoreUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //validasi input sudah terisi
-            if (cmbKategori.SelectedIndex == -1)
-            {
-                //jika ada yang belum terisi, tampilkan feedback
-                MessageBox.Show("Pastikan sudah memilih kategori!");
-                return;
-            }
+            // Validasi input sudah terisi
             if (cmbKategori.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtBerat.Text))
             {
-                //jika ada yang belum terisi, tampilkan feedback
-                MessageBox.Show("Pastikan sudah memasukkan berat sampah!");
-                return;
-            }
-            //validasi tipe data yang dimasukkan dalam variable berat sampah
-            if (!double.TryParse(txtBerat.Text, out double beratSampah) || beratSampah <= 0)
-            {
-                //jika tidak valid, tampilkan feedback
-                MessageBox.Show("Berat sampah harus berupa angka yang valid!");
+                MessageBox.Show("Pastikan semua data sudah terisi dengan benar!");
                 return;
             }
 
-            //Ambil id_kategori sesuai kategori dipilih
+            // Validasi tipe data yang dimasukkan dalam variable berat sampah
+            if (!double.TryParse(txtBerat.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out double beratSampah) || beratSampah <= 0)
+            {
+                MessageBox.Show("Berat sampah harus berupa angka desimal yang valid!");
+                return;
+            }
+
+            // Membatasi dua angka di belakang koma
+            beratSampah = Math.Round(beratSampah, 2);
+
+            // Ambil id_kategori sesuai kategori dipilih
             var selectedKategori = kategoriList[cmbKategori.SelectedIndex];
             int idKategori = selectedKategori.IdKategori;
-            int idPengguna = 1;
-            // Update sesuai dengan ID pengguna saat ini
 
-            string insertQuery = $"INSERT INTO sampah (id_pengguna, id_kategori, kuantitas) VALUES ({idPengguna}, {idKategori}, {beratSampah})";
+            // Ambil tanggal dari DateTimePicker
+            DateTime waktuEntri = dtpEntri.Value;
+
+            // Query untuk memasukkan data ke database
+            string insertQuery = $"INSERT INTO sampah (id_pengguna, id_kategori, kuantitas, waktu_entri) " +
+                                 $"VALUES ({currentId}, {idKategori}, {beratSampah.ToString(CultureInfo.InvariantCulture)}, '{waktuEntri:yyyy-MM-dd HH:mm:ss}')";
 
             try
             {
-                //jika entri sampah berhasil dimasukkan
+                // Eksekusi query untuk menyimpan data
                 DatabaseManager.ExecuteQuery(insertQuery);
                 MessageBox.Show("Sampah berhasil disimpan!");
+
+                // Reset form
                 cmbKategori.SelectedIndex = -1;
                 txtBerat.Clear();
             }
             catch (Exception ex)
             {
-                //setelah disimpan, kosongkan input
-                MessageBox.Show("Error: " + ex.Message, "FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Tampilkan pesan error jika terjadi kesalahan
+                MessageBox.Show("Error: " + ex.Message, "Gagal Menyimpan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void cmbKategori_SelectedIndexChanged(object sender, EventArgs e)
