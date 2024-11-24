@@ -26,7 +26,7 @@ namespace WasteNoMoreUI
         {
             InitializeComponent();
             this.currentId = currentId;
-            LoadUserInfo();
+            //LoadUserInfo();
 
             this.formDashboard = formDashboard;
 
@@ -38,77 +38,69 @@ namespace WasteNoMoreUI
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            int currentId = this.currentId;
-            string updateQuery = @"
-            PDATE pengguna
-            SET 
-            nama_pengguna = COALESCE(@NamaPengguna, nama_pengguna),
-            username_pengguna = COALESCE(@UsernamePengguna, username_pengguna),
-            email_pengguna = COALESCE(@EmailPengguna, email_pengguna)
-            WHERE id_pengguna = @IdPengguna;
-            ";
+        //    int currentId = this.currentId;
+        //    string updateQuery = @"
+        //    PDATE pengguna
+        //    SET 
+        //    nama_pengguna = COALESCE(@NamaPengguna, nama_pengguna),
+        //    username_pengguna = COALESCE(@UsernamePengguna, username_pengguna),
+        //    email_pengguna = COALESCE(@EmailPengguna, email_pengguna)
+        //    WHERE id_pengguna = @IdPengguna;
+        //    ";
 
-            List<NpgsqlParameter> parameters = new List<NpgsqlParameter>
-            {
-                new NpgsqlParameter("@IdPengguna", currentId),
-                new NpgsqlParameter("@NamaPengguna", tbNama.Text),
-                new NpgsqlParameter("@UsernamePengguna", tbUsername.Text),
-                new NpgsqlParameter("@EmailPengguna", tbEmail.Text)
-             };
+        //    List<NpgsqlParameter> parameters = new List<NpgsqlParameter>
+        //    {
+        //        new NpgsqlParameter("@IdPengguna", currentId),
+        //        new NpgsqlParameter("@NamaPengguna", tbNama.Text),
+        //        new NpgsqlParameter("@UsernamePengguna", tbUsername.Text),
+        //        new NpgsqlParameter("@EmailPengguna", tbEmail.Text)
+        //     };
 
-            try
-            {
-                //jika entri sampah berhasil dimasukkan
-                DatabaseManager.ExecuteNonQueryWithParams(updateQuery, parameters);
-                LoadUserInfo();
-                MessageBox.Show("Data berhasil diupdate");
-            }
-            catch (Exception ex)
-            {
-                //setelah disimpan, kosongkan input
-                MessageBox.Show("Error: " + ex.Message, "FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //    try
+        //    {
+        //        //jika entri sampah berhasil dimasukkan
+        //        DatabaseManager.ExecuteNonQueryWithParams(updateQuery, parameters);
+        //        LoadUserInfo();
+        //        MessageBox.Show("Data berhasil diupdate");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //setelah disimpan, kosongkan input
+        //        MessageBox.Show("Error: " + ex.Message, "FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
-        private void LoadUserInfo()
-        {
-            string currentId = this.currentId.ToString();
-            string query = $"SELECT nama_pengguna, username_pengguna, password_pengguna, email_pengguna FROM pengguna WHERE id_pengguna = {currentId}";
+        //private void LoadUserInfo()
+        //{
+        //    string currentId = this.currentId.ToString();
+        //    string query = $"SELECT nama_pengguna, username_pengguna, password_pengguna, email_pengguna FROM pengguna WHERE id_pengguna = {currentId}";
 
-            DataTable dt = DatabaseManager.ExecuteQuery(query);
+        //    DataTable dt = DatabaseManager.ExecuteQuery(query);
 
-            foreach (DataRow row in dt.Rows)
-            {
-                var pengguna = new Pengguna(
-                    Convert.ToInt32(currentId),
-                    row["nama_pengguna"].ToString(),
-                    row["email_pengguna"].ToString(),
-                    row["username_pengguna"].ToString(),
-                    row["password_pengguna"].ToString()
-                );
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        var pengguna = new Pengguna(
+        //            Convert.ToInt32(currentId),
+        //            row["nama_pengguna"].ToString(),
+        //            row["email_pengguna"].ToString(),
+        //            row["username_pengguna"].ToString(),
+        //            row["password_pengguna"].ToString()
+        //        );
 
-                lblNama.Text = pengguna.NamaPengguna;
-                lblEmail.Text = pengguna.Email;
-                lblUsername.Text = pengguna.Username;
-            }
+        //        lblNama.Text = pengguna.NamaPengguna;
+        //        lblEmail.Text = pengguna.Email;
+        //        lblUsername.Text = pengguna.Username;
+        //    }
 
-
-        }
-
-        private void FormDataPengguna_FormClosed(object sender, FormClosedEventArgs e)
-        {
 
         }
 
-        private void pbNavbar_Click(object sender, EventArgs e)
-        {
-            sidebarTransition.Start();
-        }
+       
 
         private void btnNavbarEntri_Click(object sender, EventArgs e)
         {
             //ketika button Entri Sampah di-klik maka form entri sampah dibuka
-            FormEntriSampah inputSampahForm = new FormEntriSampah(currentId,formDashboard);
+            FormEntriSampah inputSampahForm = new FormEntriSampah(currentId, formDashboard);
             inputSampahForm.Show();
             //form dashboard ditutup
             this.Close();
@@ -117,7 +109,7 @@ namespace WasteNoMoreUI
         private void btnNavbarTrack_Click(object sender, EventArgs e)
         {
             //ketika button Track Sampah di-klik maka form track sampah dibuka
-            FormTrack formTrackSampah = new FormTrack(currentId,formDashboard);
+            FormTrack formTrackSampah = new FormTrack(currentId, formDashboard);
             formTrackSampah.Show();
             //form dashboard ditutup
             this.Close();
@@ -162,6 +154,13 @@ namespace WasteNoMoreUI
             {
 
             }
+        } 
+        
+        
+
+        private void pbNavbar_Click(object sender, EventArgs e)
+        {
+            sidebarTransition.Start();
         }
 
         private void btnNavbarDashboard_Click(object sender, EventArgs e)
@@ -198,6 +197,25 @@ namespace WasteNoMoreUI
             pnLogout.Width = sidebar.Width;
             pnPanduan.Width = sidebar.Width;
             pnTrack.Width = sidebar.Width;
+
+        }
+
+        private void FormDataPengguna_Load(object sender, EventArgs e)
+        {
+            if (SessionManager.PenggunaAktif != null)
+            {
+                lblNama.Text = SessionManager.PenggunaAktif.NamaPengguna;
+                lblUsername.Text = SessionManager.PenggunaAktif.Username;
+                lblEmail.Text = SessionManager.PenggunaAktif.Email;
+            }
+            else
+            {
+                MessageBox.Show("Data pengguna tidak tersedia.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
+        private void FormDataPengguna_FormClosed(object sender, FormClosedEventArgs e)
+        {
 
         }
     }
