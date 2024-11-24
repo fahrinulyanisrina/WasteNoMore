@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDataPengguna));
-            label1 = new Label();
+            lblJudul = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -62,6 +62,7 @@
             pnNavbar = new Panel();
             pbNavbar = new PictureBox();
             sidebarTransition = new System.Windows.Forms.Timer(components);
+            lblEdit = new Label();
             sidebar.SuspendLayout();
             pnDashboard.SuspendLayout();
             pnEntri.SuspendLayout();
@@ -74,21 +75,21 @@
             ((System.ComponentModel.ISupportInitialize)pbNavbar).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // lblJudul
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(291, 148);
-            label1.Margin = new Padding(6, 0, 6, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(295, 51);
-            label1.TabIndex = 0;
-            label1.Text = "Data Pengguna";
+            lblJudul.AutoSize = true;
+            lblJudul.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblJudul.Location = new Point(213, 112);
+            lblJudul.Margin = new Padding(6, 0, 6, 0);
+            lblJudul.Name = "lblJudul";
+            lblJudul.Size = new Size(297, 51);
+            lblJudul.TabIndex = 0;
+            lblJudul.Text = "Informasi Akun";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(291, 261);
+            label2.Location = new Point(303, 201);
             label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
             label2.Size = new Size(77, 32);
@@ -98,7 +99,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(291, 367);
+            label3.Location = new Point(303, 258);
             label3.Margin = new Padding(6, 0, 6, 0);
             label3.Name = "label3";
             label3.Size = new Size(121, 32);
@@ -108,7 +109,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(291, 468);
+            label4.Location = new Point(309, 315);
             label4.Margin = new Padding(6, 0, 6, 0);
             label4.Name = "label4";
             label4.Size = new Size(71, 32);
@@ -129,7 +130,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(499, 261);
+            label6.Location = new Point(491, 201);
             label6.Margin = new Padding(6, 0, 6, 0);
             label6.Name = "label6";
             label6.Size = new Size(19, 32);
@@ -139,7 +140,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(499, 367);
+            label7.Location = new Point(491, 258);
             label7.Margin = new Padding(6, 0, 6, 0);
             label7.Name = "label7";
             label7.Size = new Size(19, 32);
@@ -149,7 +150,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(499, 468);
+            label8.Location = new Point(491, 315);
             label8.Margin = new Padding(6, 0, 6, 0);
             label8.Name = "label8";
             label8.Size = new Size(19, 32);
@@ -159,7 +160,7 @@
             // lblNama
             // 
             lblNama.AutoSize = true;
-            lblNama.Location = new Point(553, 261);
+            lblNama.Location = new Point(565, 201);
             lblNama.Margin = new Padding(6, 0, 6, 0);
             lblNama.Name = "lblNama";
             lblNama.Size = new Size(91, 32);
@@ -169,7 +170,7 @@
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(553, 367);
+            lblUsername.Location = new Point(565, 258);
             lblUsername.Margin = new Padding(6, 0, 6, 0);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(91, 32);
@@ -179,7 +180,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(553, 468);
+            lblEmail.Location = new Point(565, 315);
             lblEmail.Margin = new Padding(6, 0, 6, 0);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(91, 32);
@@ -188,7 +189,7 @@
             // 
             // tbNama
             // 
-            tbNama.Location = new Point(811, 244);
+            tbNama.Location = new Point(303, 534);
             tbNama.Margin = new Padding(6);
             tbNama.Name = "tbNama";
             tbNama.Size = new Size(314, 39);
@@ -196,7 +197,7 @@
             // 
             // tbEmail
             // 
-            tbEmail.Location = new Point(811, 451);
+            tbEmail.Location = new Point(303, 744);
             tbEmail.Margin = new Padding(6);
             tbEmail.Name = "tbEmail";
             tbEmail.Size = new Size(314, 39);
@@ -204,7 +205,7 @@
             // 
             // tbUsername
             // 
-            tbUsername.Location = new Point(811, 350);
+            tbUsername.Location = new Point(303, 637);
             tbUsername.Margin = new Padding(6);
             tbUsername.Name = "tbUsername";
             tbUsername.Size = new Size(314, 39);
@@ -428,12 +429,24 @@
             sidebarTransition.Interval = 10;
             sidebarTransition.Tick += sidebarTransition_Tick;
             // 
+            // lblEdit
+            // 
+            lblEdit.AutoSize = true;
+            lblEdit.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEdit.Location = new Point(213, 410);
+            lblEdit.Margin = new Padding(6, 0, 6, 0);
+            lblEdit.Name = "lblEdit";
+            lblEdit.Size = new Size(289, 51);
+            lblEdit.TabIndex = 73;
+            lblEdit.Text = "Edit Data Akun";
+            // 
             // FormDataPengguna
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1474, 829);
+            Controls.Add(lblEdit);
             Controls.Add(sidebar);
             Controls.Add(pnNavbar);
             Controls.Add(tbUsername);
@@ -449,14 +462,13 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblJudul);
             Margin = new Padding(6);
             Name = "FormDataPengguna";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDataPengguna";
-
             FormClosed += FormDataPengguna_FormClosed;
-
+            Load += FormDataPengguna_Load;
             sidebar.ResumeLayout(false);
             pnDashboard.ResumeLayout(false);
             pnEntri.ResumeLayout(false);
@@ -467,14 +479,13 @@
             pnLogout.ResumeLayout(false);
             pnNavbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbNavbar).EndInit();
-
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblJudul;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -506,5 +517,6 @@
         private Panel pnNavbar;
         private PictureBox pbNavbar;
         private System.Windows.Forms.Timer sidebarTransition;
+        private Label lblEdit;
     }
 }
