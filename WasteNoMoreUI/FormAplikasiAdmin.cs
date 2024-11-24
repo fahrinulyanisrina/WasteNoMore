@@ -1,4 +1,4 @@
-﻿using Npgsql;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +16,10 @@ namespace WasteNoMoreUI
     {
         private DataTable dt;
         private DataGridViewRow r;
+
         private FormDashobardAdmin formDashobardAdmin;
         public FormAplikasiAdmin(FormDashobardAdmin formDashobardAdmin)
+
         {
             InitializeComponent();
             this.formDashobardAdmin = formDashobardAdmin;
@@ -32,19 +34,17 @@ namespace WasteNoMoreUI
                     conn.Open();
                     using (var cmd = new NpgsqlCommand("SELECT add_aplikasi(@nama, @deskripsi);", conn))
                     {
-                        //bind parameter
+                        // Bind parameter
                         cmd.Parameters.AddWithValue("nama", txtNamaAplikasi.Text);
                         cmd.Parameters.AddWithValue("deskripsi", txtDeskripsiAplikasi.Text);
 
-                        //eksekusi fungsi dan periksa hasilnya
+                        // Eksekusi fungsi dan periksa hasilnya
                         bool result = (bool)cmd.ExecuteScalar();
 
                         if (result)
                         {
                             MessageBox.Show("Aplikasi berhasil ditambahkan!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            //load ulang datagrid aplikasi
                             LoadData();
-                            //mengosongkan textbox input
                             txtNamaAplikasi.Clear();
                             txtDeskripsiAplikasi.Clear();
                         }
@@ -63,19 +63,18 @@ namespace WasteNoMoreUI
 
         private void FormAplikasiAdmin_Load(object sender, EventArgs e)
         {
-            // Muat data ke DataGridView
-            LoadData(); ;
+            LoadData();
         }
 
         private void LoadData()
         {
             try
             {
-                //query SQL untuk mengambil data aplikasi
-                string query = "SELECT * FROM Aplikasi";
+                // Query SQL untuk mengambil data aplikasi
+                string query = "SELECT id_aplikasi, nama_aplikasi, deskripsi_aplikasi FROM aplikasi";
                 dt = DatabaseManager.ExecuteQuery(query);
 
-                //Tampilkan data di Ddatagridview
+                // Tampilkan data di DataGridView
                 dgvAplikasi.DataSource = dt;
             }
             catch (Exception ex)
@@ -105,12 +104,12 @@ namespace WasteNoMoreUI
                     conn.Open();
                     using (var cmd = new NpgsqlCommand("SELECT update_aplikasi(@id, @nama, @deskripsi);", conn))
                     {
-                        //bind parameter
+                        // Bind parameter
                         cmd.Parameters.AddWithValue("id", Convert.ToInt32(r.Cells["id_aplikasi"].Value));
                         cmd.Parameters.AddWithValue("nama", txtNamaAplikasi.Text.Trim());
                         cmd.Parameters.AddWithValue("deskripsi", string.IsNullOrWhiteSpace(txtDeskripsiAplikasi.Text) ? (object)DBNull.Value : txtDeskripsiAplikasi.Text.Trim());
 
-                        //pksekusi fungsi dan periksa hasilnya
+                        // Eksekusi fungsi dan periksa hasilnya
                         bool result = (bool)cmd.ExecuteScalar();
 
                         if (result)
@@ -123,7 +122,7 @@ namespace WasteNoMoreUI
                         }
                         else
                         {
-                            MessageBox.Show("Pembaruan aplikasi gagal! Pastikan data valid atau aplikasi belum dihapus.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Pembaruan aplikasi gagal! Pastikan data valid.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -141,11 +140,11 @@ namespace WasteNoMoreUI
                 using (var conn = DatabaseManager.GetConnection())
                 {
                     conn.Open();
-                    using (var cmd = new NpgsqlCommand("SELECT delete_aplikasi(@id_aplikasi)", conn))
+                    using (var cmd = new NpgsqlCommand("SELECT delete_aplikasi(@id_aplikasi);", conn))
                     {
                         cmd.Parameters.AddWithValue("id_aplikasi", idAplikasi);
 
-                        //eksekusi fungsi dan periksa hasilnya
+                        // Eksekusi fungsi dan periksa hasilnya
                         bool result = (bool)cmd.ExecuteScalar();
 
                         if (result)
@@ -154,7 +153,7 @@ namespace WasteNoMoreUI
                         }
                         else
                         {
-                            MessageBox.Show("Aplikasi tidak ditemukan atau sudah dihapus.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Aplikasi tidak ditemukan.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }
@@ -164,6 +163,7 @@ namespace WasteNoMoreUI
                 MessageBox.Show("Error: " + ex.Message, "Delete FAIL!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void pbDeleteAplikasi_Click(object sender, EventArgs e)
         {
             if (r == null)
@@ -181,10 +181,10 @@ namespace WasteNoMoreUI
                 {
                     int idAplikasi = Convert.ToInt32(r.Cells["id_aplikasi"].Value);
 
-                    //panggil fungsi DeleteAplikasi untuk menghapus data
+                    // Panggil fungsi DeleteAplikasi untuk menghapus data
                     DeleteAplikasi(idAplikasi);
 
-                    //refresh datagridview setelah penghapusan
+                    // Refresh DataGridView setelah penghapusan
                     LoadData();
                     txtNamaAplikasi.Clear();
                     txtDeskripsiAplikasi.Clear();
@@ -209,7 +209,6 @@ namespace WasteNoMoreUI
 
         private void dgvAplikasi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Mendapatkan data baris yang dipilih
             if (e.RowIndex >= 0)
             {
                 r = dgvAplikasi.Rows[e.RowIndex];
