@@ -51,7 +51,6 @@
             // 
             // lblJudul
             // 
-
             lblJudul.AutoSize = true;
             lblJudul.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblJudul.Location = new Point(645, 42);
@@ -59,18 +58,16 @@
             lblJudul.Size = new Size(402, 50);
             lblJudul.TabIndex = 83;
             lblJudul.Text = "Manajemen Kategori";
-
             // 
             // dgvKategori
             // 
             dgvKategori.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvKategori.BackgroundColor = SystemColors.ButtonHighlight;
             dgvKategori.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvKategori.Location = new Point(60, 180);
-            dgvKategori.Margin = new Padding(2, 1, 2, 1);
+            dgvKategori.Location = new Point(111, 385);
             dgvKategori.Name = "dgvKategori";
             dgvKategori.RowHeadersWidth = 82;
-            dgvKategori.Size = new Size(740, 161);
+            dgvKategori.Size = new Size(1374, 344);
             dgvKategori.TabIndex = 82;
             dgvKategori.CellContentClick += dgvKategori_CellContentClick;
             // 
@@ -78,10 +75,9 @@
             // 
             lblUpdate.AutoSize = true;
             lblUpdate.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUpdate.Location = new Point(600, 142);
-            lblUpdate.Margin = new Padding(2, 0, 2, 0);
+            lblUpdate.Location = new Point(1114, 304);
             lblUpdate.Name = "lblUpdate";
-            lblUpdate.Size = new Size(59, 20);
+            lblUpdate.Size = new Size(111, 40);
             lblUpdate.TabIndex = 81;
             lblUpdate.Text = "Update";
             // 
@@ -89,10 +85,9 @@
             // 
             lblDelete.AutoSize = true;
             lblDelete.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDelete.Location = new Point(736, 142);
-            lblDelete.Margin = new Padding(2, 0, 2, 0);
+            lblDelete.Location = new Point(1367, 304);
             lblDelete.Name = "lblDelete";
-            lblDelete.Size = new Size(53, 20);
+            lblDelete.Size = new Size(101, 40);
             lblDelete.TabIndex = 80;
             lblDelete.Text = "Delete";
             // 
@@ -100,20 +95,18 @@
             // 
             lblInsert.AutoSize = true;
             lblInsert.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblInsert.Location = new Point(466, 141);
-            lblInsert.Margin = new Padding(2, 0, 2, 0);
+            lblInsert.Location = new Point(865, 301);
             lblInsert.Name = "lblInsert";
-            lblInsert.Size = new Size(47, 20);
+            lblInsert.Size = new Size(92, 40);
             lblInsert.TabIndex = 79;
             lblInsert.Text = "Insert";
             // 
             // pbDelete
             // 
             pbDelete.Image = (Image)resources.GetObject("pbDelete.Image");
-            pbDelete.Location = new Point(719, 74);
-            pbDelete.Margin = new Padding(2, 1, 2, 1);
+            pbDelete.Location = new Point(1335, 157);
             pbDelete.Name = "pbDelete";
-            pbDelete.Size = new Size(81, 68);
+            pbDelete.Size = new Size(150, 144);
             pbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
             pbDelete.TabIndex = 78;
             pbDelete.TabStop = false;
@@ -122,10 +115,9 @@
             // pbUpdate
             // 
             pbUpdate.Image = (Image)resources.GetObject("pbUpdate.Image");
-            pbUpdate.Location = new Point(588, 74);
-            pbUpdate.Margin = new Padding(2, 1, 2, 1);
+            pbUpdate.Location = new Point(1092, 157);
             pbUpdate.Name = "pbUpdate";
-            pbUpdate.Size = new Size(81, 68);
+            pbUpdate.Size = new Size(150, 144);
             pbUpdate.SizeMode = PictureBoxSizeMode.StretchImage;
             pbUpdate.TabIndex = 77;
             pbUpdate.TabStop = false;
@@ -134,10 +126,9 @@
             // pbInsert
             // 
             pbInsert.Image = (Image)resources.GetObject("pbInsert.Image");
-            pbInsert.Location = new Point(446, 69);
-            pbInsert.Margin = new Padding(2, 1, 2, 1);
+            pbInsert.Location = new Point(829, 147);
             pbInsert.Name = "pbInsert";
-            pbInsert.Size = new Size(88, 78);
+            pbInsert.Size = new Size(164, 167);
             pbInsert.SizeMode = PictureBoxSizeMode.StretchImage;
             pbInsert.TabIndex = 76;
             pbInsert.TabStop = false;
@@ -148,10 +139,9 @@
             btnLoad.BackColor = Color.SteelBlue;
             btnLoad.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLoad.ForeColor = SystemColors.ButtonHighlight;
-            btnLoad.Location = new Point(411, 355);
-            btnLoad.Margin = new Padding(2, 1, 2, 1);
+            btnLoad.Location = new Point(764, 758);
             btnLoad.Name = "btnLoad";
-            btnLoad.Size = new Size(81, 22);
+            btnLoad.Size = new Size(150, 46);
             btnLoad.TabIndex = 75;
             btnLoad.Text = "Load";
             btnLoad.UseVisualStyleBackColor = false;
@@ -159,51 +149,45 @@
             // 
             // txtNama
             // 
-            txtNama.Location = new Point(139, 66);
-            txtNama.Margin = new Padding(2, 1, 2, 1);
+            txtNama.Location = new Point(258, 140);
             txtNama.Name = "txtNama";
-            txtNama.Size = new Size(230, 23);
+            txtNama.Size = new Size(423, 39);
             txtNama.TabIndex = 74;
             // 
             // txtDeskripsi
             // 
-            txtDeskripsi.Location = new Point(139, 100);
-            txtDeskripsi.Margin = new Padding(2, 1, 2, 1);
+            txtDeskripsi.Location = new Point(258, 213);
             txtDeskripsi.Multiline = true;
             txtDeskripsi.Name = "txtDeskripsi";
-            txtDeskripsi.Size = new Size(230, 73);
+            txtDeskripsi.Size = new Size(423, 151);
             txtDeskripsi.TabIndex = 73;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(62, 100);
-            lblEmail.Margin = new Padding(2, 0, 2, 0);
+            lblEmail.Location = new Point(116, 213);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(60, 15);
+            lblEmail.Size = new Size(122, 32);
             lblEmail.TabIndex = 72;
             lblEmail.Text = "Deskripsi :";
             // 
             // lblNamaPengguna
             // 
             lblNamaPengguna.AutoSize = true;
-            lblNamaPengguna.Location = new Point(80, 67);
-            lblNamaPengguna.Margin = new Padding(2, 0, 2, 0);
+            lblNamaPengguna.Location = new Point(149, 143);
             lblNamaPengguna.Name = "lblNamaPengguna";
-            lblNamaPengguna.Size = new Size(45, 15);
+            lblNamaPengguna.Size = new Size(89, 32);
             lblNamaPengguna.TabIndex = 71;
             lblNamaPengguna.Text = "Nama :";
             // 
             // btnBack
             // 
-
             btnBack.BackColor = Color.Brown;
             btnBack.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = Color.White;
             btnBack.Location = new Point(1335, 839);
-
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(81, 22);
+            btnBack.Size = new Size(150, 46);
             btnBack.TabIndex = 84;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = false;
@@ -211,10 +195,10 @@
             // 
             // FormKategoriAdmin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(738, 351);
+            ClientSize = new Size(1598, 911);
             Controls.Add(btnBack);
             Controls.Add(lblJudul);
             Controls.Add(dgvKategori);
@@ -229,11 +213,9 @@
             Controls.Add(txtDeskripsi);
             Controls.Add(lblEmail);
             Controls.Add(lblNamaPengguna);
-            Margin = new Padding(2, 1, 2, 1);
             Name = "FormKategoriAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormKategoriAdmin";
-            FormClosed += FormKategoriAdmin_FormClosed;
             Load += FormKategoriAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)dgvKategori).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbDelete).EndInit();
