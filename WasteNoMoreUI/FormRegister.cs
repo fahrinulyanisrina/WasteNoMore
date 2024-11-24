@@ -63,13 +63,28 @@ namespace WasteNoMoreUI
             string email = txtEmail.Text;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
+            string konfirmasiPassword = txtKonfirmasiPassword.Text;
+
 
             // Validasi input apakah ada yang kosong atau tidak
             if (string.IsNullOrEmpty(namaPengguna) || string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) )
             {
                 // Jika ada, beri feedback
                 MessageBox.Show("Semua data harus diisi!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(konfirmasiPassword))
+            {
+                // Jika ada, beri feedback
+                MessageBox.Show("Tulis ulang password untuk konfirmasi!");
+                return;
+            }
+
+            if (password != konfirmasiPassword)
+            {
+                MessageBox.Show("Konfirmasi password gagal!");
                 return;
             }
 
@@ -204,6 +219,32 @@ namespace WasteNoMoreUI
 
         }
 
-        
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void llLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //membuka ke form login
+            FormLogin loginForm = new FormLogin();
+            loginForm.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void txtNamaPengguna_TextChanged(object sender, EventArgs e)
+        {
+            // Tambahkan logika jika diperlukan, atau biarkan kosong
+        }
+
+        private void lblNamaPengguna_Click(object sender, EventArgs e)
+        {
+            // Tambahkan logika jika diperlukan, atau biarkan kosong
+        }
+
     }
 }

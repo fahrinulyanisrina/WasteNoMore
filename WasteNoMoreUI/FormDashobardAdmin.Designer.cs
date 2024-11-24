@@ -227,6 +227,7 @@ namespace WasteNoMoreUI
             Controls.Add(lblJudul);
             Margin = new Padding(2, 2, 2, 2);
             Name = "FormDashobardAdmin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDashobardAdmin";
             FormClosed += FormDashobardAdmin_FormClosed;
             Load += FormDashobardAdmin_Load;

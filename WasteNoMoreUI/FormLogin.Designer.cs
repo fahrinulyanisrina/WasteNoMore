@@ -28,20 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnCancel = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             btnLogin = new Button();
-            lblJudul = new Label();
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             lblPassword = new Label();
             lblUsername = new Label();
             lblSignIn = new Label();
-            btnRegister = new Button();
             panelLogin = new Panel();
+            pictureBox1 = new PictureBox();
             lblLogin = new Label();
+            lblJudul = new Label();
+            llRegister = new LinkLabel();
             panelLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
+
             // btnCancel
             // 
             btnCancel.BackColor = SystemColors.ControlDarkDark;
@@ -57,156 +60,183 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
+
             // btnLogin
             // 
             btnLogin.BackColor = Color.SteelBlue;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = SystemColors.ButtonHighlight;
-            btnLogin.Location = new Point(432, 150);
-            btnLogin.Margin = new Padding(1, 1, 1, 1);
+
+            btnLogin.Location = new Point(888, 438);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(80, 22);
+            btnLogin.Size = new Size(408, 46);
+
             btnLogin.TabIndex = 38;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
-            // lblJudul
-            // 
-            lblJudul.AutoSize = true;
-            lblJudul.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblJudul.Location = new Point(396, 35);
-            lblJudul.Margin = new Padding(1, 0, 1, 0);
-            lblJudul.Name = "lblJudul";
-            lblJudul.Size = new Size(44, 19);
-            lblJudul.TabIndex = 37;
-            lblJudul.Text = "Login";
-            // 
+
             // txtUsername
             // 
-            txtUsername.Location = new Point(376, 74);
-            txtUsername.Margin = new Padding(1, 1, 1, 1);
+            txtUsername.Location = new Point(888, 275);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(164, 23);
+            txtUsername.Size = new Size(408, 39);
+
             txtUsername.TabIndex = 36;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(376, 106);
-            txtPassword.Margin = new Padding(1, 1, 1, 1);
+
+            txtPassword.Location = new Point(888, 341);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(164, 23);
+            txtPassword.Size = new Size(408, 39);
+
             txtPassword.TabIndex = 35;
             txtPassword.UseSystemPasswordChar = true;
             // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(299, 107);
-            lblPassword.Margin = new Padding(1, 0, 1, 0);
+
+            lblPassword.Location = new Point(745, 344);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(63, 15);
+            lblPassword.Size = new Size(123, 32);
+
             lblPassword.TabIndex = 34;
             lblPassword.Text = "Password :";
             // 
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(294, 74);
-            lblUsername.Margin = new Padding(1, 0, 1, 0);
+
+
+            lblUsername.Location = new Point(736, 275);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(66, 15);
+            lblUsername.Size = new Size(133, 32);
+
             lblUsername.TabIndex = 33;
             lblUsername.Text = "Username :";
             // 
             // lblSignIn
             // 
             lblSignIn.AutoSize = true;
-            lblSignIn.ForeColor = Color.White;
-            lblSignIn.Location = new Point(8, 190);
-            lblSignIn.Margin = new Padding(1, 0, 1, 0);
+
+            lblSignIn.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSignIn.ForeColor = Color.Black;
+            lblSignIn.Location = new Point(820, 677);
             lblSignIn.Name = "lblSignIn";
-            lblSignIn.Size = new Size(259, 15);
+            lblSignIn.Size = new Size(308, 40);
             lblSignIn.TabIndex = 40;
-            lblSignIn.Text = "Belum memiliki akun? Silahkan buat akun anda!";
-            // 
-            // btnRegister
-            // 
-            btnRegister.BackColor = Color.FromArgb(7, 99, 102);
-            btnRegister.FlatStyle = FlatStyle.Flat;
-            btnRegister.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegister.ForeColor = SystemColors.ButtonHighlight;
-            btnRegister.Location = new Point(93, 214);
-            btnRegister.Margin = new Padding(1, 1, 1, 1);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(80, 22);
-            btnRegister.TabIndex = 41;
-            btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = false;
-            btnRegister.Click += btnRegister_Click;
+            lblSignIn.Text = "Belum memiliki akun?";
+
             // 
             // panelLogin
             // 
-            panelLogin.BackColor = Color.FromArgb(7, 99, 102);
+            panelLogin.BackColor = SystemColors.GradientActiveCaption;
+            panelLogin.Controls.Add(pictureBox1);
             panelLogin.Controls.Add(lblLogin);
-            panelLogin.Controls.Add(lblSignIn);
-            panelLogin.Controls.Add(btnRegister);
+            panelLogin.Dock = DockStyle.Left;
             panelLogin.Location = new Point(0, 0);
-            panelLogin.Margin = new Padding(2, 2, 2, 2);
+
+            panelLogin.Margin = new Padding(4);
             panelLogin.Name = "panelLogin";
-            panelLogin.Size = new Size(280, 270);
+            panelLogin.Size = new Size(578, 829);
+
             panelLogin.TabIndex = 42;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(141, 215);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(293, 301);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 48;
+            pictureBox1.TabStop = false;
             // 
             // lblLogin
             // 
             lblLogin.AutoSize = true;
             lblLogin.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblLogin.ForeColor = Color.White;
-            lblLogin.Location = new Point(51, 77);
-            lblLogin.Margin = new Padding(2, 0, 2, 0);
+
+            lblLogin.Location = new Point(126, 531);
+            lblLogin.Margin = new Padding(4, 0, 4, 0);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(168, 25);
+            lblLogin.Size = new Size(338, 51);
+
             lblLogin.TabIndex = 47;
             lblLogin.Text = "WASTE NO MORE";
             // 
+            // lblJudul
+            // 
+            lblJudul.AutoSize = true;
+            lblJudul.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblJudul.Location = new Point(855, 108);
+            lblJudul.Name = "lblJudul";
+            lblJudul.Size = new Size(393, 51);
+            lblJudul.TabIndex = 43;
+            lblJudul.Text = "Login ke Akun Anda!";
+            // 
+            // llRegister
+            // 
+            llRegister.AutoSize = true;
+            llRegister.DisabledLinkColor = Color.FromArgb(37, 74, 116);
+            llRegister.Font = new Font("Segoe UI Semibold", 10.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            llRegister.LinkColor = SystemColors.Highlight;
+            llRegister.Location = new Point(1124, 677);
+            llRegister.Name = "llRegister";
+            llRegister.Size = new Size(124, 40);
+            llRegister.TabIndex = 44;
+            llRegister.TabStop = true;
+            llRegister.Text = "Sign-Up";
+            llRegister.LinkClicked += llRegister_LinkClicked;
+            // 
             // FormLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(560, 270);
-            Controls.Add(panelLogin);
-            Controls.Add(btnCancel);
-            Controls.Add(btnLogin);
+            ClientSize = new Size(1474, 829);
+            Controls.Add(llRegister);
             Controls.Add(lblJudul);
+
+            Controls.Add(panelLogin);
+            Controls.Add(btnLogin);
             Controls.Add(txtUsername);
+            Controls.Add(lblSignIn);
             Controls.Add(txtPassword);
             Controls.Add(lblPassword);
             Controls.Add(lblUsername);
-            Margin = new Padding(1, 1, 1, 1);
+
+
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLogin";
             Load += FormLogin_Load;
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnCancel;
         private Button btnLogin;
-        private Label lblJudul;
-        public TextBox txtUsername;
-        public TextBox txtPassword;
+
+        private TextBox txtUsername;
+        private TextBox txtPassword;
+
         private Label lblPassword;
         private Label lblUsername;
         private Label lblSignIn;
-        private Button btnRegister;
         private Panel panelLogin;
         private Label lblLogin;
+        private Label lblJudul;
+        private PictureBox pictureBox1;
+        private LinkLabel llRegister;
     }
 }

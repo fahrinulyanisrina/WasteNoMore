@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKategoriAdmin));
-            label2 = new Label();
+            lblJudul = new Label();
             dgvKategori = new DataGridView();
             lblUpdate = new Label();
             lblDelete = new Label();
@@ -49,19 +49,21 @@
             ((System.ComponentModel.ISupportInitialize)pbInsert).BeginInit();
             SuspendLayout();
             // 
-            // label2
+            // lblJudul
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(377, 15);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(110, 25);
-            label2.TabIndex = 83;
-            label2.Text = "KATEGORI";
+
+            lblJudul.AutoSize = true;
+            lblJudul.Font = new Font("Segoe UI Black", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblJudul.Location = new Point(645, 42);
+            lblJudul.Name = "lblJudul";
+            lblJudul.Size = new Size(402, 50);
+            lblJudul.TabIndex = 83;
+            lblJudul.Text = "Manajemen Kategori";
+
             // 
             // dgvKategori
             // 
+            dgvKategori.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvKategori.BackgroundColor = SystemColors.ButtonHighlight;
             dgvKategori.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvKategori.Location = new Point(60, 180);
@@ -144,6 +146,7 @@
             // btnLoad
             // 
             btnLoad.BackColor = Color.SteelBlue;
+            btnLoad.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLoad.ForeColor = SystemColors.ButtonHighlight;
             btnLoad.Location = new Point(411, 355);
             btnLoad.Margin = new Padding(2, 1, 2, 1);
@@ -193,9 +196,12 @@
             // 
             // btnBack
             // 
-            btnBack.BackColor = SystemColors.ControlLight;
-            btnBack.Location = new Point(719, 393);
-            btnBack.Margin = new Padding(2, 1, 2, 1);
+
+            btnBack.BackColor = Color.Brown;
+            btnBack.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(1335, 839);
+
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(81, 22);
             btnBack.TabIndex = 84;
@@ -210,7 +216,7 @@
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(738, 351);
             Controls.Add(btnBack);
-            Controls.Add(label2);
+            Controls.Add(lblJudul);
             Controls.Add(dgvKategori);
             Controls.Add(lblUpdate);
             Controls.Add(lblDelete);
@@ -225,6 +231,7 @@
             Controls.Add(lblNamaPengguna);
             Margin = new Padding(2, 1, 2, 1);
             Name = "FormKategoriAdmin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormKategoriAdmin";
             FormClosed += FormKategoriAdmin_FormClosed;
             Load += FormKategoriAdmin_Load;
@@ -238,7 +245,7 @@
 
         #endregion
 
-        private Label label2;
+        private Label lblJudul;
         private DataGridView dgvKategori;
         private Label lblUpdate;
         private Label lblDelete;
